@@ -1,0 +1,9 @@
+namespace: application-system
+namePrefix: application-
+resources:
+- crd.yaml
+- rbac_role.yaml
+- rbac_role_binding.yaml
+- manager.yaml
+
+

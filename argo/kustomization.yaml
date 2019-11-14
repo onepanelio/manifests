@@ -8,8 +8,14 @@ resources:
 - deployment.yaml
 - service-account.yaml
 - service.yaml
+- application.yaml
 commonLabels:
-  kustomize.component: argo
+  app.kubernetes.io/name: argo
+  app.kubernetes.io/instance: argo-v2.4.2
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: argo
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v2.4.2
 images:
 - name: argoproj/argoui
   newName: argoproj/argoui
