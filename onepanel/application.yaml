@@ -17,7 +17,7 @@ spec:
     kind: Namespace
   descriptor:
     type: onepanel
-    version: v1alpha1
+    version: v0.1.0
     description: Onepanel
     maintainers: []
     owners: []

@@ -43,7 +43,7 @@ spec:
       containers:
       - command:
         - /root/manager
-        image: gcr.io/kubeflow-images-public/kubernetes-sigs/application
+        image: busybox
         imagePullPolicy: Always
         name: manager
         env:
