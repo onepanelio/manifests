@@ -8,7 +8,6 @@ resources:
 - deployment.yaml
 - service-account.yaml
 - service.yaml
-- application.yaml
 commonLabels:
   app.kubernetes.io/name: argo
   app.kubernetes.io/instance: argo-v2.4.2
