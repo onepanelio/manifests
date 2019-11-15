@@ -41,9 +41,9 @@ spec:
         controller-tools.k8s.io: "1.0"
     spec:
       containers:
-      - command:
-        - /root/manager
-        image: busybox
+      - command: ["sleep"]
+        args: ["infinity"]
+        image: busybox:latest
         imagePullPolicy: Always
         name: manager
         env:
