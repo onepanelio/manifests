@@ -5,24 +5,17 @@ metadata:
   namespace: onepanel
 data:
   config: |
-    {
-    executorImage: $(executorImage),
-    containerRuntimeExecutor: $(containerRuntimeExecutor),
+    executorImage: $(executorImage)
+    containerRuntimeExecutor: $(containerRuntimeExecutor)
     artifactRepository:
-    {
-        s3: {
-            bucket: $(artifactRepositoryBucket),
-            keyPrefix: $(artifactRepositoryKeyPrefix),
-            endpoint: $(artifactRepositoryEndpoint),
-            insecure: $(artifactRepositoryInsecure),
-            accessKeySecret: {
-                name: $(artifactRepositoryAccessKeySecretName),
-                key: $(artifactRepositoryAccessKeySecretKey)
-            },
-            secretKeySecret: {
-                name: $(artifactRepositorySecretKeySecretName),
-                key: $(artifactRepositorySecretKeySecretKey)
-            }
-        }
-    }
-    }
+      s3:
+        bucket: $(artifactRepositoryBucket)
+        keyPrefix: $(artifactRepositoryKeyPrefix)
+        endpoint: $(artifactRepositoryEndpoint)
+        insecure: $(artifactRepositoryInsecure)
+        accessKeySecret:
+          name: $(artifactRepositoryAccessKeySecretName)
+          key: $(artifactRepositoryAccessKeySecretKey)
+        secretKeySecret: 
+          name: $(artifactRepositorySecretKeySecretName)
+          key: $(artifactRepositorySecretKeySecretKey)
