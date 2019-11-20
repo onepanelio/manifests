@@ -3,11 +3,6 @@ kind: Kustomization
 resources:
  - application
  - onepanel
+ - cert-manager
+ - istio
  - argo
-commonLabels:
-  app.kubernetes.io/name: onepanel
-  app.kubernetes.io/instance: onepanel-v0.1.0
-  app.kubernetes.io/managed-by: onepanel-cli
-  app.kubernetes.io/component: onepanel
-  app.kubernetes.io/part-of: onepanel
-  app.kubernetes.io/version: v0.1.0
