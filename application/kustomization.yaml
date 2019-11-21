@@ -5,5 +5,3 @@ resources:
 - rbac_role.yaml
 - rbac_role_binding.yaml
 - manager.yaml
-
-
