@@ -17,6 +17,8 @@ spec:
         template: workspace-service-tmpl
     - - name: create-workspace-virtual-service
         template: workspace-virtual-service-tmpl
+    - - name: create-workspace-statefulset
+        template: workspace-statefulset-tmpl
   - name: workspace-service-tmpl
     nodeSelector:
       cloud.google.com/gke-nodepool: default-pool
@@ -38,7 +40,7 @@ spec:
           - name: http
             port: 80
             protocol: TCP
-            targetPort: 8080
+            targetPort: 80
           selector:
             instanceUID: {{workflow.parameters.instance-name}}
           type: ClusterIP
@@ -58,7 +60,7 @@ spec:
           hosts:
           - {{workflow.parameters.instance-name}}.test-cluster-5.onepanel.io
           gateways:
-          - istio-system/istio-ingress-gateway
+          - istio-system/ingressgateway
           http:
           - match:
             - uri:
@@ -68,3 +70,32 @@ spec:
                 port:
                   number: 80
                 host: {{workflow.parameters.instance-name}}
+  - name: workspace-statefulset-tmpl
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: create
+      successCondition: metadata.name == {{workflow.parameters.instance-name}}
+      manifest: |
+        apiVersion: apps/v1
+        kind: StatefulSet
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
+        spec:
+          replicas: 1
+          serviceName: {{workflow.parameters.instance-name}}
+          selector:
+            matchLabels:
+              instanceUID: {{workflow.parameters.instance-name}}
+          template:
+            metadata:
+              labels:
+                instanceUID: {{workflow.parameters.instance-name}}
+            spec:
+              containers:
+              - name: main
+                image: rancher/hello-world
+                ports:
+                - containerPort: 80
+                  name: http
