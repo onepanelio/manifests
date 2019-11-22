@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: workspace-creator-
+spec:
+  entrypoint: workspace-tmpl
+  arguments:
+    parameters:
+    - name: instance-name
+      value: vnc-test-1
+    - name: instance-namespace
+      value: default
+  templates:
+  - name: workspace-tmpl
+    steps:
+    - - name: create-workspace-service
+        template: workspace-service-tmpl
+    - - name: create-workspace-virtual-service
+        template: workspace-virtual-service-tmpl
+  - name: workspace-service-tmpl
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: create
+      successCondition: metadata.name == {{workflow.parameters.instance-name}}
+      manifest: |
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
+        spec:
+          ports:
+          - name: vnc
+            port: 6901
+            protocol: TCP
+            targetPort: 6901
+          - name: http
+            port: 80
+            protocol: TCP
+            targetPort: 8080
+          selector:
+            instanceUID: {{workflow.parameters.instance-name}}
+          type: ClusterIP
+  - name: workspace-virtual-service-tmpl
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: create
+      successCondition: metadata.name == {{workflow.parameters.instance-name}}
+      manifest: |
+        apiVersion: networking.istio.io/v1alpha3
+        kind: VirtualService
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
+        spec:
+          hosts:
+          - {{workflow.parameters.instance-name}}.test-cluster-5.onepanel.io
+          gateways:
+          - istio-system/istio-ingress-gateway
+          http:
+          - match:
+            - uri:
+                prefix: /
+            route:
+            - destination:
+                port:
+                  number: 80
+                host: {{workflow.parameters.instance-name}}
