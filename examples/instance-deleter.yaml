@@ -14,12 +14,12 @@ spec:
   - name: instance-tmpl
     steps:
     - - name: delete-instance-service
-        template: instance-service-tmpl
+        template: delete-instance-service-tmpl
     - - name: delete-instance-virtual-service
-        template: instance-virtual-service-tmpl
+        template: delete-instance-virtual-service-tmpl
     - - name: delete-instance-statefulset
-        template: instance-statefulset-tmpl
-  - name: instance-service-tmpl
+        template: delete-instance-statefulset-tmpl
+  - name: delete-instance-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -33,7 +33,7 @@ spec:
         metadata:
           name: {{workflow.parameters.instance-name}}
           namespace: {{workflow.parameters.instance-namespace}}
-  - name: instance-virtual-service-tmpl
+  - name: delete-instance-virtual-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -47,7 +47,7 @@ spec:
         metadata:
           name: {{workflow.parameters.instance-name}}
           namespace: {{workflow.parameters.instance-namespace}}
-  - name: instance-statefulset-tmpl
+  - name: delete-instance-statefulset-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"

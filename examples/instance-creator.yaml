@@ -14,12 +14,12 @@ spec:
   - name: instance-tmpl
     steps:
     - - name: create-instance-service
-        template: instance-service-tmpl
+        template: create-instance-service-tmpl
     - - name: create-instance-virtual-service
-        template: instance-virtual-service-tmpl
+        template: create-instance-virtual-service-tmpl
     - - name: create-instance-statefulset
-        template: instance-statefulset-tmpl
-  - name: instance-service-tmpl
+        template: create-instance-statefulset-tmpl
+  - name: create-instance-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -43,7 +43,7 @@ spec:
           selector:
             instanceUID: {{workflow.parameters.instance-name}}
           type: ClusterIP
-  - name: instance-virtual-service-tmpl
+  - name: create-instance-virtual-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -72,7 +72,7 @@ spec:
                 port:
                   number: 80
                 host: {{workflow.parameters.instance-name}}
-  - name: instance-statefulset-tmpl
+  - name: create-instance-statefulset-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
