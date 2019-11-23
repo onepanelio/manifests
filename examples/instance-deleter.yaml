@@ -1,0 +1,63 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: instance-creator-
+spec:
+  entrypoint: instance-tmpl
+  arguments:
+    parameters:
+    - name: instance-name
+      value: instance-name
+    - name: instance-namespace
+      value: instance-namespace
+  templates:
+  - name: instance-tmpl
+    steps:
+    - - name: delete-instance-service
+        template: instance-service-tmpl
+    - - name: delete-instance-virtual-service
+        template: instance-virtual-service-tmpl
+    - - name: delete-instance-statefulset
+        template: instance-statefulset-tmpl
+  - name: instance-service-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: delete
+      manifest: |
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
+  - name: instance-virtual-service-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: delete
+      manifest: |
+        apiVersion: networking.istio.io/v1alpha3
+        kind: VirtualService
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
+  - name: instance-statefulset-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    nodeSelector:
+      cloud.google.com/gke-nodepool: default-pool
+    resource:
+      action: delete
+      manifest: |
+        apiVersion: apps/v1
+        kind: StatefulSet
+        metadata:
+          name: {{workflow.parameters.instance-name}}
+          namespace: {{workflow.parameters.instance-namespace}}
