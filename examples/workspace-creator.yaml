@@ -20,6 +20,9 @@ spec:
     - - name: create-workspace-statefulset
         template: workspace-statefulset-tmpl
   - name: workspace-service-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
     nodeSelector:
       cloud.google.com/gke-nodepool: default-pool
     resource:
@@ -33,18 +36,17 @@ spec:
           namespace: {{workflow.parameters.instance-namespace}}
         spec:
           ports:
-          - name: vnc
-            port: 6901
-            protocol: TCP
-            targetPort: 6901
           - name: http
             port: 80
             protocol: TCP
-            targetPort: 80
+            targetPort: 6901
           selector:
             instanceUID: {{workflow.parameters.instance-name}}
           type: ClusterIP
   - name: workspace-virtual-service-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
     nodeSelector:
       cloud.google.com/gke-nodepool: default-pool
     resource:
@@ -71,6 +73,9 @@ spec:
                   number: 80
                 host: {{workflow.parameters.instance-name}}
   - name: workspace-statefulset-tmpl
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
     nodeSelector:
       cloud.google.com/gke-nodepool: default-pool
     resource:
@@ -95,7 +100,7 @@ spec:
             spec:
               containers:
               - name: main
-                image: rancher/hello-world
+                image: us.gcr.io/onepanelio/docker-headless-vnc-container:0.1.0-cpu
                 ports:
                 - containerPort: 80
                   name: http
