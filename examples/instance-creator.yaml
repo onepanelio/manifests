@@ -1,25 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: workspace-creator-
+  generateName: instance-creator-
 spec:
-  entrypoint: workspace-tmpl
+  entrypoint: instance-tmpl
   arguments:
     parameters:
     - name: instance-name
-      value: vnc-test-1
+      value: instance-name
     - name: instance-namespace
-      value: default
+      value: instance-namespace
   templates:
-  - name: workspace-tmpl
+  - name: instance-tmpl
     steps:
-    - - name: create-workspace-service
-        template: workspace-service-tmpl
-    - - name: create-workspace-virtual-service
-        template: workspace-virtual-service-tmpl
-    - - name: create-workspace-statefulset
-        template: workspace-statefulset-tmpl
-  - name: workspace-service-tmpl
+    - - name: create-instance-service
+        template: instance-service-tmpl
+    - - name: create-instance-virtual-service
+        template: instance-virtual-service-tmpl
+    - - name: create-instance-statefulset
+        template: instance-statefulset-tmpl
+  - name: instance-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -43,7 +43,7 @@ spec:
           selector:
             instanceUID: {{workflow.parameters.instance-name}}
           type: ClusterIP
-  - name: workspace-virtual-service-tmpl
+  - name: instance-virtual-service-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
@@ -72,7 +72,7 @@ spec:
                 port:
                   number: 80
                 host: {{workflow.parameters.instance-name}}
-  - name: workspace-statefulset-tmpl
+  - name: instance-statefulset-tmpl
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
