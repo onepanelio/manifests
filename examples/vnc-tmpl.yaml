@@ -1,9 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
-kind: WorkflowTemplate
+kind: Workflow
 metadata:
-  name: instance-service-tmpl
+  generateName: vnc-
 spec:
+  entrypoint: instance-tmpl
+  arguments:
+    parameters:
+    - name: instance-name
+      value: instance-name
+    - name: instance-namespace
+      value: instance-namespace
+    - name: instance-template
+      value: instance-template
+    - name: action
+      value: create
   templates:
+  - name: instance-tmpl
+    steps:
+    - - name: instance-service
+        template: instance-service-tmpl
+    - - name: instance-virtual-service
+        template: instance-virtual-service-tmpl
+    - - name: instance-statefulset
+        template: instance-statefulset-tmpl
   - name: instance-service-tmpl
     metadata:
       annotations:
@@ -27,13 +46,6 @@ spec:
           selector:
             instanceUID: {{workflow.parameters.instance-name}}
           type: ClusterIP
----
-apiVersion: argoproj.io/v1alpha1
-kind: WorkflowTemplate
-metadata:
-  name: instance-virtual-service-tmpl
-spec:
-  templates:
   - name: instance-virtual-service-tmpl
     metadata:
       annotations:
@@ -62,13 +74,6 @@ spec:
                 port:
                   number: 80
                 host: {{workflow.parameters.instance-name}}
----
-apiVersion: argoproj.io/v1alpha1
-kind: WorkflowTemplate
-metadata:
-  name: instance-statefulset-tmpl
-spec:
-  templates:
   - name: instance-statefulset-tmpl
     metadata:
       annotations:
