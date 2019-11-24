@@ -10,97 +10,20 @@ spec:
       value: instance-name
     - name: instance-namespace
       value: instance-namespace
+    - name: action
+      value: create
   templates:
   - name: instance-tmpl
     steps:
     - - name: create-instance-service
-        template: create-instance-service-tmpl
+        templateRef:
+          name: instance-service-tmpl
+          template: instance-service-tmpl
     - - name: create-instance-virtual-service
-        template: create-instance-virtual-service-tmpl
+        templateRef:
+          name: instance-virtual-service-tmpl
+          template: instance-virtual-service-tmpl
     - - name: create-instance-statefulset
-        template: create-instance-statefulset-tmpl
-  - name: create-instance-service-tmpl
-    metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
-    nodeSelector:
-      cloud.google.com/gke-nodepool: default-pool
-    resource:
-      action: create
-      successCondition: metadata.name == {{workflow.parameters.instance-name}}
-      manifest: |
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
-        spec:
-          ports:
-          - name: http
-            port: 80
-            protocol: TCP
-            targetPort: 6901
-          selector:
-            instanceUID: {{workflow.parameters.instance-name}}
-          type: ClusterIP
-  - name: create-instance-virtual-service-tmpl
-    metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
-    nodeSelector:
-      cloud.google.com/gke-nodepool: default-pool
-    resource:
-      action: create
-      successCondition: metadata.name == {{workflow.parameters.instance-name}}
-      manifest: |
-        apiVersion: networking.istio.io/v1alpha3
-        kind: VirtualService
-        metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
-        spec:
-          hosts:
-          - {{workflow.parameters.instance-name}}.test-cluster-5.onepanel.io
-          gateways:
-          - istio-system/ingressgateway
-          http:
-          - match:
-            - uri:
-                prefix: /
-            route:
-            - destination:
-                port:
-                  number: 80
-                host: {{workflow.parameters.instance-name}}
-  - name: create-instance-statefulset-tmpl
-    metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
-    nodeSelector:
-      cloud.google.com/gke-nodepool: default-pool
-    resource:
-      action: create
-      successCondition: metadata.name == {{workflow.parameters.instance-name}}
-      manifest: |
-        apiVersion: apps/v1
-        kind: StatefulSet
-        metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
-        spec:
-          replicas: 1
-          serviceName: {{workflow.parameters.instance-name}}
-          selector:
-            matchLabels:
-              instanceUID: {{workflow.parameters.instance-name}}
-          template:
-            metadata:
-              labels:
-                instanceUID: {{workflow.parameters.instance-name}}
-            spec:
-              containers:
-              - name: main
-                image: us.gcr.io/onepanelio/docker-headless-vnc-container:0.1.0-cpu
-                ports:
-                - containerPort: 80
-                  name: http
+        templateRef:
+          name: instance-statefulset-tmpl
+          template: instance-statefulset-tmpl
