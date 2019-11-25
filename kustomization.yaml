@@ -6,4 +6,4 @@ resources:
  - cert-manager
  - istio
  - argo
- - onepanel
+ - onepanel/overlays

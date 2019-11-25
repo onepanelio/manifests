@@ -1,0 +1,19 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: cert-manager-wildcard-certificate
+  namespace: istio-system
+spec:
+  secretName: onepanel-wildcard-tls
+  issuerRef:
+    name: cert-manager-acme-dns-issuer
+    kind: ClusterIssuer
+  commonName: '*.test-cluster-5.onepanel.io'
+  dnsNames:
+  - '*.test-cluster-5.onepanel.io'
+  acme:
+    config:
+    - dns01:
+        provider: aws
+      domains:
+      - '*.test-cluster-5.onepanel.io'

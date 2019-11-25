@@ -1,8 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
- - cert-manager
- - istio
+ - storage/gcp/storage-class.yaml
 commonLabels:
   app.kubernetes.io/name: onepanel
   app.kubernetes.io/instance: onepanel-v0.1.0
