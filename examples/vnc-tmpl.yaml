@@ -12,6 +12,8 @@ spec:
       value: instance-namespace
     - name: instance-template
       value: instance-template
+    - name: machine-type
+      value: default-pool
     - name: action
       value: create
   templates:
@@ -99,6 +101,8 @@ spec:
               labels:
                 instanceUID: {{workflow.parameters.instance-name}}
             spec:
+              nodeSelector:
+                cloud.google.com/gke-nodepool: {{workflow.parameters.machine-type}}
               containers:
               - name: main
                 image: us.gcr.io/onepanelio/docker-headless-vnc-container:0.1.0-cpu

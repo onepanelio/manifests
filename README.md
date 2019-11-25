@@ -10,12 +10,17 @@ kubectl apply -f examples/namespace
 
 Create example instance:
 ```bash
-argo submit examples/instance-tmpl.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=create
+argo submit examples/<template-name>.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=create
 ```
 
-To delete example instance:
+Change instance machine-type:
 ```bash
-argo submit examples/instance-tmpl.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=delete
+argo submit examples/<template-name>.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=apply -p machine-type=cpu-1-4
+```
+
+Delete example instance:
+```bash
+argo submit examples/<template-name>.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=delete
 ```
 
 ## Useful commands
