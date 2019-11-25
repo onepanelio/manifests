@@ -12,6 +12,8 @@ spec:
       value: instance-namespace
     - name: instance-template
       value: instance-template
+    - name: instance-replicas
+      value: 1
     - name: machine-type
       value: default-pool
     - name: action
@@ -91,7 +93,7 @@ spec:
           name: {{workflow.parameters.instance-name}}
           namespace: {{workflow.parameters.instance-namespace}}
         spec:
-          replicas: 1
+          replicas: {{workflow.parameters.instance-replicas}}
           serviceName: {{workflow.parameters.instance-name}}
           selector:
             matchLabels:
@@ -109,3 +111,15 @@ spec:
                 ports:
                 - containerPort: 80
                   name: http
+                volumeMounts:
+                  - name: vol1
+                    mountPath: /vol1
+          volumeClaimTemplates:
+          - metadata:
+              name: vol1
+            spec:
+              accessModes: ["ReadWriteOnce"]
+              storageClassName: default
+              resources:
+                requests:
+                  storage: 1Gi
