@@ -1,5 +1,23 @@
 # Manifests
 
+## Instance workflow parameters
+
+
+`instance-name` Name of the the instance.
+
+`instance-namespace` Instance Kubernetes namespace.
+
+`action` Action to perform on the instance, values are:
+- `create` Create an instance
+- `apply` Update an instance, combined with:
+    - `machine-type` It will change the machine type for an instance.
+    - `instance-replicas` It will pause (set to `0`) and resume (set to `1`) an instance.
+- `delete` Delete an instance.
+
+
+## System-wide parameters
+
+`host` The domain name of application. Example: cluster.onepanel.io
 
 ## Test using examples
 
@@ -8,7 +26,12 @@ Enable `istio` and give `default` service account correct roles in `default` nam
 kubectl apply -f examples/namespace
 ```
 
-Create example instance:
+**Note:** the following parameters need to be appeneded to all of the actions below:
+```
+-p host=test-cluster-6.onepanel.io
+```
+
+Create an instance:
 ```bash
 argo submit examples/<template-name>.yaml -p instance-name=<instance-name> -p instance-namespace=<namespace> -p action=create -p machine-type=<machine-type>
 ```

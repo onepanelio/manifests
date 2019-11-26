@@ -4,20 +4,6 @@ metadata:
   generateName: vnc-
 spec:
   entrypoint: instance-tmpl
-  arguments:
-    parameters:
-    - name: instance-name
-      value: instance-name
-    - name: instance-namespace
-      value: instance-namespace
-    - name: instance-template
-      value: instance-template
-    - name: instance-replicas
-      value: 1
-    - name: machine-type
-      value: default-pool
-    - name: action
-      value: create
   templates:
   - name: instance-tmpl
     steps:
@@ -66,7 +52,7 @@ spec:
           namespace: {{workflow.parameters.instance-namespace}}
         spec:
           hosts:
-          - {{workflow.parameters.instance-name}}.test-cluster-5.onepanel.io
+          - {{workflow.parameters.instance-name}}.{{workflow.parameters.host}}
           gateways:
           - istio-system/ingressgateway
           http:
