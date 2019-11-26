@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
  - certificate.yaml
  - cluster-issuer.yaml
+ - ../../../vars
 commonLabels:
   app.kubernetes.io/name: cert-manager
   app.kubernetes.io/instance: cert-manager-v0.11.0
@@ -10,11 +11,21 @@ commonLabels:
   app.kubernetes.io/component: cert-manager
   app.kubernetes.io/part-of: onepanel
   app.kubernetes.io/version: v0.11.0
+configMapGenerator:
+ - name: custom-vars
+   behavior: merge
 vars:
  - name: email
    objref:
     kind: ConfigMap
-    name: cluster-issuer-parameters
+    name: custom-vars
     apiVersion: v1
    fieldref:
     fieldpath: data.email
+ - name: commonName
+   objref:
+    kind: ConfigMap
+    name: custom-vars
+    apiVersion: v1
+   fieldref:
+    fieldpath: data.commonName

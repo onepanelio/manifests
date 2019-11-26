@@ -3,6 +3,9 @@ varReference:
 # Additions
 - path: spec/acme/email
   kind: ClusterIssuer
+
+- path: spec/commonName
+  king: Certificate
 # end Additions
 
 - path: spec/jobTemplate/spec/template/spec/containers/args
