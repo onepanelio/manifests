@@ -7,3 +7,8 @@ resources:
  - istio
  - argo
  - onepanel/overlays
+configurations:
+ - configs/varreference.yaml
+configMapGenerator:
+ - name: cluster-issuer-parameters
+   env: params.env

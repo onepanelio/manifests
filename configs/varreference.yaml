@@ -1,5 +1,10 @@
 
 varReference:
+# Additions
+- path: spec/acme/email
+  kind: ClusterIssuer
+# end Additions
+
 - path: spec/jobTemplate/spec/template/spec/containers/args
   kind: CronJob
 

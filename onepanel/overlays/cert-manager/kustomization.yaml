@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-patches:
+resources:
  - certificate.yaml
  - cluster-issuer.yaml
 commonLabels:
@@ -10,3 +10,11 @@ commonLabels:
   app.kubernetes.io/component: cert-manager
   app.kubernetes.io/part-of: onepanel
   app.kubernetes.io/version: v0.11.0
+vars:
+ - name: email
+   objref:
+    kind: ConfigMap
+    name: cluster-issuer-parameters
+    apiVersion: v1
+   fieldref:
+    fieldpath: data.email
