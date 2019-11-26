@@ -5,7 +5,13 @@ varReference:
   kind: ClusterIssuer
 
 - path: spec/commonName
-  king: Certificate
+  kind: Certificate
+
+- path: spec/acme/dns01/providers/route53/region
+  kind: ClusterIssuer
+
+- path: spec/acme/dns01/providers/route53/accessKeyID
+  kind: ClusterIssuer
 # end Additions
 
 - path: spec/jobTemplate/spec/template/spec/containers/args

@@ -13,12 +13,3 @@ spec:
       # Secret resource used to store the account's private key.
       name: cert-manager-acme-dns-issuer--private-key
     # Enable the DNS01 challenge mechanism for this Issuer
-    dns01:
-      providers:
-      - name: aws
-        route53:
-          region: us-west-2
-          accessKeyID: <aws-access-key>
-          secretAccessKeySecretRef:
-            name: onepanel-env
-            key: AWS_SECRET_KEY

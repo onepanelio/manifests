@@ -10,10 +10,10 @@ spec:
     kind: ClusterIssuer
   commonName: $(commonName)
   dnsNames:
-  - '*.test-cluster-5.onepanel.io'
+  - $(commonName)
   acme:
     config:
     - dns01:
-        provider: aws
+        provider: <patch-me>
       domains:
-      - '*.test-cluster-5.onepanel.io'
+      - $(commonName)
