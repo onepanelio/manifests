@@ -3,3 +3,7 @@ kind: Kustomization
 configMapGenerator:
  - name: custom-vars
    env: params.env
+secretGenerator:
+  - name: onepanel-env
+    envs:
+      - secrets.env
