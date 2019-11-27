@@ -4,7 +4,7 @@ metadata:
   name: cert-manager-wildcard-certificate
   namespace: istio-system
 spec:
-  secretName: onepanel-wildcard-tls
+  secretName: onepanel-tls
   issuerRef:
     name: cert-manager-acme-dns-issuer
     kind: ClusterIssuer

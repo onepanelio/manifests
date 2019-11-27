@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
  - storage/gcp/storage-class.yaml
  - cert-manager/overlays/aws
+ - istio
 commonLabels:
   app.kubernetes.io/name: onepanel
   app.kubernetes.io/instance: onepanel-v0.1.0
