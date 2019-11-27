@@ -5,5 +5,10 @@ configMapGenerator:
    env: params.env
 secretGenerator:
   - name: onepanel-env
+    namespace: onepanel
+    envs:
+      - secrets.env
+  - name: cert-manager
+    namespace: cert-manager
     envs:
       - secrets.env
