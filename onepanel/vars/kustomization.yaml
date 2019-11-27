@@ -4,12 +4,12 @@ configMapGenerator:
  - name: custom-vars
    env: params.env
 secretGenerator:
-  - name: onepanel-env
+  - name: onepanel
     namespace: onepanel
     envs:
-      - secrets.env
+      - onepanel.env
+      - cert-manager.env
   - name: cert-manager
     namespace: cert-manager
     envs:
-      - secrets.env
-      - cert-manager-dns-secret.env
+      - cert-manager.env
