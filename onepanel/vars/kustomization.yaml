@@ -12,3 +12,4 @@ secretGenerator:
     namespace: cert-manager
     envs:
       - secrets.env
+      - cert-manager-dns-secret.env
