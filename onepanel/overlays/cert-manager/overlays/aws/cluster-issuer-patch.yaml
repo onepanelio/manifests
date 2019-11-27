@@ -1,15 +1,15 @@
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: cert-manager-acme-dns-issuer
 spec:
   acme:
-    dns01:
-      providers:
-      - name: aws
+    solvers:
+    - selector: {}
+      dns01:
         route53:
           region: $(aws_region)
           accessKeyID: $(aws_access_key)
           secretAccessKeySecretRef:
-            name: onepanel-env
             key: AWS_SECRET_KEY
+            name: cert-manager

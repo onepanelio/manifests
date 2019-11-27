@@ -13,10 +13,10 @@ varReference:
 - path: spec/acme/config/domains
   kind: Certificate
 
-- path: spec/acme/dns01/providers/route53/region
+- path: spec/acme/solvers/dns01/route53/region
   kind: ClusterIssuer
 
-- path: spec/acme/dns01/providers/route53/accessKeyID
+- path: spec/acme/solvers/dns01/route53/accessKeyID
   kind: ClusterIssuer
 # end Additions
 

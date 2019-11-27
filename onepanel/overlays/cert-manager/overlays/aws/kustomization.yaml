@@ -3,9 +3,6 @@ kind: Kustomization
 resources:
   - ../../base
 patches:
-  - path: certificate-patch.yaml
-    target:
-      kind: Certificate
   - path: cluster-issuer-patch.yaml
     target:
       kind: ClusterIssuer
