@@ -6,5 +6,7 @@ metadata:
 spec:
   acme:
     config:
-      - dns01:
-          provider: aws
+    - dns01:
+        provider: aws
+      domains:
+      - $(commonName)
