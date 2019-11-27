@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+ - application
+ - onepanel/base
+ - cert-manager
+ - istio
+ - argo
+ - onepanel/overlays
+configurations:
+ - configs/varreference.yaml

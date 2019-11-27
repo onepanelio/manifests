@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+ - istio.yaml
+commonLabels:
+  app.kubernetes.io/name: istio
+  app.kubernetes.io/instance: istio-v1.4.0
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: istio
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v1.4.0
