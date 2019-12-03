@@ -1,0 +1,30 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: onepanel
+  namespace: onepanel
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: onepanel
+      app.kubernetes.io/instance: onepanel-v0.1.0
+      app.kubernetes.io/managed-by: onepanel-cli
+      app.kubernetes.io/component: onepanel
+      app.kubernetes.io/part-of: onepanel
+      app.kubernetes.io/version: v0.1.0
+  componentKinds:
+  - group: core
+    kind: Namespace
+  descriptor:
+    type: onepanel
+    version: v0.1.0
+    description: Onepanel
+    maintainers: []
+    owners: []
+    keywords:
+     - onepanel
+    links:
+    - description: About
+      url: https://github.com/onepanelio/core
+  addOwnerRef: true
+
