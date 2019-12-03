@@ -25,8 +25,7 @@ spec:
         apiVersion: v1
         kind: Service
         metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
+          name: {{workflow.parameters.name}}
         spec:
           ports:
           - name: http
@@ -34,7 +33,7 @@ spec:
             protocol: TCP
             targetPort: 6901
           selector:
-            instanceUID: {{workflow.parameters.instance-name}}
+            instanceUID: {{workflow.parameters.name}}
           type: ClusterIP
   - name: instance-virtual-service-tmpl
     metadata:
@@ -48,11 +47,10 @@ spec:
         apiVersion: networking.istio.io/v1alpha3
         kind: VirtualService
         metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
+          name: {{workflow.parameters.name}}
         spec:
           hosts:
-          - {{workflow.parameters.instance-name}}.{{workflow.parameters.host}}
+          - {{workflow.parameters.name}}.{{workflow.parameters.host}}
           gateways:
           - istio-system/ingressgateway
           http:
@@ -63,7 +61,7 @@ spec:
             - destination:
                 port:
                   number: 80
-                host: {{workflow.parameters.instance-name}}
+                host: {{workflow.parameters.name}}
   - name: instance-statefulset-tmpl
     metadata:
       annotations:
@@ -76,18 +74,17 @@ spec:
         apiVersion: apps/v1
         kind: StatefulSet
         metadata:
-          name: {{workflow.parameters.instance-name}}
-          namespace: {{workflow.parameters.instance-namespace}}
+          name: {{workflow.parameters.name}}
         spec:
-          replicas: {{workflow.parameters.instance-replicas}}
-          serviceName: {{workflow.parameters.instance-name}}
+          replicas: {{workflow.parameters.replicas}}
+          serviceName: {{workflow.parameters.name}}
           selector:
             matchLabels:
-              instanceUID: {{workflow.parameters.instance-name}}
+              instanceUID: {{workflow.parameters.name}}
           template:
             metadata:
               labels:
-                instanceUID: {{workflow.parameters.instance-name}}
+                instanceUID: {{workflow.parameters.name}}
             spec:
               nodeSelector:
                 cloud.google.com/gke-nodepool: {{workflow.parameters.machine-type}}
