@@ -7,20 +7,20 @@ patches:
     target:
       kind: ClusterIssuer
 configMapGenerator:
-  - name: custom-vars
+  - name: cert-manager-config
     behavior: merge
 vars:
   - name: aws_region
     objref:
       kind: ConfigMap
-      name: custom-vars
+      name: cert-manager-config
       apiVersion: v1
     fieldref:
       fieldpath: data.aws_region
   - name: aws_access_key
     objref:
       kind: ConfigMap
-      name: custom-vars
+      name: cert-manager-config
       apiVersion: v1
     fieldref:
       fieldpath: data.aws_access_key
