@@ -13,10 +13,12 @@ commonLabels:
   app.kubernetes.io/version: v0.11.0
 configMapGenerator:
  - name: cert-manager-config
-   env: ../../../vars/params.env
+   envs:
+    - ../../../vars/params.env
 secretGenerator:
  - name: cert-manager-secret
-   env: ../../../vars/params.env
+   envs:
+    - ../../../vars/params.env
 vars:
  - name: email
    objref:
