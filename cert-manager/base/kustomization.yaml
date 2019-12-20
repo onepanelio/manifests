@@ -17,6 +17,7 @@ configMapGenerator:
     - ../../../vars/params.env
 secretGenerator:
  - name: cert-manager-secret
+   namespace: onepanel
    envs:
     - ../../../vars/params.env
 vars:
