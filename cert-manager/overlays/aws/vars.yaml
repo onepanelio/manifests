@@ -1,3 +1,4 @@
 vars:
-  - aws_region
-  - aws_access_key
+  - AWS_REGION
+  - AWS_ACCESS_KEY
+  - AWS_SECRET_KEY
