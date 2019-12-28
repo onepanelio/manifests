@@ -1,0 +1,4 @@
+vars:
+  - { name: LOGGING_REPLICAS, required: false, default: 3 }
+  - { name: LOGGING_ELASTICSEARCH_IMAGE, required: false, default: docker.elastic.co/elasticsearch/elasticsearch:7.2.0 }
+  - { name: LOGGING_VOLUME_STORAGE, required: false, default: 100Gi }

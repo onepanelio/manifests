@@ -1,4 +1,4 @@
 vars:
-  - AWS_REGION
-  - AWS_ACCESS_KEY
-  - AWS_SECRET_KEY
+  - { name: AWS_REGION, required: true }
+  - { name: AWS_ACCESS_KEY, required: true }
+  - { name: AWS_SECRET_KEY, required: true }
