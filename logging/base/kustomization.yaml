@@ -14,24 +14,24 @@ configMapGenerator:
     envs:
       - ../../../vars/params.env
 vars:
-  - name: LOGGING_REPLICAS / 3
+  - name: LOGGING_REPLICAS
     objref:
       kind: ConfigMap
       name: logging-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.loggingReplicas
+      fieldpath: data.LOGGING_REPLICAS
   - name:  $(LOGGING_ELASTIC_SEARCH_IMAGE) / docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     objref:
       kind: ConfigMap
       name: logging-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.loggingElasticSearchImage
+      fieldpath: data.LOGGING_ELASTIC_SEARCH_IMAGE
   - name:  $(LOGGING_VOLUME_STORAGE) / 100Gi
     objref:
       kind: ConfigMap
       name: logging-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.loggingVolumeStorage
+      fieldpath: data.LOGGING_VOLUME_STORAGE

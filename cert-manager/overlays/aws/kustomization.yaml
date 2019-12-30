@@ -16,11 +16,11 @@ vars:
       name: cert-manager-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.AWS_REGION
+      fieldpath: data.CERT-MANAGER_AWS_REGION
   - name: aws_access_key
     objref:
       kind: ConfigMap
       name: cert-manager-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.AWS_ACCESS_KEY
+      fieldpath: data.CERT-MANAGER_AWS_ACCESS_KEY

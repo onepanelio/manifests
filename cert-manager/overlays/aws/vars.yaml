@@ -1,4 +1,8 @@
-vars:
-  - { name: AWS_REGION, required: true }
-  - { name: AWS_ACCESS_KEY, required: true }
-  - { name: AWS_SECRET_KEY, required: true }
+cert-manager:
+  aws:
+    region:
+      required: true
+    access_key:
+      required: true
+    secret_key:
+      required: true

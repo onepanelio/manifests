@@ -1,3 +1,5 @@
-vars:
-  - { name: CERT_MANAGER_COMMON_NAME, required: true }
-  - { name: CERT_MANAGER_EMAIL, required: true }
+cert-manager:
+  common_name:
+    required: true
+  email:
+    required: true
