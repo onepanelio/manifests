@@ -5,7 +5,7 @@ metadata:
   namespace: kube-logging
 spec:
   serviceName: elasticsearch
-  replicas: $(LOGGING_REPLICAS)
+  replicas: 3
   selector:
     matchLabels:
       app: elasticsearch

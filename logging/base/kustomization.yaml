@@ -12,23 +12,16 @@ commonLabels:
 configMapGenerator:
   - name: logging-config
     envs:
-      - ../../../vars/params.env
+      - ../../vars/params.env
 vars:
-  - name: LOGGING_REPLICAS
-    objref:
-      kind: ConfigMap
-      name: logging-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.LOGGING_REPLICAS
-  - name:  $(LOGGING_ELASTIC_SEARCH_IMAGE) / docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+  - name: LOGGING_ELASTIC_SEARCH_IMAGE
     objref:
       kind: ConfigMap
       name: logging-config
       apiVersion: v1
     fieldref:
       fieldpath: data.LOGGING_ELASTIC_SEARCH_IMAGE
-  - name:  $(LOGGING_VOLUME_STORAGE) / 100Gi
+  - name:  LOGGING_VOLUME_STORAGE
     objref:
       kind: ConfigMap
       name: logging-config

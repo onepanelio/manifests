@@ -1,7 +1,4 @@
 logging:
-  replicas:
-    required: false
-    default: 3
   elastic_search_image:
     required: false
     default: docker.elastic.co/elasticsearch/elasticsearch:7.2.0

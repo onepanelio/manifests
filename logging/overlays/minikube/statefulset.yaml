@@ -17,6 +17,13 @@ spec:
             - name: ES_JAVA_OPTS
               value: "-Xms512m -Xmx512m"
   volumeClaimTemplates:
+    - metadata:
+        name: data
+        labels:
+          app: elasticsearch
       spec:
         accessModes: [ "ReadWriteOnce" ]
         storageClassName: standard
+        resources:
+          requests:
+            storage: $(LOGGING_VOLUME_STORAGE)
