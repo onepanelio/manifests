@@ -33,8 +33,10 @@ spec:
               fieldPath: metadata.namespace
         - name: IN_CLUSTER
           value: "true"
+        - name: ENABLE_WEB_CONSOLE
+          value: "false"
         - name: BASE_HREF
-          value: /argo/
+          value: /
         image: argoproj/argoui:v2.4.2
         imagePullPolicy: IfNotPresent
         name: argo-ui
