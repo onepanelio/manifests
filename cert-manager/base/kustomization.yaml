@@ -14,12 +14,12 @@ commonLabels:
 configMapGenerator:
  - name: cert-manager-config
    envs:
-    - ../../../vars/params.env
+    - ../../vars/params.env
 secretGenerator:
  - name: cert-manager-secret
    namespace: onepanel
    envs:
-    - ../../../vars/params.env
+    - ../../vars/params.env
 vars:
  - name: email
    objref:
@@ -27,11 +27,11 @@ vars:
     name: cert-manager-config
     apiVersion: v1
    fieldref:
-    fieldpath: data.email
+    fieldpath: data.CERT-MANAGER_EMAIL
  - name: commonName
    objref:
     kind: ConfigMap
     name: cert-manager-config
     apiVersion: v1
    fieldref:
-    fieldpath: data.commonName
+    fieldpath: data.CERT-MANAGER_COMMON_NAME
