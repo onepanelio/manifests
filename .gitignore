@@ -1,2 +1,4 @@
 scripts
 .DS_store
+.idea
+*.exe
