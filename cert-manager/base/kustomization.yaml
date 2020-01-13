@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+ - cert-manager.yaml
+ - certificate.yaml
+ - cluster-issuer.yaml
+commonLabels:
+  app.kubernetes.io/name: cert-manager
+  app.kubernetes.io/instance: cert-manager-v0.11.0
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: cert-manager
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v0.11.0
+configMapGenerator:
+ - name: cert-manager-config
+   envs:
+    - ../../vars/params.env
+secretGenerator:
+ - name: cert-manager-secret
+   namespace: onepanel
+   envs:
+    - ../../vars/params.env
+vars:
+ - name: email
+   objref:
+    kind: ConfigMap
+    name: cert-manager-config
+    apiVersion: v1
+   fieldref:
+    fieldpath: data.CERT-MANAGER_EMAIL
+ - name: commonName
+   objref:
+    kind: ConfigMap
+    name: cert-manager-config
+    apiVersion: v1
+   fieldref:
+    fieldpath: data.CERT-MANAGER_COMMON_NAME

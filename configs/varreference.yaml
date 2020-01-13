@@ -203,4 +203,13 @@ varReference:
 - path: spec/template/spec/initContainers/volumeMounts/mountPath
   kind: StatefulSet
 
+  # Additions
+- path: spec/template/spec/containers/image
+  kind: StatefulSet
+
+- path: spec/volumeClaimTemplates/spec/resources/requests/storage
+  kind: StatefulSet
+
+  # End Additions
+
 - path: metadata/labels

@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - kube-logging.yaml
+  - elasticsearch_svc.yaml
+  - elasticsearch_statefulset.yaml
+  - kibana.yaml
+  - fluentd.yaml
+commonLabels:
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/part-of: onepanel
+configMapGenerator:
+  - name: logging-config
+    envs:
+      - ../../vars/params.env
+vars:
+  - name: LOGGING_ELASTIC_SEARCH_IMAGE
+    objref:
+      kind: ConfigMap
+      name: logging-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.LOGGING_ELASTIC_SEARCH_IMAGE
+  - name:  LOGGING_VOLUME_STORAGE
+    objref:
+      kind: ConfigMap
+      name: logging-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.LOGGING_VOLUME_STORAGE

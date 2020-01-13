@@ -1,0 +1,5 @@
+cert-manager:
+  common_name:
+    required: true
+  email:
+    required: true

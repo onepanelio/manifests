@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-cluster
+  namespace: kube-logging
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: elasticsearch
+          env:
+            - name: discovery.seed_hosts
+              value: "es-cluster-0"
+            - name: cluster.initial_master_nodes
+              value: "es-cluster-0"
+            - name: ES_JAVA_OPTS
+              value: "-Xms512m -Xmx512m"
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+        labels:
+          app: elasticsearch
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: standard
+        resources:
+          requests:
+            storage: $(LOGGING_VOLUME_STORAGE)

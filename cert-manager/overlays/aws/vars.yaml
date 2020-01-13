@@ -1,0 +1,8 @@
+cert-manager:
+  aws:
+    region:
+      required: true
+    access_key:
+      required: true
+    secret_key:
+      required: true
