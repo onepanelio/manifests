@@ -64,7 +64,7 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryEndpoint
+    fieldpath: data.ARTIFACT_REPOSITORY_ENDPOINT
 - name: artifactRepositoryInsecure
   objref:
     kind: ConfigMap
@@ -78,27 +78,27 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryAccessKeySecretName
+    fieldpath: data.ARTIFACT_REPOSITORY_ACCESS_KEY_SECRET_NAME
 - name: artifactRepositoryAccessKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryAccessKeySecretKey
+    fieldpath: data.ARTIFACT_REPOSITORY_ACCESS_KEY_SECRET_KEY
 - name: artifactRepositorySecretKeySecretName
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositorySecretKeySecretName
+    fieldpath: data.ARTIFACT_REPOSITORY_SECRET_KEY_SECRET_NAME
 - name: artifactRepositorySecretKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositorySecretKeySecretKey
+    fieldpath: data.ARTIFACT_REPOSITORY_SECRET_KEY_SECRET_KEY
 configurations:
 - params.yaml
