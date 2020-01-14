@@ -28,7 +28,7 @@ configMapGenerator:
    - params.env
    - ../../../vars/params.env
 secretGenerator:
-  - name: mlpipeline-minio-artifact
+  - name: argo-object-storage
     namespace: onepanel
     envs:
       - ../../../vars/params.env
