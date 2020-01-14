@@ -55,7 +55,7 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryBucket
+    fieldpath: data.ARTIFACT_REPOSITORY_BUCKET
 - name: artifactRepositoryKeyPrefix
   objref:
     kind: ConfigMap
@@ -69,7 +69,7 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARGO_ARTIFACT_REPOSITORY_ENDPOINT
+    fieldpath: data.ARTIFACT_REPOSITORY_ENDPOINT
 - name: artifactRepositoryInsecure
   objref:
     kind: ConfigMap
@@ -83,27 +83,27 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARGO_ARTIFACT_REPOSITORY_ACCESS_KEY_SECRET_NAME
+    fieldpath: data.artifactRepositoryAccessKeySecretName
 - name: artifactRepositoryAccessKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARGO_ARTIFACT_REPOSITORY_ACCESS_KEY_SECRET_KEY
+    fieldpath: data.artifactRepositoryAccessKeySecretKey
 - name: artifactRepositorySecretKeySecretName
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARGO_ARTIFACT_REPOSITORY_SECRET_KEY_SECRET_NAME
+    fieldpath: data.artifactRepositorySecretKeySecretName
 - name: artifactRepositorySecretKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARGO_ARTIFACT_REPOSITORY_SECRET_KEY_SECRET_KEY
+    fieldpath: data.artifactRepositorySecretKeySecretKey
 configurations:
 - params.yaml
