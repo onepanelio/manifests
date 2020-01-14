@@ -1,0 +1,22 @@
+argo:
+  artifact_repository_endpoint:
+    required: true
+    default: minio-service.onepanel:9000
+  artifact_repository_access_key_secret_name:
+    required: true
+    default: mlpipeline-minio-artifact
+  artifact_repository_access_key_secret_key:
+    required: true
+    default: ARGO_ACCESS_KEY
+  artifact_repository_secret_key_secret_name:
+    required: true
+    default: mlpipeline-minio-artifact
+  artifact_repository_secret_key_secret_key:
+    required: true
+    default: ARGO_SECRET_KEY
+  access_key:
+    required: true
+    default: fillmeout
+  secret_key:
+    required: true
+    default: fillmeout
