@@ -55,7 +55,7 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARTIFACT_REPOSITORY_BUCKET
+    fieldpath: data.artifactRepositoryBucket
 - name: artifactRepositoryKeyPrefix
   objref:
     kind: ConfigMap
@@ -69,7 +69,7 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.ARTIFACT_REPOSITORY_ENDPOINT
+    fieldpath: data.artifactRepositoryEndpoint
 - name: artifactRepositoryInsecure
   objref:
     kind: ConfigMap
