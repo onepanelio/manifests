@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: elasticsearch
-          image: $(LOGGING_ELASTIC_SEARCH_IMAGE)
+          image: $(loggingElasticSearchImage)
           resources:
             limits:
               cpu: 1000m
@@ -74,4 +74,4 @@ spec:
         storageClassName: do-block-storage
         resources:
           requests:
-            storage: $(LOGGING_VOLUME_STORAGE)
+            storage: $(loggingVolumeStorage)

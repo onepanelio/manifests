@@ -27,6 +27,11 @@ configMapGenerator:
   envs:
    - params.env
    - ../../../vars/params.env
+secretGenerator:
+  - name: argo-object-storage
+    namespace: onepanel
+    envs:
+      - ../../../vars/params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
