@@ -8,6 +8,7 @@ data:
     executorImage: $(executorImage)
     containerRuntimeExecutor: $(containerRuntimeExecutor)
     artifactRepository:
+      archiveLogs: true
       s3:
         bucket: $(artifactRepositoryBucket)
         keyPrefix: $(artifactRepositoryKeyPrefix)
