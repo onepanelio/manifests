@@ -173,7 +173,7 @@ spec:
           value: es-cluster-0,es-cluster-1,es-cluster-2
         - name: ES_JAVA_OPTS
           value: -Xms512m -Xmx512m
-        image: $(LOGGING_ELASTIC_SEARCH_IMAGE)
+        image: $(loggingElasticSearchImage)
         name: elasticsearch
         ports:
         - containerPort: 9200
@@ -230,7 +230,7 @@ spec:
       - ReadWriteOnce
       resources:
         requests:
-          storage: $(LOGGING_VOLUME_STORAGE)
+          storage: $(loggingVolumeStorage)
       storageClassName: do-block-storage
 ---
 apiVersion: apps/v1
