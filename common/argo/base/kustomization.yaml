@@ -21,7 +21,7 @@ images:
   newTag: v2.4.2
 - name: argoproj/workflow-controller
   newName: argoproj/workflow-controller
-  newTag: v2.4.2
+  digest: sha256:00f05db19c03bce7d97bd396381df00399ad1cd92ff5e12f333496ee59df9de7
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
