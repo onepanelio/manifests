@@ -10,6 +10,7 @@ data:
     artifactRepository:
       archiveLogs: true
       s3:
+        keyFormat: $(artifactRepositoryKeyFormat)
         bucket: $(artifactRepositoryBucket)
         keyPrefix: $(artifactRepositoryKeyPrefix)
         endpoint: $(artifactRepositoryEndpoint)
