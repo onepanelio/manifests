@@ -1,0 +1,4 @@
+onepanel:
+  namespace:
+    required: true
+    default: default
