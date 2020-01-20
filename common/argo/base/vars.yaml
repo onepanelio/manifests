@@ -11,6 +11,3 @@ artifactRepository:
   secretKey:
     required: true
     default: fillmeout
-  keyFormat:
-    required: true
-    default: {{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
