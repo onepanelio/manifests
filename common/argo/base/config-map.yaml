@@ -10,7 +10,6 @@ data:
     artifactRepository:
       archiveLogs: true
       s3:
-        keyFormat: {{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
         bucket: $(artifactRepositoryBucket)
         keyFormat: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
         endpoint: $(artifactRepositoryEndpoint)
