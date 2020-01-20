@@ -13,4 +13,4 @@ artifactRepository:
     default: fillmeout
   keyFormat:
     required: true
-    default: {{workflow.namespace}}/{{wokflow.name}}/{{pod.name}}
+    default: {{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
