@@ -12,7 +12,7 @@ data:
       s3:
         keyFormat: {{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
         bucket: $(artifactRepositoryBucket)
-        keyPrefix: $(artifactRepositoryKeyPrefix)
+        keyFormat: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
         endpoint: $(artifactRepositoryEndpoint)
         insecure: $(artifactRepositoryInsecure)
         accessKeySecret:
