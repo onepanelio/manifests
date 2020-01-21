@@ -4,7 +4,6 @@ resources:
  - namespace.yaml
  - network-policy.yaml
  - application.yaml
- - add-network-policy.yaml
  - add-role.yaml
  - secret.yaml
 commonLabels:
