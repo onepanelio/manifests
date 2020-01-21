@@ -11,3 +11,15 @@ resources:
  - storage/overlays/gcp
 configurations:
  - configs/varreference.yaml
+configMapGenerator:
+ - name: onepanel-base-parameters
+   envs:
+    - ./vars/params.env
+vars:
+ - name: onepanelNamespace
+   objref:
+    kind: ConfigMap
+    name: onepanel-base-parameters
+    apiVersion: v1
+   fieldref:
+    fieldpath: data.onepanelNamespace

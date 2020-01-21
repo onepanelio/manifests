@@ -208,6 +208,15 @@ varReference:
 - path: spec/volumeClaimTemplates/spec/resources/requests/storage
   kind: StatefulSet
 
+- path: metadata/name
+  kind: Namespace
+
+- path: metadata/namespace
+  kind: NetworkPolicy
+
+- path: metadata/namespace
+  kind: Application
+
   # End Additions
 
 - path: metadata/labels
