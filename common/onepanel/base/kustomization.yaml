@@ -14,3 +14,8 @@ commonLabels:
   app.kubernetes.io/component: onepanel
   app.kubernetes.io/part-of: onepanel
   app.kubernetes.io/version: v0.1.0
+secretGenerator:
+ - name: onepanel
+   namespace: onepanel
+ - name: onepanel
+   namespace: $(onepanelNamespace)
