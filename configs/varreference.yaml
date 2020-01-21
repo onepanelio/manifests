@@ -223,6 +223,9 @@ varReference:
 - path: metadata/namespace
   kind: Secret
 
+- path: data
+  kind: Secret
+
 - path: subjects/namespace
   kind: RoleBinding
 
