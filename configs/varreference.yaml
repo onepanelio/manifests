@@ -223,7 +223,7 @@ varReference:
 - path: metadata/namespace
   kind: Secret
 
-- path: data
+- path: stringData
   kind: Secret
 
 - path: subjects/namespace
