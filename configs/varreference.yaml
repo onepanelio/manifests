@@ -217,6 +217,12 @@ varReference:
 - path: metadata/namespace
   kind: Application
 
+- path: metadata/namespace
+  kind: Role
+
+- path: subjects/namespace
+  kind: RoleBinding
+
   # End Additions
 
 - path: metadata/labels
