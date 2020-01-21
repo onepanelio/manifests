@@ -226,6 +226,8 @@ varReference:
 - path: subjects/namespace
   kind: RoleBinding
 
+- path: data/namespace
+  kind: ConfigMap
   # End Additions
 
 - path: metadata/labels
