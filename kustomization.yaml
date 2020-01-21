@@ -14,7 +14,8 @@ configurations:
 configMapGenerator:
  - name: onepanel-base-parameters
    envs:
-    - ./vars/params.env
+     - ./common/argo/base/params.env
+     - ./vars/params.env
 vars:
  - name: onepanelNamespace
    objref:
