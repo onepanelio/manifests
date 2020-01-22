@@ -4,9 +4,10 @@ resources:
  - namespace.yaml
  - network-policy.yaml
  - application.yaml
+ - add-label.yaml
  - add-network-policy.yaml
  - add-role.yaml
- - secret.yaml
+  - secret.yaml
 commonLabels:
   app.kubernetes.io/name: onepanel
   app.kubernetes.io/instance: onepanel-v0.1.0
