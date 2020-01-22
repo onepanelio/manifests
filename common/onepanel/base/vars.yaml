@@ -1,4 +1,4 @@
-onepanel:
+default:
   namespace:
     required: true
     default: default
