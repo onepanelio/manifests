@@ -17,10 +17,10 @@ configMapGenerator:
      - ./common/argo/base/params.env
      - ./vars/params.env
 vars:
- - name: onepanelNamespace
+ - name: defaultNamespace
    objref:
     kind: ConfigMap
     name: onepanel-base-parameters
     apiVersion: v1
    fieldref:
-    fieldpath: data.onepanelNamespace
+    fieldpath: data.defaultNamespace
