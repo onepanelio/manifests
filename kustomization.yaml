@@ -12,15 +12,18 @@ resources:
 configurations:
  - configs/varreference.yaml
 configMapGenerator:
- - name: onepanel-base-parameters
+ - name: onepanel
+   namespace: onepanel
    envs:
      - ./common/argo/base/params.env
      - ./vars/params.env
+generatorOptions:
+  disableNameSuffixHash: true
 vars:
  - name: defaultNamespace
    objref:
     kind: ConfigMap
-    name: onepanel-base-parameters
+    name: onepanel
     apiVersion: v1
    fieldref:
     fieldpath: data.defaultNamespace
