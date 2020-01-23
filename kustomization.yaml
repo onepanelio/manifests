@@ -15,9 +15,9 @@ configMapGenerator:
  - name: onepanel
    namespace: onepanel
    envs:
-     - ./vars/argo-params.env
-     - ./vars/default-namespace.env
-     - ./vars/params.env
+     - ./vars/workflow-config-map.env
+     - ./vars/onepanel-config-map.env
+     - ./vars/logging-config-map.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

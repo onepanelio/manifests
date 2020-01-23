@@ -25,7 +25,7 @@ images:
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
-   - ../../../vars/argo-params.env
+   - ../../../vars/workflow-config-map.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

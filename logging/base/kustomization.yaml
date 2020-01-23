@@ -12,7 +12,7 @@ commonLabels:
 configMapGenerator:
   - name: logging-config
     envs:
-      - ../../vars/params.env
+      - ../../vars/logging-config-map.env
 vars:
   - name: loggingElasticSearchImage
     objref:
