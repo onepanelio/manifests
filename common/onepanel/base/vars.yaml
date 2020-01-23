@@ -1,4 +1,6 @@
-default:
-  namespace:
-    required: true
-    default: default
+onepanel:
+  default:
+    configMap:
+      namespace:
+        required: true
+        default: default

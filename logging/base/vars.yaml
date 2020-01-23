@@ -1,7 +1,8 @@
 logging:
-  elasticSearchImage:
-    required: false
-    default: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
-  volumeStorage:
-    required: false
-    default: 100Gi
+  configMap:
+    elasticSearchImage:
+      required: false
+      default: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    volumeStorage:
+      required: false
+      default: 100Gi
