@@ -26,11 +26,6 @@ configMapGenerator:
 - name: workflow-controller-parameters
   envs:
    - ../../../vars/argo-params.env
-secretGenerator:
-  - name: onepanel
-    namespace: onepanel
-    envs:
-      - ../../../vars/params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
