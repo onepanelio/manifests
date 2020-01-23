@@ -25,8 +25,7 @@ images:
 configMapGenerator:
 - name: workflow-controller-parameters
   envs:
-   - params.env
-   - ../../../vars/params.env
+   - ../../../vars/argo-params.env
 secretGenerator:
   - name: onepanel
     namespace: onepanel

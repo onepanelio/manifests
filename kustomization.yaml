@@ -15,7 +15,8 @@ configMapGenerator:
  - name: onepanel
    namespace: onepanel
    envs:
-     - ./common/argo/base/params.env
+     - ./vars/argo-params.env
+     - ./vars/default-namespace.env
      - ./vars/params.env
 generatorOptions:
   disableNameSuffixHash: true
