@@ -27,4 +27,4 @@ vars:
     name: onepanel
     apiVersion: v1
    fieldref:
-    fieldpath: data.defaultNamespace
+    fieldpath: data.onepanelDefaultConfigMapNamespace

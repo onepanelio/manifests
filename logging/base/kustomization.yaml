@@ -20,11 +20,11 @@ vars:
       name: logging-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.loggingElasticSearchImage
+      fieldpath: data.loggingElasticSearchConfigMapImage
   - name:  loggingVolumeStorage
     objref:
       kind: ConfigMap
       name: logging-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.loggingVolumeStorage
+      fieldpath: data.loggingElasticSearchConfigMapVolumeStorage

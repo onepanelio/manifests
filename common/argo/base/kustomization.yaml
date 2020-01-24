@@ -35,69 +35,69 @@ vars:
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.executorImage
+    fieldpath: data.workflowArtifactRepositoryConfigMapExecutorImage
 - name: containerRuntimeExecutor
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.containerRuntimeExecutor
+    fieldpath: data.workflowArtifactRepositoryConfigMapContainerRuntimeExecutor
 - name: artifactRepositoryBucket
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryBucket
+    fieldpath: data.workflowArtifactRepositoryConfigMapBucket
 - name: artifactRepositoryKeyPrefix
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryKeyPrefix
+    fieldpath: data.workflowArtifactRepositoryConfigMapKeyPrefix
 - name: artifactRepositoryEndpoint
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryEndpoint
+    fieldpath: data.workflowArtifactRepositoryConfigMapEndpoint
 - name: artifactRepositoryInsecure
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryInsecure
+    fieldpath: data.workflowArtifactRepositoryConfigMapInsecure
 - name: artifactRepositoryAccessKeySecretName
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryAccessKeySecretName
+    fieldpath: data.workflowArtifactRepositoryConfigMapAccessKeySecretName
 - name: artifactRepositoryAccessKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryAccessKeySecretKey
+    fieldpath: data.workflowArtifactRepositoryConfigMapAccessKeySecretKey
 - name: artifactRepositorySecretKeySecretName
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositorySecretKeySecretName
+    fieldpath: data.workflowArtifactRepositoryConfigMapSecretKeySecretName
 - name: artifactRepositorySecretKeySecretKey
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositorySecretKeySecretKey
+    fieldpath: data.workflowArtifactRepositoryConfigMapSecretKeySecretKey
 configurations:
 - params.yaml
