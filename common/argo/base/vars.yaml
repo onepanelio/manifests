@@ -11,33 +11,9 @@ workflow:
       bucket:
         required: true
         default: mlpipeline.onepanel.io
-      keyFormat:
-        required: true
-        default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
       endpoint:
         required: true
         default: minio-service.onepanel:9000
       insecure:
         required: true
         default: false
-      keyPrefix:
-        required: true
-        default: artifacts
-      accessKeySecretName:
-        required: true
-        default: onepanel
-      accessKeySecretKey:
-        required: true
-        default: argoArtifactRepositoryS3AccessKeyValue
-      secretKeySecretName:
-        required: true
-        default: onepanel
-      secretKeySecretKey:
-        required: true
-        default: argoArtifactRepositoryS3SecretKeyValue
-      executorImage:
-        required: true
-        default: argoproj/argoexec:v2.4.2
-      containerRuntimeExecutor:
-        required: true
-        default: docker

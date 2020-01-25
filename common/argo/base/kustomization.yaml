@@ -26,6 +26,7 @@ configMapGenerator:
 - name: workflow-controller-parameters
   envs:
    - ../../../vars/workflow-config-map.env
+   - ../../../vars/workflow-config-map-hidden.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
