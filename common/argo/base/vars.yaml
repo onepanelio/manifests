@@ -1,18 +1,6 @@
 workflow:
   artifactRepository:
     secrets:
-      bucket:
-        required: true
-        default: mlpipeline.onepanel.io
-      keyFormat:
-        required: true
-        default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
-      endpoint:
-        required: true
-        default: minio-service.onepanel:9000
-      insecure:
-        required: true
-        default: false
       accessKeyValue:
         required: true
         default: fillmeout
