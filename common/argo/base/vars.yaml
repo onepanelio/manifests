@@ -1,19 +1,16 @@
-workflow:
-  artifactRepository:
-    secrets:
-      accessKeyValue:
-        required: true
-        default: fillmeout
-      secretKeyValue:
-        required: true
-        default: fillmeout
-    configMap:
-      bucket:
-        required: true
-        default: mlpipeline.onepanel.io
-      endpoint:
-        required: true
-        default: minio-service.onepanel:9000
-      insecure:
-        required: true
-        default: false
+artifactRepository:
+  accessKeyValue:
+    required: true
+    default: fillmeout
+  secretKeyValue:
+    required: true
+    default: fillmeout
+  bucket:
+    required: true
+    default: mlpipeline.onepanel.io
+  endpoint:
+    required: true
+    default: minio-service.onepanel:9000
+  insecure:
+    required: true
+    default: false

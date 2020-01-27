@@ -1,6 +1,3 @@
-onepanel:
-  default:
-    configMap:
-      namespace:
-        required: true
-        default: default
+defaultNamespace:
+  required: true
+  default: default
