@@ -8,6 +8,8 @@ resources:
  - add-network-policy.yaml
  - add-role.yaml
  - secrets.yaml
+ - config-map.yaml
+ - config-map-ns-scope.yaml
 commonLabels:
   app.kubernetes.io/name: onepanel
   app.kubernetes.io/instance: onepanel-v0.1.0

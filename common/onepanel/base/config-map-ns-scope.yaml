@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: onepanel
+  namespace: $(defaultNamespace)
+data:
+  artifactRepositoryAccessKeySecretKey: $(artifactRepositoryAccessKeySecretKey)
+  artifactRepositoryAccessKeySecretName: $(artifactRepositoryAccessKeySecretName)
+  artifactRepositoryBucket: $(artifactRepositoryBucket)
+  artifactRepositoryContainerRuntimeExecutor: $(containerRuntimeExecutor)
+  artifactRepositoryEndpoint: $(artifactRepositoryEndpoint)
+  artifactRepositoryExecutorImage: $(executorImage)
+  artifactRepositoryInsecure: $(artifactRepositoryInsecure)
+  artifactRepositoryKeyFormat: $(artifactRepositoryKeyFormat)
+  artifactRepositoryKeyPrefix: $(artifactRepositoryKeyPrefix)
+  artifactRepositorySecretKeySecretKey: $(artifactRepositorySecretKeySecretKey)
+  artifactRepositorySecretKeySecretName: $(artifactRepositorySecretKeySecretName)
