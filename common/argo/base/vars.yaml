@@ -1,8 +1,8 @@
 artifactRepository:
-  accessKeyValue:
+  accessKey:
     required: true
     default: fillmeout
-  secretKeyValue:
+  secretKey:
     required: true
     default: fillmeout
   bucket:
