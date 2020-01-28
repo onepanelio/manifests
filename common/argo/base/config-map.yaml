@@ -10,6 +10,7 @@ data:
     artifactRepository:
       archiveLogs: true
       s3:
+        region: $(artifactRepositoryS3Region)
         bucket: $(artifactRepositoryBucket)
         keyFormat: $(artifactRepositoryKeyFormat)
         endpoint: $(artifactRepositoryEndpoint)
