@@ -14,6 +14,6 @@ artifactRepository:
   insecure:
     required: true
     default: false
-  s3Region:
+  region:
     required: true
     default: us-west-2

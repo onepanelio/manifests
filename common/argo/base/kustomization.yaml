@@ -107,12 +107,12 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.artifactRepositorySecretKeySecretKey
-- name: artifactRepositoryS3Region
+- name: artifactRepositoryRegion
   objref:
     kind: ConfigMap
     name: workflow-controller-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.artifactRepositoryS3Region
+    fieldpath: data.artifactRepositoryRegion
 configurations:
 - params.yaml

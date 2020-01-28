@@ -15,4 +15,4 @@ data:
   artifactRepositoryKeyPrefix: $(artifactRepositoryKeyPrefix)
   artifactRepositorySecretKeySecretKey: $(artifactRepositorySecretKeySecretKey)
   artifactRepositorySecretKeySecretName: $(artifactRepositorySecretKeySecretName)
-  artifactRepositoryS3Region: $(artifactRepositoryS3Region)
+  artifactRepositoryRegion: $(artifactRepositoryRegion)
