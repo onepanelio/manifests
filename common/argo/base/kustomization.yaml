@@ -58,6 +58,13 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.artifactRepositoryKeyPrefix
+- name: artifactRepositoryKeyFormat
+  objref:
+    kind: ConfigMap
+    name: workflow-controller-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.artifactRepositoryKeyFormat
 - name: artifactRepositoryEndpoint
   objref:
     kind: ConfigMap

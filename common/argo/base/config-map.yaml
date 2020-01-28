@@ -11,7 +11,7 @@ data:
       archiveLogs: true
       s3:
         bucket: $(artifactRepositoryBucket)
-        keyFormat: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+        keyFormat: $(artifactRepositoryKeyFormat)
         endpoint: $(artifactRepositoryEndpoint)
         insecure: $(artifactRepositoryInsecure)
         accessKeySecret:
