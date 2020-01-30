@@ -5,8 +5,8 @@ metadata:
   namespace: onepanel
 data:
   config: |
-    executorImage: $(executorImage)
-    containerRuntimeExecutor: $(containerRuntimeExecutor)
+    executorImage: $(artifactRepositoryExecutorImage)
+    containerRuntimeExecutor: $(artifactRepositoryContainerRuntimeExecutor)
     artifactRepository:
       archiveLogs: true
       s3:

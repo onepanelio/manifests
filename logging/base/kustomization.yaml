@@ -9,22 +9,3 @@ resources:
 commonLabels:
   app.kubernetes.io/managed-by: onepanel-cli
   app.kubernetes.io/part-of: onepanel
-configMapGenerator:
-  - name: logging-config
-    envs:
-      - ../../vars/logging-config-map.env
-vars:
-  - name: loggingElasticSearchImage
-    objref:
-      kind: ConfigMap
-      name: logging-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.loggingImage
-  - name:  loggingVolumeStorage
-    objref:
-      kind: ConfigMap
-      name: logging-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.loggingVolumeStorage
