@@ -1,5 +1,5 @@
 logging:
-  elasticSearchImage:
+  image:
     required: false
     default: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
   volumeStorage:

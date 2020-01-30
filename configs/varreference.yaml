@@ -1,25 +1,5 @@
 
 varReference:
-# Additions
-- path: spec/acme/email
-  kind: ClusterIssuer
-
-- path: spec/commonName
-  kind: Certificate
-
-- path: spec/dnsNames
-  kind: Certificate
-
-- path: spec/acme/solvers/dns01/route53/region
-  kind: ClusterIssuer
-
-- path: spec/acme/solvers/dns01/route53/accessKeyID
-  kind: ClusterIssuer
-
-- path: spec/servers/hosts
-  kind: Gateway
-# end Additions
-
 - path: spec/jobTemplate/spec/template/spec/containers/args
   kind: CronJob
 
@@ -204,12 +184,56 @@ varReference:
   kind: StatefulSet
 
   # Additions
+- path: spec/acme/email
+  kind: ClusterIssuer
+
+- path: spec/commonName
+  kind: Certificate
+
+- path: spec/dnsNames
+  kind: Certificate
+
+- path: spec/acme/solvers/dns01/route53/region
+  kind: ClusterIssuer
+
+- path: spec/acme/solvers/dns01/route53/accessKeyID
+  kind: ClusterIssuer
+
+- path: spec/servers/hosts
+  kind: Gateway
+
 - path: spec/template/spec/containers/image
   kind: StatefulSet
 
 - path: spec/volumeClaimTemplates/spec/resources/requests/storage
   kind: StatefulSet
 
+- path: metadata/name
+  kind: Namespace
+
+- path: metadata/namespace
+  kind: NetworkPolicy
+
+- path: metadata/namespace
+  kind: Application
+
+- path: metadata/namespace
+  kind: Role
+
+- path: metadata/namespace
+  kind: RoleBinding
+
+- path: metadata/namespace
+  kind: Secret
+
+- path: stringData
+  kind: Secret
+
+- path: subjects/namespace
+  kind: RoleBinding
+
+- path: data/namespace
+  kind: ConfigMap
   # End Additions
 
 - path: metadata/labels

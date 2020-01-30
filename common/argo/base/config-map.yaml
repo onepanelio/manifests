@@ -5,13 +5,14 @@ metadata:
   namespace: onepanel
 data:
   config: |
-    executorImage: $(executorImage)
-    containerRuntimeExecutor: $(containerRuntimeExecutor)
+    executorImage: $(artifactRepositoryExecutorImage)
+    containerRuntimeExecutor: $(artifactRepositoryContainerRuntimeExecutor)
     artifactRepository:
       archiveLogs: true
       s3:
+        region: $(artifactRepositoryRegion)
         bucket: $(artifactRepositoryBucket)
-        keyFormat: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+        keyFormat: $(artifactRepositoryKeyFormat)
         endpoint: $(artifactRepositoryEndpoint)
         insecure: $(artifactRepositoryInsecure)
         accessKeySecret:
