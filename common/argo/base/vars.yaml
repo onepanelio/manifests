@@ -1,16 +1,16 @@
 artifactRepository:
   accessKey:
     required: true
-    default: fillmeout
+    default: <access-key>
   secretKey:
     required: true
-    default: fillmeout
+    default: <secret-key>
   bucket:
     required: true
-    default: mlpipeline.onepanel.io
+    default: <bucket-name>
   endpoint:
     required: true
-    default: minio-service.onepanel:9000
+    default: s3.amazonaws.com
   insecure:
     required: true
     default: false
