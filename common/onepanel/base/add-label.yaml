@@ -4,3 +4,4 @@ metadata:
   name: $(defaultNamespace) # replace with relevant namespace
   labels:
     istio-injection: enabled
+    onepanel.io/is-default-namespace: "true"
