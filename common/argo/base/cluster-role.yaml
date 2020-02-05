@@ -39,6 +39,7 @@ rules:
   resources:
   - workflows
   - workflows/finalizers
+  - cronworkflows
   verbs:
   - get
   - list
