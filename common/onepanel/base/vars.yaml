@@ -1,3 +1,19 @@
 defaultNamespace:
   required: true
   default: default
+database:
+  host:
+    required: true
+    default: 0.0.0.0
+  username:
+    required: true
+    default: <username>
+  password:
+    required: true
+    default: <supersecretpassword>
+  port:
+    required: true
+    default: 5432
+  defaultDatabase:
+    required: true
+    default: onepanel
