@@ -14,6 +14,9 @@ database:
   port:
     required: true
     default: 5432
-  defaultDatabase:
+  database:
     required: true
     default: onepanel
+  driverName:
+    required: true
+    default: postgres
