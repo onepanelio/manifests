@@ -8,6 +8,7 @@ resources:
  - add-network-policy.yaml
  - add-role.yaml
  - secrets.yaml
+ - database-secret.yaml
  - config-map.yaml
  - config-map-ns-scope.yaml
 commonLabels:

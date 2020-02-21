@@ -1,3 +1,22 @@
 defaultNamespace:
   required: true
   default: default
+database:
+  host:
+    required: true
+    default: <0.0.0.0>
+  username:
+    required: true
+    default: <username>
+  password:
+    required: true
+    default: <password>
+  port:
+    required: true
+    default: 5432
+  databaseName:
+    required: true
+    default: onepanel
+  driverName:
+    required: true
+    default: postgres
