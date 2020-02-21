@@ -4,17 +4,17 @@ defaultNamespace:
 database:
   host:
     required: true
-    default: 0.0.0.0
+    default: <0.0.0.0>
   username:
     required: true
     default: <username>
   password:
     required: true
-    default: <supersecretpassword>
+    default: <password>
   port:
     required: true
     default: 5432
-  database:
+  databaseName:
     required: true
     default: onepanel
   driverName:
