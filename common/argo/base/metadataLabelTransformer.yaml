@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: metadataLabelTransformer
+labels:
+  app.kubernetes.io/name: argo
+  app.kubernetes.io/instance: argo-v2.5.1
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: argo
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v2.5.1
+fieldSpecs:
+- path: metadata/labels
+  create: true
