@@ -36,7 +36,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: argoproj/workflow-controller:v2.5.0-rc9
+        image: argoproj/workflow-controller:v2.5.1
         imagePullPolicy: IfNotPresent
         name: workflow-controller
         resources: {}
