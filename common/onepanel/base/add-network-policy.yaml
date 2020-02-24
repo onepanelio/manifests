@@ -3,7 +3,7 @@ kind: NetworkPolicy
 metadata:
   labels:
     app: onepanel
-  name: default
+  name: onepanel
   namespace: $(defaultNamespace) # replace with relevant namespace
 spec:
   egress:
