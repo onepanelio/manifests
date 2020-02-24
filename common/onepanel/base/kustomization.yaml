@@ -11,10 +11,5 @@ resources:
  - database-secret.yaml
  - config-map.yaml
  - config-map-ns-scope.yaml
-commonLabels:
-  app.kubernetes.io/name: onepanel
-  app.kubernetes.io/instance: onepanel-v0.1.0
-  app.kubernetes.io/managed-by: onepanel-cli
-  app.kubernetes.io/component: onepanel
-  app.kubernetes.io/part-of: onepanel
-  app.kubernetes.io/version: v0.1.0
+transformers:
+  - metadataLabelTransformer.yaml

@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: metadataLabelTransformer
+labels:
+  app.kubernetes.io/name: onepanel
+  app.kubernetes.io/instance: onepanel-v0.5.0
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: onepanel
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v0.5.0
+fieldSpecs:
+- path: metadata/labels
+  create: true

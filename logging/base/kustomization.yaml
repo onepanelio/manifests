@@ -6,6 +6,5 @@ resources:
   - elasticsearch_statefulset.yaml
   - kibana.yaml
   - fluentd.yaml
-commonLabels:
-  app.kubernetes.io/managed-by: onepanel-cli
-  app.kubernetes.io/part-of: onepanel
+transformers:
+- metadataLabelTransformer.yaml
