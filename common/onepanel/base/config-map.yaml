@@ -7,5 +7,5 @@ data:
   defaultNamespace: $(defaultNamespace)
   databaseHost: $(databaseHost)
   databasePort: $(databasePort)
-  databaseName: $(databaseName)
+  databaseName: $(databaseDatabaseName)
   databaseDriverName: $(databaseDriverName)
