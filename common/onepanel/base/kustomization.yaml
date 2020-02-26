@@ -7,9 +7,12 @@ resources:
  - add-label.yaml
  - add-network-policy.yaml
  - add-role.yaml
+ - add-service-account.yaml
  - secrets.yaml
  - database-secret.yaml
+ - deploy-core-api.yaml
  - config-map.yaml
  - config-map-ns-scope.yaml
+ - postgres-database.yaml
 transformers:
   - metadataLabelTransformer.yaml

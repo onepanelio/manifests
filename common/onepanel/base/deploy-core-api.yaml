@@ -1,0 +1,47 @@
+# onepanel-core deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: onepanel-core
+  name: onepanel-core
+  namespace: onepanel
+spec:
+  template:
+    metadata:
+      name: onepanel-core
+      labels:
+        app: onepanel-core
+    spec:
+      serviceAccountName: onepanel
+      containers:
+        - name: onepanel-core
+          image: onepanel/core:1.0
+          command: ["/bin/sh", "-c"]
+          args: ["/go/bin/core"]
+          ports:
+            - containerPort: 8888
+            - containerPort: 8887
+          envFrom:
+            - secretRef:
+                name: onepanel
+  selector:
+    matchLabels:
+      app: onepanel-core
+---
+# onepanel-core service
+apiVersion: v1
+kind: Service
+metadata:
+  name: onepanel-core
+  namespace: onepanel
+spec:
+  ports:
+    - port: 8888
+      targetPort: 8888
+      name: "http"
+    - port: 8887
+      targetPort: 8887
+      name: "rpc"
+  selector:
+    app: onepanel-core
