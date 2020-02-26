@@ -68,6 +68,7 @@ metadata:
   name: postgres
   labels:
     app: postgres
+  namespace: onepanel
 spec:
   type: NodePort
   ports:
