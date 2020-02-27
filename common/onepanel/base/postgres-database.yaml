@@ -49,19 +49,6 @@ spec:
           requests:
             storage: 5Gi
 ---
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: postgres-pv-claim
-  annotations:
-    volume.beta.kubernetes.io/storage-class: standard
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
----
 apiVersion: v1
 kind: Service
 metadata:
