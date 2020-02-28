@@ -13,6 +13,7 @@ resources:
  - secrets.yaml
  - database-secret.yaml
  - deploy-core-api.yaml
+ - deploy-core-ui.yaml
  - config-map.yaml
  - config-map-ns-scope.yaml
  - postgres-database.yaml
