@@ -36,6 +36,7 @@ metadata:
   name: onepanel-core
   namespace: onepanel
 spec:
+  type: NodePort
   ports:
     - port: 8888
       targetPort: 8888
