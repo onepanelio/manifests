@@ -20,3 +20,10 @@ database:
   driverName:
     required: true
     default: postgres
+application:
+  webHost:
+    required: true
+    default: localhost
+  webPort:
+    required: true
+    default: 80
