@@ -16,18 +16,14 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: onepanel-core-ui
-          image: onepanel/core-ui:0.5.8
+          image: onepanel/core-ui:0.5.9
           command:
             - "/bin/sh"
             - "-c"
           args:
-            - "find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<ip>/$(applicationWebHost)/g' {} \\;"
-            - "&&"
-            - "find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<port>/$raw(applicationWebPort)/g' {} \\;"
-            - "&&"
-            - "nginx"
-            - "-g"
-            - "daemon off;"
+            - "find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<ip>/$(applicationWebHost)/g' {} \\; ;
+               find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<port>/$raw(applicationWebPort)/g' {} \\; ;
+               nginx -g 'daemon off;'"
           ports:
             - containerPort: 4200
             - containerPort: 80
