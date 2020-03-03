@@ -47,7 +47,7 @@ spec:
         labels:
           app: postgres
       spec:
-        storageClassName: standard
+        storageClassName: onepanel
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
