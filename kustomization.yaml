@@ -9,6 +9,7 @@ resources:
  - common/cert-manager/overlays/aws
  - onepanel/base
  - storage/overlays/aks
+ - storage/overlays/eks
  - storage/overlays/gke
 configurations:
  - configs/varreference.yaml
