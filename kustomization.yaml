@@ -8,6 +8,6 @@ resources:
  - common/onepanel/overlays/istio
  - common/cert-manager/overlays/aws
  - onepanel/base
- - storage/overlays/gcp
+ - storage/overlays/gke
 configurations:
  - configs/varreference.yaml
