@@ -4,7 +4,6 @@ metadata:
   name: onepanel
 provisioner: kubernetes.io/azure-disk
 parameters:
-  storageaccounttype: Premium_LRS
   kind: Dedicated
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
