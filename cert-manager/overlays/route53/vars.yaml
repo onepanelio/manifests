@@ -1,4 +1,4 @@
-cert-manager:
+certManager:
   route53:
     region:
       required: true
