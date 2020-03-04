@@ -21,9 +21,26 @@ database:
     required: true
     default: postgres
 application:
-  webHost:
+  host:
     required: true
     default: localhost
-  webPort:
-    required: true
-    default: 80
+  local:
+    apiHTTPPort:
+      required: true
+      default: 32000
+    apiGRPCPort:
+      required: true
+      default: 32001
+    uiHTTPPort:
+      required: true
+      default: 32003
+  cloud:
+    uiPath:
+      required: true
+      default: web
+    apiPath:
+      required: true
+      default: web
+    apiGRPCPort:
+      required: true
+      default: web
