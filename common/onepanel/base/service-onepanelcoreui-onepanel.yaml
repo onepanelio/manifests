@@ -9,6 +9,7 @@ spec:
   ports:
     - port: 80
       targetPort: 80
+      nodePort: $raw(applicationWebPort)
       name: "http"
   selector:
     app: onepanel-core-ui

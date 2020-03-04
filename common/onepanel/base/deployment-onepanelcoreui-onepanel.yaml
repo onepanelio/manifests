@@ -21,8 +21,8 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<ip>/$(applicationWebHost)/g' {} \\; ;
-               find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<port>/$raw(applicationWebPort)/g' {} \\; ;
+            - "find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<ip>/$(applicationApiHost)/g' {} \\; ;
+               find /usr/share/nginx/html/ -name '*.js' -type f -exec sed -i -e 's/<port>/$raw(applicationApiHttpPort)/g' {} \\; ;
                nginx -g 'daemon off;'"
           ports:
             - containerPort: 4200
