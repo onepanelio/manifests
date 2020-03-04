@@ -6637,9 +6637,9 @@ metadata:
   name: cert-manager-wildcard-certificate
   namespace: istio-system
 spec:
-  commonName: $(commonName)
+  commonName: $(certManagerCommonName)
   dnsNames:
-  - $(commonName)
+  - $(certManagerCommonName)
   issuerRef:
     kind: ClusterIssuer
     name: cert-manager-acme-dns-issuer
@@ -6658,7 +6658,7 @@ metadata:
   name: cert-manager-acme-dns-issuer
 spec:
   acme:
-    email: $(email)
+    email: $(certManagerEmail)
     privateKeySecretRef:
       name: cert-manager-acme-dns-issuer--private-key
     server: https://acme-v02.api.letsencrypt.org/directory

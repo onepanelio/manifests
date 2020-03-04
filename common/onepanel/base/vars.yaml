@@ -20,3 +20,27 @@ database:
   driverName:
     required: true
     default: postgres
+application:
+  host:
+    required: true
+    default: localhost
+  local:
+    apiHTTPPort:
+      required: true
+      default: 32000
+    apiGRPCPort:
+      required: true
+      default: 32001
+    uiHTTPPort:
+      required: true
+      default: 32003
+  cloud:
+    uiPath:
+      required: true
+      default: web
+    apiPath:
+      required: true
+      default: web
+    apiGRPCPort:
+      required: true
+      default: web

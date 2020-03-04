@@ -6,3 +6,9 @@ patches:
   - path: storage-class.yaml
     target:
       kind: StorageClass
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: onepanel
+    target:
+      kind: StorageClass

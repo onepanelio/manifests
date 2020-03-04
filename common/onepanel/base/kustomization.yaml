@@ -1,15 +1,25 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
- - namespace.yaml
- - network-policy.yaml
- - application.yaml
- - add-label.yaml
- - add-network-policy.yaml
- - add-role.yaml
- - secrets.yaml
- - database-secret.yaml
- - config-map.yaml
- - config-map-ns-scope.yaml
+ - application-onepanel-onepanel.yaml
+ - clusterrole-onepanel.yaml
+ - clusterrolebinding-onepanel.yaml
+ - configmap-onepanel-defaultnamespace.yaml
+ - configmap-onepanel-onepanel.yaml
+ - deployment-onepanelcore-onepanel.yaml
+ - deployment-onepanelcoreui-onepanel.yaml
+ - namespace-defaultnamespace.yaml
+ - namespace-onepanel.yaml
+ - networkpolicy-default-onepanel.yaml
+ - networkpolicy-onepanel-defaultnamespace.yaml
+ - role-onepanel-defaultnamespace.yaml
+ - rolebinding-onepanel-defaultnamespace.yaml
+ - secret-onepanel-defaultnamespace.yaml
+ - secret-onepanel-onepanel.yaml
+ - service-onepanelcore-onepanel.yaml
+ - service-onepanelcoreui-onepanel.yaml
+ - service-postgres-onepanel.yaml
+ - serviceaccount-onepanel-onepanel.yaml
+ - statefulset-postgres-onepanel.yaml
 transformers:
   - metadataLabelTransformer.yaml

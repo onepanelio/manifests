@@ -1,0 +1,19 @@
+# onepanel-core service
+apiVersion: v1
+kind: Service
+metadata:
+  name: onepanel-core
+  namespace: onepanel
+spec:
+  type: NodePort
+  ports:
+    - port: 8888
+      targetPort: 8888
+      nodePort: $raw(applicationApiHttpPort)
+      name: "http"
+    - port: 8887
+      targetPort: 8887
+      nodePort: $raw(applicationApiGrpcPort)
+      name: "grpc"
+  selector:
+    app: onepanel-core

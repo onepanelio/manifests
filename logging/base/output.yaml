@@ -221,7 +221,7 @@ spec:
       resources:
         requests:
           storage: 2Gi
-      storageClassName: standard
+      storageClassName: onepanel
 ---
 apiVersion: apps/v1
 kind: DaemonSet

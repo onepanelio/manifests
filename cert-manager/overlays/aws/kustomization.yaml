@@ -6,21 +6,3 @@ patches:
   - path: cluster-issuer-patch.yaml
     target:
       kind: ClusterIssuer
-configMapGenerator:
-  - name: cert-manager-config
-    behavior: merge
-vars:
-  - name: aws_region
-    objref:
-      kind: ConfigMap
-      name: cert-manager-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.CERT-MANAGER_AWS_REGION
-  - name: aws_access_key
-    objref:
-      kind: ConfigMap
-      name: cert-manager-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.CERT-MANAGER_AWS_ACCESS_KEY
