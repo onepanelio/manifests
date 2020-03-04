@@ -4,7 +4,7 @@ defaultNamespace:
 database:
   host:
     required: true
-    default: <0.0.0.0>
+    default: <database-ip-or-hostname>
   username:
     required: true
     default: <username>
@@ -23,7 +23,7 @@ database:
 application:
   host:
     required: true
-    default: localhost
+    default: <provider-ip-or-hostname>
   local:
     apiHTTPPort:
       required: true
@@ -37,10 +37,10 @@ application:
   cloud:
     uiPath:
       required: true
-      default: web
+      default: /
     apiPath:
       required: true
-      default: web
+      default: /api
     apiGRPCPort:
       required: true
-      default: web
+      default: 8887
