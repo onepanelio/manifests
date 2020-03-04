@@ -25,15 +25,15 @@ application:
     required: true
     default: localhost
   local:
-    webHTTPPort:
-      required: true
-      default: 4200
     apiHTTPPort:
       required: true
-      default: 8888
+      default: 32000
     apiGRPCPort:
       required: true
-      default: 8887
+      default: 32001
+    uiHTTPPort:
+      required: true
+      default: 32003
   cloud:
     uiPath:
       required: true
