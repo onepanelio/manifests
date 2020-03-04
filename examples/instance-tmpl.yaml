@@ -102,7 +102,7 @@ spec:
               name: vol1
             spec:
               accessModes: ["ReadWriteOnce"]
-              storageClassName: default
+              storageClassName: onepanel
               resources:
                 requests:
                   storage: 1Gi

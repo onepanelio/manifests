@@ -23,7 +23,7 @@ spec:
           app: elasticsearch
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: standard
+        storageClassName: onepanel
         resources:
           requests:
             storage: $(loggingVolumeStorage)
