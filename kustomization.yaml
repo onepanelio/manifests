@@ -6,7 +6,7 @@ resources:
  - istio
  - argo
  - common/onepanel/overlays/istio
- - common/cert-manager/overlays/aws
+ - common/cert-manager/overlays/route53
  - onepanel/base
  - storage/overlays/aks
  - storage/overlays/eks

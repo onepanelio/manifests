@@ -1,0 +1,11 @@
+cert-manager:
+  route53:
+    region:
+      required: true
+      default: <aws-region>
+    access_key:
+      required: true
+      default: <aws-access-key>
+    secret_key:
+      required: true
+      default: <aws-secret-key>

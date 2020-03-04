@@ -1,5 +1,7 @@
 certManager:
   commonName:
     required: true
+    default: <fully-qualified-domain-name>
   email:
     required: true
+    default: <cert-admin-email>
