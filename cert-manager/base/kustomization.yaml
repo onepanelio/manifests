@@ -4,5 +4,6 @@ resources:
  - cert-manager.yaml
  - certificate.yaml
  - cluster-issuer.yaml
+ - secret-certmanagersecret-certmanager.yaml
 transformers:
 - metadataLabelTransformer.yaml
