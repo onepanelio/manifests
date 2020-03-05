@@ -5,7 +5,7 @@ metadata:
   name: onepanel-core
   namespace: onepanel
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 8888
       targetPort: 8888
