@@ -32,6 +32,3 @@ spec:
             port:
               number: 80
             host: onepanel-core-ui
-
-
-
