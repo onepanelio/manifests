@@ -9,6 +9,8 @@ resources:
 - service-account.yaml
 transformers:
 - metadataLabelTransformer.yaml
+patchesStrategicMerge:
+- deployment-patch.yaml
 images:
 - name: argoproj/workflow-controller
   newName: argoproj/workflow-controller
