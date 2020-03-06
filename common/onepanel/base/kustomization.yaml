@@ -15,7 +15,7 @@ resources:
  - role-onepanel-defaultnamespace.yaml
  - rolebinding-onepanel-defaultnamespace.yaml
  - secret-onepanel-defaultnamespace.yaml
- - secret-onepanel-env-default-defaultnamespace.yaml
+ - secret-onepanel-default-env-defaultnamespace.yaml
  - secret-onepanel-onepanel.yaml
  - service-postgres-onepanel.yaml
  - serviceaccount-onepanel-onepanel.yaml
