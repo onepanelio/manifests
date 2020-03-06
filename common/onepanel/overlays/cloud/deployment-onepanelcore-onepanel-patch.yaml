@@ -1,0 +1,20 @@
+# onepanel-core deployment patch
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: onepanel-core
+  name: onepanel-core
+  namespace: onepanel
+spec:
+  template:
+    metadata:
+      name: onepanel-core
+      labels:
+        app: onepanel-core
+    spec:
+      serviceAccountName: onepanel
+      containers:
+        - name: onepanel-core
+          command: ["/bin/sh", "-c"]
+          args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; /go/bin/core"]
