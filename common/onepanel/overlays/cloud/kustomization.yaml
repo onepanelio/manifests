@@ -4,3 +4,5 @@ resources:
   - ../../base
   - service-onepanelcore-onepanel.yaml
   - service-onepanelcoreui-onepanel.yaml
+patchesStrategicMerge:
+  - deployment-onepanelcore-onepanel-patch.yaml

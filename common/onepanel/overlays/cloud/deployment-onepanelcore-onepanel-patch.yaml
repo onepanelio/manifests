@@ -1,4 +1,4 @@
-# onepanel-core deployment
+# onepanel-core deployment patch
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,15 +16,5 @@ spec:
       serviceAccountName: onepanel
       containers:
         - name: onepanel-core
-          image: onepanel/core:1.0.0-beta.1
           command: ["/bin/sh", "-c"]
-          args: ["/go/bin/core"]
-          ports:
-            - containerPort: 8888
-            - containerPort: 8887
-          envFrom:
-            - secretRef:
-                name: onepanel
-  selector:
-    matchLabels:
-      app: onepanel-core
+          args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; /go/bin/core"]
