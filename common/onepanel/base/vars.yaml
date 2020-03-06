@@ -33,7 +33,7 @@ application:
       default: 32001
     uiHTTPPort:
       required: true
-      default: 32003
+      default: 32002
   cloud:
     uiPath:
       required: true
