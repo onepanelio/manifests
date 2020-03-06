@@ -12,6 +12,6 @@ transformers:
 images:
 - name: argoproj/workflow-controller
   newName: argoproj/workflow-controller
-  newTag: v2.5.1
+  newTag: v2.6.1
 configurations:
 - params.yaml
