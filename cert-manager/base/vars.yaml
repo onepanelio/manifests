@@ -1,7 +1,7 @@
 certManager:
   commonName:
     required: true
-    default: <fully-qualified-domain-name>
+    default: <wildcard-fqdn>
   email:
     required: true
     default: <cert-admin-email>

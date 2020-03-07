@@ -23,7 +23,7 @@ database:
 application:
   host:
     required: true
-    default: <provider-ip-or-hostname>
+    default: <ip-or-fqdn>
   local:
     apiHTTPPort:
       required: true
