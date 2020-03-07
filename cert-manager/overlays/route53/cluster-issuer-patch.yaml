@@ -8,8 +8,8 @@ spec:
     - selector: {}
       dns01:
         route53:
-          region: $(certManagerAwsRegion)
-          accessKeyID: $(certManagerAwsAccessKey)
+          region: $(certManagerRoute53Region)
+          accessKeyID: $(certManagerRoute53AccessKey)
           secretAccessKeySecretRef:
             key: AWS_SECRET_KEY
             name: cert-manager-secret
