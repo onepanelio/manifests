@@ -44,3 +44,6 @@ application:
     apiGRPCPort:
       required: true
       default: 8887
+    insecure:
+      required: true
+      default: false
