@@ -11,6 +11,8 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
       labels:
         app: postgres
     spec:
@@ -51,4 +53,4 @@ spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
-            storage: 5Gi
+            storage: 10Gi
