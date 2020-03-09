@@ -4,24 +4,24 @@ metadata:
   name: certificaterequests.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.conditions[?(@.type=="Ready")].status
-      name: Ready
-      type: string
-    - JSONPath: .spec.issuerRef.name
-      name: Issuer
-      priority: 1
-      type: string
-    - JSONPath: .status.conditions[?(@.type=="Ready")].message
-      name: Status
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.conditions[?(@.type=="Ready")].status
+    name: Ready
+    type: string
+  - JSONPath: .spec.issuerRef.name
+    name: Issuer
+    priority: 1
+    type: string
+  - JSONPath: .status.conditions[?(@.type=="Ready")].message
+    name: Status
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: cert-manager.io
   preserveUnknownFields: false
   names:
@@ -29,8 +29,8 @@ spec:
     listKind: CertificateRequestList
     plural: certificaterequests
     shortNames:
-      - cr
-      - crs
+    - cr
+    - crs
     singular: certificaterequest
   scope: Namespaced
   subresources:
@@ -57,8 +57,8 @@ spec:
           description: CertificateRequestSpec defines the desired state of CertificateRequest
           type: object
           required:
-            - csr
-            - issuerRef
+          - csr
+          - issuerRef
           properties:
             csr:
               description: Byte slice containing the PEM encoded CertificateSigningRequest
@@ -81,7 +81,7 @@ spec:
                 of the issuer which defaults to 'cert-manager.io' if empty.
               type: object
               required:
-                - name
+              - name
               properties:
                 group:
                   type: string
@@ -106,29 +106,29 @@ spec:
                   sgc"'
                 type: string
                 enum:
-                  - signing
-                  - digital signature
-                  - content commitment
-                  - key encipherment
-                  - key agreement
-                  - data encipherment
-                  - cert sign
-                  - crl sign
-                  - encipher only
-                  - decipher only
-                  - any
-                  - server auth
-                  - client auth
-                  - code signing
-                  - email protection
-                  - s/mime
-                  - ipsec end system
-                  - ipsec tunnel
-                  - ipsec user
-                  - timestamping
-                  - ocsp signing
-                  - microsoft sgc
-                  - netscape sgc
+                - signing
+                - digital signature
+                - content commitment
+                - key encipherment
+                - key agreement
+                - data encipherment
+                - cert sign
+                - crl sign
+                - encipher only
+                - decipher only
+                - any
+                - server auth
+                - client auth
+                - code signing
+                - email protection
+                - s/mime
+                - ipsec end system
+                - ipsec tunnel
+                - ipsec user
+                - timestamping
+                - ocsp signing
+                - microsoft sgc
+                - netscape sgc
         status:
           description: CertificateStatus defines the observed state of CertificateRequest
             and resulting signed certificate.
@@ -151,8 +151,8 @@ spec:
                   for a CertificateRequest.
                 type: object
                 required:
-                  - status
-                  - type
+                - status
+                - type
                 properties:
                   lastTransitionTime:
                     description: LastTransitionTime is the timestamp corresponding
@@ -172,9 +172,9 @@ spec:
                       'Unknown').
                     type: string
                     enum:
-                      - "True"
-                      - "False"
-                      - Unknown
+                    - "True"
+                    - "False"
+                    - Unknown
                   type:
                     description: Type of the condition, currently ('Ready', 'InvalidRequest').
                     type: string
@@ -185,9 +185,9 @@ spec:
               format: date-time
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -195,27 +195,27 @@ metadata:
   name: certificates.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.conditions[?(@.type=="Ready")].status
-      name: Ready
-      type: string
-    - JSONPath: .spec.secretName
-      name: Secret
-      type: string
-    - JSONPath: .spec.issuerRef.name
-      name: Issuer
-      priority: 1
-      type: string
-    - JSONPath: .status.conditions[?(@.type=="Ready")].message
-      name: Status
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.conditions[?(@.type=="Ready")].status
+    name: Ready
+    type: string
+  - JSONPath: .spec.secretName
+    name: Secret
+    type: string
+  - JSONPath: .spec.issuerRef.name
+    name: Issuer
+    priority: 1
+    type: string
+  - JSONPath: .status.conditions[?(@.type=="Ready")].message
+    name: Status
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: cert-manager.io
   preserveUnknownFields: false
   names:
@@ -223,8 +223,8 @@ spec:
     listKind: CertificateList
     plural: certificates
     shortNames:
-      - cert
-      - certs
+    - cert
+    - certs
     singular: certificate
   scope: Namespaced
   subresources:
@@ -252,8 +252,8 @@ spec:
             to be valid.
           type: object
           required:
-            - issuerRef
-            - secretName
+          - issuerRef
+          - secretName
           properties:
             commonName:
               description: CommonName is a common name to be used on the Certificate.
@@ -288,7 +288,7 @@ spec:
                 is required at all times.
               type: object
               required:
-                - name
+              - name
               properties:
                 group:
                   type: string
@@ -304,8 +304,8 @@ spec:
                 and key size of 2048 will be used for "rsa" key algorithm.
               type: string
               enum:
-                - rsa
-                - ecdsa
+              - rsa
+              - ecdsa
             keyEncoding:
               description: KeyEncoding is the private key cryptography standards (PKCS)
                 for this certificate's private key to be encoded in. If provided,
@@ -314,8 +314,8 @@ spec:
                 used by default.
               type: string
               enum:
-                - pkcs1
-                - pkcs8
+              - pkcs1
+              - pkcs8
             keySize:
               description: KeySize is the key bit size of the corresponding private
                 key for this certificate. If provided, value must be between 2048
@@ -395,29 +395,29 @@ spec:
                   sgc"'
                 type: string
                 enum:
-                  - signing
-                  - digital signature
-                  - content commitment
-                  - key encipherment
-                  - key agreement
-                  - data encipherment
-                  - cert sign
-                  - crl sign
-                  - encipher only
-                  - decipher only
-                  - any
-                  - server auth
-                  - client auth
-                  - code signing
-                  - email protection
-                  - s/mime
-                  - ipsec end system
-                  - ipsec tunnel
-                  - ipsec user
-                  - timestamping
-                  - ocsp signing
-                  - microsoft sgc
-                  - netscape sgc
+                - signing
+                - digital signature
+                - content commitment
+                - key encipherment
+                - key agreement
+                - data encipherment
+                - cert sign
+                - crl sign
+                - encipher only
+                - decipher only
+                - any
+                - server auth
+                - client auth
+                - code signing
+                - email protection
+                - s/mime
+                - ipsec end system
+                - ipsec tunnel
+                - ipsec user
+                - timestamping
+                - ocsp signing
+                - microsoft sgc
+                - netscape sgc
         status:
           description: CertificateStatus defines the observed state of Certificate
           type: object
@@ -429,8 +429,8 @@ spec:
                   an Certificate.
                 type: object
                 required:
-                  - status
-                  - type
+                - status
+                - type
                 properties:
                   lastTransitionTime:
                     description: LastTransitionTime is the timestamp corresponding
@@ -450,9 +450,9 @@ spec:
                       'Unknown').
                     type: string
                     enum:
-                      - "True"
-                      - "False"
-                      - Unknown
+                    - "True"
+                    - "False"
+                    - Unknown
                   type:
                     description: Type of the condition, currently ('Ready').
                     type: string
@@ -466,9 +466,9 @@ spec:
               format: date-time
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -476,23 +476,23 @@ metadata:
   name: challenges.acme.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.state
-      name: State
-      type: string
-    - JSONPath: .spec.dnsName
-      name: Domain
-      type: string
-    - JSONPath: .status.reason
-      name: Reason
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.state
+    name: State
+    type: string
+  - JSONPath: .spec.dnsName
+    name: Domain
+    type: string
+  - JSONPath: .status.reason
+    name: Reason
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: acme.cert-manager.io
   preserveUnknownFields: false
   names:
@@ -509,7 +509,7 @@ spec:
         server
       type: object
       required:
-        - metadata
+      - metadata
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -526,13 +526,13 @@ spec:
         spec:
           type: object
           required:
-            - authzURL
-            - dnsName
-            - issuerRef
-            - key
-            - token
-            - type
-            - url
+          - authzURL
+          - dnsName
+          - issuerRef
+          - key
+          - token
+          - type
+          - url
           properties:
             authzURL:
               description: AuthzURL is the URL to the ACME Authorization resource
@@ -550,7 +550,7 @@ spec:
                 as failed.
               type: object
               required:
-                - name
+              - name
               properties:
                 group:
                   type: string
@@ -574,13 +574,13 @@ spec:
                         the configuration for ACME-DNS servers
                       type: object
                       required:
-                        - accountSecretRef
-                        - host
+                      - accountSecretRef
+                      - host
                       properties:
                         accountSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -598,15 +598,15 @@ spec:
                         API
                       type: object
                       required:
-                        - accessTokenSecretRef
-                        - clientSecretSecretRef
-                        - clientTokenSecretRef
-                        - serviceConsumerDomain
+                      - accessTokenSecretRef
+                      - clientSecretSecretRef
+                      - clientTokenSecretRef
+                      - serviceConsumerDomain
                       properties:
                         accessTokenSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -619,7 +619,7 @@ spec:
                         clientSecretSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -632,7 +632,7 @@ spec:
                         clientTokenSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -649,18 +649,18 @@ spec:
                         containing the configuration for Azure DNS
                       type: object
                       required:
-                        - clientID
-                        - clientSecretSecretRef
-                        - resourceGroupName
-                        - subscriptionID
-                        - tenantID
+                      - clientID
+                      - clientSecretSecretRef
+                      - resourceGroupName
+                      - subscriptionID
+                      - tenantID
                       properties:
                         clientID:
                           type: string
                         clientSecretSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -673,10 +673,10 @@ spec:
                         environment:
                           type: string
                           enum:
-                            - AzurePublicCloud
-                            - AzureChinaCloud
-                            - AzureGermanCloud
-                            - AzureUSGovernmentCloud
+                          - AzurePublicCloud
+                          - AzureChinaCloud
+                          - AzureGermanCloud
+                          - AzureUSGovernmentCloud
                         hostedZoneName:
                           type: string
                         resourceGroupName:
@@ -690,14 +690,14 @@ spec:
                         containing the DNS configuration for Google Cloud DNS
                       type: object
                       required:
-                        - project
+                      - project
                       properties:
                         project:
                           type: string
                         serviceAccountSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -712,12 +712,12 @@ spec:
                         containing the DNS configuration for Cloudflare
                       type: object
                       required:
-                        - email
+                      - email
                       properties:
                         apiKeySecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -730,7 +730,7 @@ spec:
                         apiTokenSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -747,19 +747,19 @@ spec:
                         should handle CNAME records when found in DNS zones.
                       type: string
                       enum:
-                        - None
-                        - Follow
+                      - None
+                      - Follow
                     digitalocean:
                       description: ACMEIssuerDNS01ProviderDigitalOcean is a structure
                         containing the DNS configuration for DigitalOcean Domains
                       type: object
                       required:
-                        - tokenSecretRef
+                      - tokenSecretRef
                       properties:
                         tokenSecretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -774,7 +774,7 @@ spec:
                         the configuration for RFC2136 DNS
                       type: object
                       required:
-                        - nameserver
+                      - nameserver
                       properties:
                         nameserver:
                           description: 'The IP address of the DNS supporting RFC2136.
@@ -796,7 +796,7 @@ spec:
                             value. If ``tsigKeyName`` is defined, this field is required.
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -811,7 +811,7 @@ spec:
                         the Route 53 configuration for AWS
                       type: object
                       required:
-                        - region
+                      - region
                       properties:
                         accessKeyID:
                           description: 'The AccessKeyID is used for authentication.
@@ -839,7 +839,7 @@ spec:
                             file or AWS Instance metadata https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -855,8 +855,8 @@ spec:
                         resources.
                       type: object
                       required:
-                        - groupName
-                        - solverName
+                      - groupName
+                      - solverName
                       properties:
                         config:
                           description: Additional configuration that should be passed
@@ -976,8 +976,8 @@ spec:
                                               objects (i.e. is also a no-op).
                                             type: object
                                             required:
-                                              - preference
-                                              - weight
+                                            - preference
+                                            - weight
                                             properties:
                                               preference:
                                                 description: A node selector term,
@@ -997,8 +997,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: The label key
@@ -1044,8 +1044,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: The label key
@@ -1097,7 +1097,7 @@ spec:
                                             its node.
                                           type: object
                                           required:
-                                            - nodeSelectorTerms
+                                          - nodeSelectorTerms
                                           properties:
                                             nodeSelectorTerms:
                                               description: Required. A list of node
@@ -1123,8 +1123,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: The label key
@@ -1170,8 +1170,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: The label key
@@ -1236,8 +1236,8 @@ spec:
                                               preferred node(s)
                                             type: object
                                             required:
-                                              - podAffinityTerm
-                                              - weight
+                                            - podAffinityTerm
+                                            - weight
                                             properties:
                                               podAffinityTerm:
                                                 description: Required. A pod affinity
@@ -1245,7 +1245,7 @@ spec:
                                                   weight.
                                                 type: object
                                                 required:
-                                                  - topologyKey
+                                                - topologyKey
                                                 properties:
                                                   labelSelector:
                                                     description: A label query over
@@ -1268,8 +1268,8 @@ spec:
                                                             values.
                                                           type: object
                                                           required:
-                                                            - key
-                                                            - operator
+                                                          - key
+                                                          - operator
                                                           properties:
                                                             key:
                                                               description: key is
@@ -1374,7 +1374,7 @@ spec:
                                               is running
                                             type: object
                                             required:
-                                              - topologyKey
+                                            - topologyKey
                                             properties:
                                               labelSelector:
                                                 description: A label query over a
@@ -1395,8 +1395,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: key is the
@@ -1489,8 +1489,8 @@ spec:
                                               preferred node(s)
                                             type: object
                                             required:
-                                              - podAffinityTerm
-                                              - weight
+                                            - podAffinityTerm
+                                            - weight
                                             properties:
                                               podAffinityTerm:
                                                 description: Required. A pod affinity
@@ -1498,7 +1498,7 @@ spec:
                                                   weight.
                                                 type: object
                                                 required:
-                                                  - topologyKey
+                                                - topologyKey
                                                 properties:
                                                   labelSelector:
                                                     description: A label query over
@@ -1521,8 +1521,8 @@ spec:
                                                             values.
                                                           type: object
                                                           required:
-                                                            - key
-                                                            - operator
+                                                          - key
+                                                          - operator
                                                           properties:
                                                             key:
                                                               description: key is
@@ -1627,7 +1627,7 @@ spec:
                                               is running
                                             type: object
                                             required:
-                                              - topologyKey
+                                            - topologyKey
                                             properties:
                                               labelSelector:
                                                 description: A label query over a
@@ -1648,8 +1648,8 @@ spec:
                                                         the key and values.
                                                       type: object
                                                       required:
-                                                        - key
-                                                        - operator
+                                                      - key
+                                                      - operator
                                                       properties:
                                                         key:
                                                           description: key is the
@@ -1849,18 +1849,18 @@ spec:
                 not set, the state of the challenge is unknown.
               type: string
               enum:
-                - valid
-                - ready
-                - pending
-                - processing
-                - invalid
-                - expired
-                - errored
+              - valid
+              - ready
+              - pending
+              - processing
+              - invalid
+              - expired
+              - errored
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -1868,20 +1868,20 @@ metadata:
   name: clusterissuers.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.conditions[?(@.type=="Ready")].status
-      name: Ready
-      type: string
-    - JSONPath: .status.conditions[?(@.type=="Ready")].message
-      name: Status
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.conditions[?(@.type=="Ready")].status
+    name: Ready
+    type: string
+  - JSONPath: .status.conditions[?(@.type=="Ready")].message
+    name: Status
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: cert-manager.io
   preserveUnknownFields: false
   names:
@@ -1917,8 +1917,8 @@ spec:
               description: ACMEIssuer contains the specification for an ACME issuer
               type: object
               required:
-                - privateKeySecretRef
-                - server
+              - privateKeySecretRef
+              - server
               properties:
                 email:
                   description: Email is the email for this account
@@ -1928,18 +1928,18 @@ spec:
                     account of the ACME server.
                   type: object
                   required:
-                    - keyAlgorithm
-                    - keyID
-                    - keySecretRef
+                  - keyAlgorithm
+                  - keyID
+                  - keySecretRef
                   properties:
                     keyAlgorithm:
                       description: keyAlgorithm is the MAC key algorithm that the
                         key is used for. Valid values are "HS256", "HS384" and "HS512".
                       type: string
                       enum:
-                        - HS256
-                        - HS384
-                        - HS512
+                      - HS256
+                      - HS384
+                      - HS512
                     keyID:
                       description: keyID is the ID of the CA key that the External
                         Account is bound to.
@@ -1955,7 +1955,7 @@ spec:
                         encoded data.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -1970,7 +1970,7 @@ spec:
                     key for this user account.
                   type: object
                   required:
-                    - name
+                  - name
                   properties:
                     key:
                       description: The key of the secret to select from. Must be a
@@ -2001,13 +2001,13 @@ spec:
                               containing the configuration for ACME-DNS servers
                             type: object
                             required:
-                              - accountSecretRef
-                              - host
+                            - accountSecretRef
+                            - host
                             properties:
                               accountSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2027,15 +2027,15 @@ spec:
                               Record Management API
                             type: object
                             required:
-                              - accessTokenSecretRef
-                              - clientSecretSecretRef
-                              - clientTokenSecretRef
-                              - serviceConsumerDomain
+                            - accessTokenSecretRef
+                            - clientSecretSecretRef
+                            - clientTokenSecretRef
+                            - serviceConsumerDomain
                             properties:
                               accessTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2050,7 +2050,7 @@ spec:
                               clientSecretSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2065,7 +2065,7 @@ spec:
                               clientTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2084,18 +2084,18 @@ spec:
                               containing the configuration for Azure DNS
                             type: object
                             required:
-                              - clientID
-                              - clientSecretSecretRef
-                              - resourceGroupName
-                              - subscriptionID
-                              - tenantID
+                            - clientID
+                            - clientSecretSecretRef
+                            - resourceGroupName
+                            - subscriptionID
+                            - tenantID
                             properties:
                               clientID:
                                 type: string
                               clientSecretSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2110,10 +2110,10 @@ spec:
                               environment:
                                 type: string
                                 enum:
-                                  - AzurePublicCloud
-                                  - AzureChinaCloud
-                                  - AzureGermanCloud
-                                  - AzureUSGovernmentCloud
+                                - AzurePublicCloud
+                                - AzureChinaCloud
+                                - AzureGermanCloud
+                                - AzureUSGovernmentCloud
                               hostedZoneName:
                                 type: string
                               resourceGroupName:
@@ -2127,14 +2127,14 @@ spec:
                               containing the DNS configuration for Google Cloud DNS
                             type: object
                             required:
-                              - project
+                            - project
                             properties:
                               project:
                                 type: string
                               serviceAccountSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2151,12 +2151,12 @@ spec:
                               containing the DNS configuration for Cloudflare
                             type: object
                             required:
-                              - email
+                            - email
                             properties:
                               apiKeySecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2171,7 +2171,7 @@ spec:
                               apiTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2190,20 +2190,20 @@ spec:
                               should handle CNAME records when found in DNS zones.
                             type: string
                             enum:
-                              - None
-                              - Follow
+                            - None
+                            - Follow
                           digitalocean:
                             description: ACMEIssuerDNS01ProviderDigitalOcean is a
                               structure containing the DNS configuration for DigitalOcean
                               Domains
                             type: object
                             required:
-                              - tokenSecretRef
+                            - tokenSecretRef
                             properties:
                               tokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2220,7 +2220,7 @@ spec:
                               containing the configuration for RFC2136 DNS
                             type: object
                             required:
-                              - nameserver
+                            - nameserver
                             properties:
                               nameserver:
                                 description: 'The IP address of the DNS supporting
@@ -2245,7 +2245,7 @@ spec:
                                   field is required.
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2262,7 +2262,7 @@ spec:
                               containing the Route 53 configuration for AWS
                             type: object
                             required:
-                              - region
+                            - region
                             properties:
                               accessKeyID:
                                 description: 'The AccessKeyID is used for authentication.
@@ -2291,7 +2291,7 @@ spec:
                                   credentials file or AWS Instance metadata https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -2309,8 +2309,8 @@ spec:
                               where to POST ChallengePayload resources.
                             type: object
                             required:
-                              - groupName
-                              - solverName
+                            - groupName
+                            - solverName
                             properties:
                               config:
                                 description: Additional configuration that should
@@ -2436,8 +2436,8 @@ spec:
                                                     is also a no-op).
                                                   type: object
                                                   required:
-                                                    - preference
-                                                    - weight
+                                                  - preference
+                                                  - weight
                                                   properties:
                                                     preference:
                                                       description: A node selector
@@ -2459,8 +2459,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -2513,8 +2513,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -2573,7 +2573,7 @@ spec:
                                                   evict the pod from its node.
                                                 type: object
                                                 required:
-                                                  - nodeSelectorTerms
+                                                - nodeSelectorTerms
                                                 properties:
                                                   nodeSelectorTerms:
                                                     description: Required. A list
@@ -2603,8 +2603,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -2657,8 +2657,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -2731,8 +2731,8 @@ spec:
                                                     the most preferred node(s)
                                                   type: object
                                                   required:
-                                                    - podAffinityTerm
-                                                    - weight
+                                                  - podAffinityTerm
+                                                  - weight
                                                   properties:
                                                     podAffinityTerm:
                                                       description: Required. A pod
@@ -2740,7 +2740,7 @@ spec:
                                                         with the corresponding weight.
                                                       type: object
                                                       required:
-                                                        - topologyKey
+                                                      - topologyKey
                                                       properties:
                                                         labelSelector:
                                                           description: A label query
@@ -2765,8 +2765,8 @@ spec:
                                                                   key and values.
                                                                 type: object
                                                                 required:
-                                                                  - key
-                                                                  - operator
+                                                                - key
+                                                                - operator
                                                                 properties:
                                                                   key:
                                                                     description: key
@@ -2883,7 +2883,7 @@ spec:
                                                     a pod of the set of pods is running
                                                   type: object
                                                   required:
-                                                    - topologyKey
+                                                  - topologyKey
                                                   properties:
                                                     labelSelector:
                                                       description: A label query over
@@ -2906,8 +2906,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: key is
@@ -3014,8 +3014,8 @@ spec:
                                                     the most preferred node(s)
                                                   type: object
                                                   required:
-                                                    - podAffinityTerm
-                                                    - weight
+                                                  - podAffinityTerm
+                                                  - weight
                                                   properties:
                                                     podAffinityTerm:
                                                       description: Required. A pod
@@ -3023,7 +3023,7 @@ spec:
                                                         with the corresponding weight.
                                                       type: object
                                                       required:
-                                                        - topologyKey
+                                                      - topologyKey
                                                       properties:
                                                         labelSelector:
                                                           description: A label query
@@ -3048,8 +3048,8 @@ spec:
                                                                   key and values.
                                                                 type: object
                                                                 required:
-                                                                  - key
-                                                                  - operator
+                                                                - key
+                                                                - operator
                                                                 properties:
                                                                   key:
                                                                     description: key
@@ -3166,7 +3166,7 @@ spec:
                                                     a pod of the set of pods is running
                                                   type: object
                                                   required:
-                                                    - topologyKey
+                                                  - topologyKey
                                                   properties:
                                                     labelSelector:
                                                       description: A label query over
@@ -3189,8 +3189,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: key is
@@ -3367,7 +3367,7 @@ spec:
             ca:
               type: object
               required:
-                - secretName
+              - secretName
               properties:
                 secretName:
                   description: SecretName is the name of the secret used to sign Certificates
@@ -3378,9 +3378,9 @@ spec:
             vault:
               type: object
               required:
-                - auth
-                - path
-                - server
+              - auth
+              - path
+              - server
               properties:
                 auth:
                   description: Vault authentication
@@ -3390,9 +3390,9 @@ spec:
                       description: This Secret contains a AppRole and Secret
                       type: object
                       required:
-                        - path
-                        - roleId
-                        - secretRef
+                      - path
+                      - roleId
+                      - secretRef
                       properties:
                         path:
                           description: Where the authentication path is mounted in
@@ -3403,7 +3403,7 @@ spec:
                         secretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -3418,8 +3418,8 @@ spec:
                         token to authenticate with vault.
                       type: object
                       required:
-                        - role
-                        - secretRef
+                      - role
+                      - secretRef
                       properties:
                         mountPath:
                           description: The Vault mountPath here is the mount path
@@ -3439,7 +3439,7 @@ spec:
                             Use of 'ambient credentials' is not supported.
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -3453,7 +3453,7 @@ spec:
                       description: This Secret contains the Vault token key
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -3481,21 +3481,21 @@ spec:
                 Venafi Cloud.
               type: object
               required:
-                - zone
+              - zone
               properties:
                 cloud:
                   description: Cloud specifies the Venafi cloud configuration settings.
                     Only one of TPP or Cloud may be specified.
                   type: object
                   required:
-                    - apiTokenSecretRef
+                  - apiTokenSecretRef
                   properties:
                     apiTokenSecretRef:
                       description: APITokenSecretRef is a secret key selector for
                         the Venafi Cloud API token.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -3513,8 +3513,8 @@ spec:
                     settings. Only one of TPP or Cloud may be specified.
                   type: object
                   required:
-                    - credentialsRef
-                    - url
+                  - credentialsRef
+                  - url
                   properties:
                     caBundle:
                       description: CABundle is a PEM encoded TLS certifiate to use
@@ -3531,7 +3531,7 @@ spec:
                         contain two keys, 'username' and 'password'.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         name:
                           description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -3568,8 +3568,8 @@ spec:
                   Issuer.
                 type: object
                 required:
-                  - status
-                  - type
+                - status
+                - type
                 properties:
                   lastTransitionTime:
                     description: LastTransitionTime is the timestamp corresponding
@@ -3589,17 +3589,17 @@ spec:
                       'Unknown').
                     type: string
                     enum:
-                      - "True"
-                      - "False"
-                      - Unknown
+                    - "True"
+                    - "False"
+                    - Unknown
                   type:
                     description: Type of the condition, currently ('Ready').
                     type: string
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -3607,20 +3607,20 @@ metadata:
   name: issuers.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.conditions[?(@.type=="Ready")].status
-      name: Ready
-      type: string
-    - JSONPath: .status.conditions[?(@.type=="Ready")].message
-      name: Status
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.conditions[?(@.type=="Ready")].status
+    name: Ready
+    type: string
+  - JSONPath: .status.conditions[?(@.type=="Ready")].message
+    name: Status
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: cert-manager.io
   preserveUnknownFields: false
   names:
@@ -3656,8 +3656,8 @@ spec:
               description: ACMEIssuer contains the specification for an ACME issuer
               type: object
               required:
-                - privateKeySecretRef
-                - server
+              - privateKeySecretRef
+              - server
               properties:
                 email:
                   description: Email is the email for this account
@@ -3667,18 +3667,18 @@ spec:
                     account of the ACME server.
                   type: object
                   required:
-                    - keyAlgorithm
-                    - keyID
-                    - keySecretRef
+                  - keyAlgorithm
+                  - keyID
+                  - keySecretRef
                   properties:
                     keyAlgorithm:
                       description: keyAlgorithm is the MAC key algorithm that the
                         key is used for. Valid values are "HS256", "HS384" and "HS512".
                       type: string
                       enum:
-                        - HS256
-                        - HS384
-                        - HS512
+                      - HS256
+                      - HS384
+                      - HS512
                     keyID:
                       description: keyID is the ID of the CA key that the External
                         Account is bound to.
@@ -3694,7 +3694,7 @@ spec:
                         encoded data.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -3709,7 +3709,7 @@ spec:
                     key for this user account.
                   type: object
                   required:
-                    - name
+                  - name
                   properties:
                     key:
                       description: The key of the secret to select from. Must be a
@@ -3740,13 +3740,13 @@ spec:
                               containing the configuration for ACME-DNS servers
                             type: object
                             required:
-                              - accountSecretRef
-                              - host
+                            - accountSecretRef
+                            - host
                             properties:
                               accountSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3766,15 +3766,15 @@ spec:
                               Record Management API
                             type: object
                             required:
-                              - accessTokenSecretRef
-                              - clientSecretSecretRef
-                              - clientTokenSecretRef
-                              - serviceConsumerDomain
+                            - accessTokenSecretRef
+                            - clientSecretSecretRef
+                            - clientTokenSecretRef
+                            - serviceConsumerDomain
                             properties:
                               accessTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3789,7 +3789,7 @@ spec:
                               clientSecretSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3804,7 +3804,7 @@ spec:
                               clientTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3823,18 +3823,18 @@ spec:
                               containing the configuration for Azure DNS
                             type: object
                             required:
-                              - clientID
-                              - clientSecretSecretRef
-                              - resourceGroupName
-                              - subscriptionID
-                              - tenantID
+                            - clientID
+                            - clientSecretSecretRef
+                            - resourceGroupName
+                            - subscriptionID
+                            - tenantID
                             properties:
                               clientID:
                                 type: string
                               clientSecretSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3849,10 +3849,10 @@ spec:
                               environment:
                                 type: string
                                 enum:
-                                  - AzurePublicCloud
-                                  - AzureChinaCloud
-                                  - AzureGermanCloud
-                                  - AzureUSGovernmentCloud
+                                - AzurePublicCloud
+                                - AzureChinaCloud
+                                - AzureGermanCloud
+                                - AzureUSGovernmentCloud
                               hostedZoneName:
                                 type: string
                               resourceGroupName:
@@ -3866,14 +3866,14 @@ spec:
                               containing the DNS configuration for Google Cloud DNS
                             type: object
                             required:
-                              - project
+                            - project
                             properties:
                               project:
                                 type: string
                               serviceAccountSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3890,12 +3890,12 @@ spec:
                               containing the DNS configuration for Cloudflare
                             type: object
                             required:
-                              - email
+                            - email
                             properties:
                               apiKeySecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3910,7 +3910,7 @@ spec:
                               apiTokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3929,20 +3929,20 @@ spec:
                               should handle CNAME records when found in DNS zones.
                             type: string
                             enum:
-                              - None
-                              - Follow
+                            - None
+                            - Follow
                           digitalocean:
                             description: ACMEIssuerDNS01ProviderDigitalOcean is a
                               structure containing the DNS configuration for DigitalOcean
                               Domains
                             type: object
                             required:
-                              - tokenSecretRef
+                            - tokenSecretRef
                             properties:
                               tokenSecretRef:
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -3959,7 +3959,7 @@ spec:
                               containing the configuration for RFC2136 DNS
                             type: object
                             required:
-                              - nameserver
+                            - nameserver
                             properties:
                               nameserver:
                                 description: 'The IP address of the DNS supporting
@@ -3984,7 +3984,7 @@ spec:
                                   field is required.
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -4001,7 +4001,7 @@ spec:
                               containing the Route 53 configuration for AWS
                             type: object
                             required:
-                              - region
+                            - region
                             properties:
                               accessKeyID:
                                 description: 'The AccessKeyID is used for authentication.
@@ -4030,7 +4030,7 @@ spec:
                                   credentials file or AWS Instance metadata https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials
                                 type: object
                                 required:
-                                  - name
+                                - name
                                 properties:
                                   key:
                                     description: The key of the secret to select from.
@@ -4048,8 +4048,8 @@ spec:
                               where to POST ChallengePayload resources.
                             type: object
                             required:
-                              - groupName
-                              - solverName
+                            - groupName
+                            - solverName
                             properties:
                               config:
                                 description: Additional configuration that should
@@ -4175,8 +4175,8 @@ spec:
                                                     is also a no-op).
                                                   type: object
                                                   required:
-                                                    - preference
-                                                    - weight
+                                                  - preference
+                                                  - weight
                                                   properties:
                                                     preference:
                                                       description: A node selector
@@ -4198,8 +4198,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -4252,8 +4252,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -4312,7 +4312,7 @@ spec:
                                                   evict the pod from its node.
                                                 type: object
                                                 required:
-                                                  - nodeSelectorTerms
+                                                - nodeSelectorTerms
                                                 properties:
                                                   nodeSelectorTerms:
                                                     description: Required. A list
@@ -4342,8 +4342,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -4396,8 +4396,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: The label
@@ -4470,8 +4470,8 @@ spec:
                                                     the most preferred node(s)
                                                   type: object
                                                   required:
-                                                    - podAffinityTerm
-                                                    - weight
+                                                  - podAffinityTerm
+                                                  - weight
                                                   properties:
                                                     podAffinityTerm:
                                                       description: Required. A pod
@@ -4479,7 +4479,7 @@ spec:
                                                         with the corresponding weight.
                                                       type: object
                                                       required:
-                                                        - topologyKey
+                                                      - topologyKey
                                                       properties:
                                                         labelSelector:
                                                           description: A label query
@@ -4504,8 +4504,8 @@ spec:
                                                                   key and values.
                                                                 type: object
                                                                 required:
-                                                                  - key
-                                                                  - operator
+                                                                - key
+                                                                - operator
                                                                 properties:
                                                                   key:
                                                                     description: key
@@ -4622,7 +4622,7 @@ spec:
                                                     a pod of the set of pods is running
                                                   type: object
                                                   required:
-                                                    - topologyKey
+                                                  - topologyKey
                                                   properties:
                                                     labelSelector:
                                                       description: A label query over
@@ -4645,8 +4645,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: key is
@@ -4753,8 +4753,8 @@ spec:
                                                     the most preferred node(s)
                                                   type: object
                                                   required:
-                                                    - podAffinityTerm
-                                                    - weight
+                                                  - podAffinityTerm
+                                                  - weight
                                                   properties:
                                                     podAffinityTerm:
                                                       description: Required. A pod
@@ -4762,7 +4762,7 @@ spec:
                                                         with the corresponding weight.
                                                       type: object
                                                       required:
-                                                        - topologyKey
+                                                      - topologyKey
                                                       properties:
                                                         labelSelector:
                                                           description: A label query
@@ -4787,8 +4787,8 @@ spec:
                                                                   key and values.
                                                                 type: object
                                                                 required:
-                                                                  - key
-                                                                  - operator
+                                                                - key
+                                                                - operator
                                                                 properties:
                                                                   key:
                                                                     description: key
@@ -4905,7 +4905,7 @@ spec:
                                                     a pod of the set of pods is running
                                                   type: object
                                                   required:
-                                                    - topologyKey
+                                                  - topologyKey
                                                   properties:
                                                     labelSelector:
                                                       description: A label query over
@@ -4928,8 +4928,8 @@ spec:
                                                               and values.
                                                             type: object
                                                             required:
-                                                              - key
-                                                              - operator
+                                                            - key
+                                                            - operator
                                                             properties:
                                                               key:
                                                                 description: key is
@@ -5106,7 +5106,7 @@ spec:
             ca:
               type: object
               required:
-                - secretName
+              - secretName
               properties:
                 secretName:
                   description: SecretName is the name of the secret used to sign Certificates
@@ -5117,9 +5117,9 @@ spec:
             vault:
               type: object
               required:
-                - auth
-                - path
-                - server
+              - auth
+              - path
+              - server
               properties:
                 auth:
                   description: Vault authentication
@@ -5129,9 +5129,9 @@ spec:
                       description: This Secret contains a AppRole and Secret
                       type: object
                       required:
-                        - path
-                        - roleId
-                        - secretRef
+                      - path
+                      - roleId
+                      - secretRef
                       properties:
                         path:
                           description: Where the authentication path is mounted in
@@ -5142,7 +5142,7 @@ spec:
                         secretRef:
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -5157,8 +5157,8 @@ spec:
                         token to authenticate with vault.
                       type: object
                       required:
-                        - role
-                        - secretRef
+                      - role
+                      - secretRef
                       properties:
                         mountPath:
                           description: The Vault mountPath here is the mount path
@@ -5178,7 +5178,7 @@ spec:
                             Use of 'ambient credentials' is not supported.
                           type: object
                           required:
-                            - name
+                          - name
                           properties:
                             key:
                               description: The key of the secret to select from. Must
@@ -5192,7 +5192,7 @@ spec:
                       description: This Secret contains the Vault token key
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -5220,21 +5220,21 @@ spec:
                 Venafi Cloud.
               type: object
               required:
-                - zone
+              - zone
               properties:
                 cloud:
                   description: Cloud specifies the Venafi cloud configuration settings.
                     Only one of TPP or Cloud may be specified.
                   type: object
                   required:
-                    - apiTokenSecretRef
+                  - apiTokenSecretRef
                   properties:
                     apiTokenSecretRef:
                       description: APITokenSecretRef is a secret key selector for
                         the Venafi Cloud API token.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         key:
                           description: The key of the secret to select from. Must
@@ -5252,8 +5252,8 @@ spec:
                     settings. Only one of TPP or Cloud may be specified.
                   type: object
                   required:
-                    - credentialsRef
-                    - url
+                  - credentialsRef
+                  - url
                   properties:
                     caBundle:
                       description: CABundle is a PEM encoded TLS certifiate to use
@@ -5270,7 +5270,7 @@ spec:
                         contain two keys, 'username' and 'password'.
                       type: object
                       required:
-                        - name
+                      - name
                       properties:
                         name:
                           description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -5307,8 +5307,8 @@ spec:
                   Issuer.
                 type: object
                 required:
-                  - status
-                  - type
+                - status
+                - type
                 properties:
                   lastTransitionTime:
                     description: LastTransitionTime is the timestamp corresponding
@@ -5328,17 +5328,17 @@ spec:
                       'Unknown').
                     type: string
                     enum:
-                      - "True"
-                      - "False"
-                      - Unknown
+                    - "True"
+                    - "False"
+                    - Unknown
                   type:
                     description: Type of the condition, currently ('Ready').
                     type: string
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -5346,24 +5346,24 @@ metadata:
   name: orders.acme.cert-manager.io
 spec:
   additionalPrinterColumns:
-    - JSONPath: .status.state
-      name: State
-      type: string
-    - JSONPath: .spec.issuerRef.name
-      name: Issuer
-      priority: 1
-      type: string
-    - JSONPath: .status.reason
-      name: Reason
-      priority: 1
-      type: string
-    - JSONPath: .metadata.creationTimestamp
-      description: CreationTimestamp is a timestamp representing the server time when
-        this object was created. It is not guaranteed to be set in happens-before order
-        across separate operations. Clients may not set this value. It is represented
-        in RFC3339 form and is in UTC.
-      name: Age
-      type: date
+  - JSONPath: .status.state
+    name: State
+    type: string
+  - JSONPath: .spec.issuerRef.name
+    name: Issuer
+    priority: 1
+    type: string
+  - JSONPath: .status.reason
+    name: Reason
+    priority: 1
+    type: string
+  - JSONPath: .metadata.creationTimestamp
+    description: CreationTimestamp is a timestamp representing the server time when
+      this object was created. It is not guaranteed to be set in happens-before order
+      across separate operations. Clients may not set this value. It is represented
+      in RFC3339 form and is in UTC.
+    name: Age
+    type: date
   group: acme.cert-manager.io
   preserveUnknownFields: false
   names:
@@ -5379,7 +5379,7 @@ spec:
       description: Order is a type to represent an Order with an ACME server
       type: object
       required:
-        - metadata
+      - metadata
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -5396,8 +5396,8 @@ spec:
         spec:
           type: object
           required:
-            - csr
-            - issuerRef
+          - csr
+          - issuerRef
           properties:
             commonName:
               description: CommonName is the common name as specified on the DER encoded
@@ -5429,7 +5429,7 @@ spec:
                 failed.
               type: object
               required:
-                - name
+              - name
               properties:
                 group:
                   type: string
@@ -5451,7 +5451,7 @@ spec:
                   a DNS name on an ACME Order resource.
                 type: object
                 required:
-                  - url
+                - url
                 properties:
                   challenges:
                     description: Challenges specifies the challenge types offered
@@ -5465,9 +5465,9 @@ spec:
                         can be created to perform the ACME challenge process.
                       type: object
                       required:
-                        - token
-                        - type
-                        - url
+                      - token
+                      - type
+                      - url
                       properties:
                         token:
                           description: Token is the token that must be presented for
@@ -5523,13 +5523,13 @@ spec:
                 States 'success' and 'expired' are 'final'
               type: string
               enum:
-                - valid
-                - ready
-                - pending
-                - processing
-                - invalid
-                - expired
-                - errored
+              - valid
+              - ready
+              - pending
+              - processing
+              - invalid
+              - expired
+              - errored
             url:
               description: URL of the Order. This will initially be empty when the
                 resource is first created. The Order controller will populate this
@@ -5538,9 +5538,9 @@ spec:
               type: string
   version: v1alpha2
   versions:
-    - name: v1alpha2
-      served: true
-      storage: true
+  - name: v1alpha2
+    served: true
+    storage: true
 ---
 ---
 apiVersion: v1
@@ -5575,19 +5575,6 @@ metadata:
     app.kubernetes.io/managed-by: Tiller
     helm.sh/chart: cert-manager-v0.13.1
 
----
-# Source: cert-manager/templates/webhook-serviceaccount.yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: cert-manager-webhook
-  namespace: "cert-manager"
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
 ---
 # Source: cert-manager/templates/cainjector-rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -5682,80 +5669,6 @@ subjects:
   - kind: ServiceAccount
     name: cert-manager-cainjector
     namespace: cert-manager
----
-# Source: cert-manager/templates/webhook-rbac.yaml
-### Webhook ###
----
-# apiserver gets the auth-delegator role to delegate auth decisions to
-# the core apiserver
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: cert-manager-webhook:auth-delegator
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: system:auth-delegator
-subjects:
-  - apiGroup: ""
-    kind: ServiceAccount
-    name: cert-manager-webhook
-    namespace: cert-manager
-
----
-
-# apiserver gets the ability to read authentication. This allows it to
-# read the specific configmap that has the requestheader-* entries to
-# api agg
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: RoleBinding
-metadata:
-  name: cert-manager-webhook:webhook-authentication-reader
-  namespace: kube-system
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: extension-apiserver-authentication-reader
-subjects:
-  - apiGroup: ""
-    kind: ServiceAccount
-    name: cert-manager-webhook
-    namespace: cert-manager
-
----
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: cert-manager-webhook:webhook-requester
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-rules:
-  - apiGroups:
-      - admission.cert-manager.io
-    resources:
-      - certificates
-      - certificaterequests
-      - issuers
-      - clusterissuers
-    verbs:
-      - create
 ---
 # Source: cert-manager/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -6205,30 +6118,6 @@ spec:
     app.kubernetes.io/instance: cert-manager
 
 ---
-# Source: cert-manager/templates/webhook-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: cert-manager-webhook
-  namespace: "cert-manager"
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-spec:
-  type: ClusterIP
-  ports:
-    - name: https
-      port: 443
-      targetPort: 10250
-  selector:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
----
 # Source: cert-manager/templates/cainjector-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -6265,16 +6154,16 @@ spec:
           image: "quay.io/jetstack/cert-manager-cainjector:v0.13.1"
           imagePullPolicy: IfNotPresent
           args:
-            - --v=2
-            - --leader-election-namespace=kube-system
+          - --v=2
+          - --leader-election-namespace=kube-system
           env:
-            - name: POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
           resources:
             {}
-
+            
 ---
 # Source: cert-manager/templates/deployment.yaml
 apiVersion: apps/v1
@@ -6315,127 +6204,27 @@ spec:
           image: "quay.io/jetstack/cert-manager-controller:v0.13.1"
           imagePullPolicy: IfNotPresent
           args:
-            - --v=2
-            - --cluster-resource-namespace=$(POD_NAMESPACE)
-            - --leader-election-namespace=kube-system
-            - --webhook-namespace=$(POD_NAMESPACE)
-            - --webhook-ca-secret=cert-manager-webhook-ca
-            - --webhook-serving-secret=cert-manager-webhook-tls
-            - --webhook-dns-names=cert-manager-webhook,cert-manager-webhook.cert-manager,cert-manager-webhook.cert-manager.svc
+          - --v=2
+          - --cluster-resource-namespace=$(POD_NAMESPACE)
+          - --leader-election-namespace=kube-system
+          - --webhook-namespace=$(POD_NAMESPACE)
+          - --webhook-ca-secret=cert-manager-webhook-ca
+          - --webhook-serving-secret=cert-manager-webhook-tls
+          - --webhook-dns-names=cert-manager-webhook,cert-manager-webhook.cert-manager,cert-manager-webhook.cert-manager.svc
           ports:
-            - containerPort: 9402
-              protocol: TCP
+          - containerPort: 9402
+            protocol: TCP
           env:
-            - name: POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
           resources:
             requests:
               cpu: 10m
               memory: 32Mi
+            
 
-
----
-# Source: cert-manager/templates/webhook-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: cert-manager-webhook
-  namespace: "cert-manager"
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: webhook
-      app.kubernetes.io/name: webhook
-      app.kubernetes.io/instance: cert-manager
-      app.kubernetes.io/managed-by: Tiller
-  template:
-    metadata:
-      labels:
-        app: webhook
-        app.kubernetes.io/name: webhook
-        app.kubernetes.io/instance: cert-manager
-        app.kubernetes.io/managed-by: Tiller
-        helm.sh/chart: cert-manager-v0.13.1
-      annotations:
-    spec:
-      serviceAccountName: cert-manager-webhook
-      containers:
-        - name: cert-manager
-          image: "quay.io/jetstack/cert-manager-webhook:v0.13.1"
-          imagePullPolicy: IfNotPresent
-          args:
-            - --v=2
-            - --secure-port=10250
-            - --tls-cert-file=/certs/tls.crt
-            - --tls-private-key-file=/certs/tls.key
-          livenessProbe:
-            httpGet:
-              path: /livez
-              port: 6080
-              scheme: HTTP
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: 6080
-              scheme: HTTP
-          env:
-            - name: POD_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
-          resources:
-            {}
-
-          volumeMounts:
-            - name: certs
-              mountPath: /certs
-      volumes:
-        - name: certs
-          secret:
-            secretName: cert-manager-webhook-tls
----
-# Source: cert-manager/templates/webhook-mutating-webhook.yaml
-apiVersion: admissionregistration.k8s.io/v1beta1
-kind: MutatingWebhookConfiguration
-metadata:
-  name: cert-manager-webhook
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-  annotations:
-    cert-manager.io/inject-ca-from-secret: "cert-manager/cert-manager-webhook-tls"
-webhooks:
-  - name: webhook.cert-manager.io
-    rules:
-      - apiGroups:
-          - "cert-manager.io"
-          - "acme.cert-manager.io"
-        apiVersions:
-          - v1alpha2
-        operations:
-          - CREATE
-          - UPDATE
-        resources:
-          - "*/*"
-    failurePolicy: Fail
-    sideEffects: None
-    clientConfig:
-      service:
-        name: cert-manager-webhook
-        namespace: "cert-manager"
-        path: /mutate
 ---
 # Source: cert-manager/templates/cainjector-psp-clusterrole.yaml
 
@@ -6464,8 +6253,14 @@ webhooks:
 
 
 ---
-# Source: cert-manager/templates/webhook-psp-clusterrole.yaml
+# Source: cert-manager/templates/webhook-deployment.yaml
 
+---
+# Source: cert-manager/templates/webhook-mutating-webhook.yaml
+
+---
+# Source: cert-manager/templates/webhook-psp-clusterrole.yaml
+ 
 
 ---
 # Source: cert-manager/templates/webhook-psp-clusterrolebinding.yaml
@@ -6476,46 +6271,14 @@ webhooks:
 
 
 ---
+# Source: cert-manager/templates/webhook-rbac.yaml
+
+---
+# Source: cert-manager/templates/webhook-service.yaml
+
+---
+# Source: cert-manager/templates/webhook-serviceaccount.yaml
+
+---
 # Source: cert-manager/templates/webhook-validating-webhook.yaml
-apiVersion: admissionregistration.k8s.io/v1beta1
-kind: ValidatingWebhookConfiguration
-metadata:
-  name: cert-manager-webhook
-  labels:
-    app: webhook
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/instance: cert-manager
-    app.kubernetes.io/managed-by: Tiller
-    helm.sh/chart: cert-manager-v0.13.1
-  annotations:
-    cert-manager.io/inject-ca-from-secret: "cert-manager/cert-manager-webhook-tls"
-webhooks:
-  - name: webhook.cert-manager.io
-    namespaceSelector:
-      matchExpressions:
-        - key: "cert-manager.io/disable-validation"
-          operator: "NotIn"
-          values:
-            - "true"
-        - key: "name"
-          operator: "NotIn"
-          values:
-            - cert-manager
-    rules:
-      - apiGroups:
-          - "cert-manager.io"
-          - "acme.cert-manager.io"
-        apiVersions:
-          - v1alpha2
-        operations:
-          - CREATE
-          - UPDATE
-        resources:
-          - "*/*"
-    failurePolicy: Fail
-    sideEffects: None
-    clientConfig:
-      service:
-        name: cert-manager-webhook
-        namespace: "cert-manager"
-        path: /mutate
+

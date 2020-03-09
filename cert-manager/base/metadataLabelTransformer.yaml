@@ -4,11 +4,11 @@ metadata:
   name: metadataLabelTransformer
 labels:
   app.kubernetes.io/name: cert-manager
-  app.kubernetes.io/instance: cert-manager-v0.11.0
+  app.kubernetes.io/instance: cert-manager-v0.13.1
   app.kubernetes.io/managed-by: onepanel-cli
   app.kubernetes.io/component: cert-manager
   app.kubernetes.io/part-of: onepanel
-  app.kubernetes.io/version: v0.11.0
+  app.kubernetes.io/version: v0.13.1
 fieldSpecs:
 - path: metadata/labels
   create: true
