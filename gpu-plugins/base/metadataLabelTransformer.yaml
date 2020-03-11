@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: metadataLabelTransformer
+labels:
+  app.kubernetes.io/name: gpu-plugins
+  app.kubernetes.io/instance: gpu-plugins-v1.0.0
+  app.kubernetes.io/managed-by: onepanel-cli
+  app.kubernetes.io/component: gpu-plugins
+  app.kubernetes.io/part-of: onepanel
+  app.kubernetes.io/version: v1.0.0
+fieldSpecs:
+- path: metadata/labels
+  create: true
