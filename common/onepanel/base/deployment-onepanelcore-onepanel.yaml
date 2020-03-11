@@ -18,7 +18,7 @@ spec:
         - name: onepanel-core
           image: onepanel/core:1.0.0-beta.1
           command: ["/bin/sh", "-c"]
-          args: ["/go/bin/core"]
+          args: ["./core"]
           ports:
             - containerPort: 8888
             - containerPort: 8887
