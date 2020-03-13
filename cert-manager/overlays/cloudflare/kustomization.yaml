@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - secret-certmanagersecret-certmanager.yaml
+patches:
+  - path: cluster-issuer-patch.yaml
+    target:
+      kind: ClusterIssuer
