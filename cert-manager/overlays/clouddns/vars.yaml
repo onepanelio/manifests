@@ -3,6 +3,6 @@ certManager:
     projectId:
       required: true
       default: <project-id>
-    data:
+    serviceAccountKey:
       required: true
-      default: <available from key.json generated file>
+      default: <key.json-file-data>
