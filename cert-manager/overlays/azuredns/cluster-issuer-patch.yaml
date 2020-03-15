@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: cert-manager-acme-dns-issuer
+spec:
+  acme:
+    solvers:
+      - dns01:
+          azuredns:
+            clientID: $(certManagerAzurednsClientId)
+            clientSecretSecretRef:
+              name: cert-manager-secret
+              key: client-secret
+            subscriptionID: $(certManagerAzurednsSubscriptionId)
+            tenantID: $(certManagerAzurednsTenantId)
+            resourceGroupName: $(certManagerAzurednsResourceGroupName)
+            hostedZoneName: $(certManagerAzurednsHostedZoneName)
+            environment: $(certManagerAzurednsEnvironment)

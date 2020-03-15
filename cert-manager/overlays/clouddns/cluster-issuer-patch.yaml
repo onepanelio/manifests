@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: cert-manager-acme-dns-issuer
+spec:
+  acme:
+    solvers:
+      - dns01:
+          clouddns:
+            project: $(certManagerClouddnsProjectId)
+            serviceAccountSecretRef:
+              name: cert-manager-secret
+              key: key.json

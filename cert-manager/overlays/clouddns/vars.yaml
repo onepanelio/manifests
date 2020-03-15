@@ -1,0 +1,8 @@
+certManager:
+  clouddns:
+    projectId:
+      required: true
+      default: <project-id>
+    serviceAccountKey:
+      required: true
+      default: <key.json-file-data>

@@ -1,0 +1,8 @@
+certManager:
+  cloudflare:
+    apiToken:
+      required: true
+      default: <api-token>
+    email:
+      required: true
+      default: <email>
