@@ -2,8 +2,10 @@
 defaultNamespace:
   required: true
   default: default
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: Database
 # Description: Database connection information
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 database:
   # Database host - use `postgres` to use in cluster database for testing
   host:
@@ -35,8 +37,10 @@ database:
   driverName:
     required: true
     default: postgres
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: Onepanel
 # Description: Onepanel application information
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 application:
   defaultNamespace:
     required: true
