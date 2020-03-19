@@ -46,7 +46,7 @@ application:
     required: true
     default: default
   # Domain name or IP where Onepanel is hosted
-  # Use an IP address if you're running Onepanel locally
+  # Use an IP address if running local, use `minikube ip` or `multipass list` to get this IP
   # In the cloud, use a first-level or multi-level subdomain like app.example.com or app.sub.example.com
   host:
     required: true
