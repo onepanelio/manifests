@@ -1,6 +1,6 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: cert-manager
-# Description: automatically creates and renews TLS certficates using Let's Encrypt
+# Description: automatically creates and renews TLS certificates using Let's Encrypt
 # Docs: https://onepanelio.github.io/core-docs/docs/deployment/configuration/tls
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 certManager:
