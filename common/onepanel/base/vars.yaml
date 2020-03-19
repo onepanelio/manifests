@@ -1,26 +1,46 @@
+# First namespace that will be created in Onepanel, more can be added later
 defaultNamespace:
   required: true
   default: default
+# Component: Database
+# Description: Database connection information
 database:
+  # Database host - use `postgres` to use in cluster database for testing
   host:
     required: true
     default: <database-ip-or-hostname>
+  # Database username
+  # If using an external production database, use the username for that database.
+  # For in-cluster test database, use any username you like.
   username:
     required: true
     default: <username>
+  # Database password
+  # If using an external production database, use the password for that database.
+  # For in-cluster test database, use any password you like.
   password:
     required: true
     default: <password>
+  # Database port
   port:
     required: true
     default: 5432
+  # Name of database
+  # If using an external production database, use the name of that database.
+  # For in-cluster test database, use any name you like.
   databaseName:
     required: true
     default: onepanel
+  # Do not change, only `postgres` driver is supported at this time.
   driverName:
     required: true
     default: postgres
+# Component: Onepanel
+# Description: Onepanel application information
 application:
+  # Domain name or IP where Onepanel is hosted
+  # Use an IP address if you're running Onepanel locally
+  # In the cloud, use a first-level or multi-level subdomain like app.example.com or app.sub.example.com
   host:
     required: true
     default: <ip-or-fqdn>
