@@ -45,25 +45,32 @@ application:
     required: true
     default: <ip-or-fqdn>
   local:
+    # HTTP port for API
     apiHTTPPort:
       required: true
       default: 32000
+    # GRPC port for API
     apiGRPCPort:
       required: true
       default: 32001
+    # HTTP port for UI
     uiHTTPPort:
       required: true
       default: 32002
   cloud:
+    # Path of UI relative to host
     uiPath:
       required: true
       default: /
+    # Path of API relative to host
     apiPath:
       required: true
       default: /api
+    # GRPC port for API
     apiGRPCPort:
       required: true
       default: 8887
+    # HTTP or HTTPS - Do not change as this is determined byt `opctl init`
     insecure:
       required: true
       default: false
