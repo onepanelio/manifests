@@ -1,19 +1,33 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Artifact repository
+# Description: S3 compatible object storage for storing files across Onepanel
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 artifactRepository:
+  # S3 access key
   accessKey:
     required: true
     default: <access-key>
+  # S3 secret key
   secretKey:
     required: true
     default: <secret-key>
+  # Name of bucket, example: my-bucket
   bucket:
     required: true
     default: <bucket-name>
+  # Endpoint for S3 compatible storage
+  # Supported provider endpoints:
+  #   AWS: s3.amazonaws.com
+  #   GCS: storage.googleapis.com
+  #   Minio: my-minio-endpoint.default:9000
   endpoint:
     required: true
     default: s3.amazonaws.com
+  # Set to false if endpoint is HTTP only
   insecure:
     required: true
     default: false
+  # Bucket region
   region:
     required: true
     default: us-west-2
