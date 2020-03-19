@@ -1,7 +1,3 @@
-# First namespace that will be created in Onepanel, more can be added later
-defaultNamespace:
-  required: true
-  default: default
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: Database
 # Description: Database connection information
@@ -42,6 +38,7 @@ database:
 # Description: Onepanel application information
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 application:
+  # First namespace that will be created in Onepanel, more can be added later
   defaultNamespace:
     required: true
     default: default
