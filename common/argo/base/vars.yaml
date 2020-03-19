@@ -23,7 +23,7 @@ artifactRepository:
   endpoint:
     required: true
     default: s3.amazonaws.com
-  # Set to false if endpoint is HTTP only
+  # Change to true if endpoint does NOT support HTTPS
   insecure:
     required: true
     default: false
