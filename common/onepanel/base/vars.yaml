@@ -1,6 +1,3 @@
-defaultNamespace:
-  required: true
-  default: default
 database:
   host:
     required: true
@@ -21,6 +18,9 @@ database:
     required: true
     default: postgres
 application:
+  defaultNamespace:
+    required: true
+    default: default
   host:
     required: true
     default: <ip-or-fqdn>
