@@ -4,7 +4,6 @@ metadata:
   name: onepanel
   namespace: onepanel
 data:
-  defaultNamespace: $(defaultNamespace)
   databaseHost: $(databaseHost)
   databasePort: $(databasePort)
   databaseName: $(databaseDatabaseName)
