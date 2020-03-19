@@ -2,6 +2,7 @@
 # Component: cert-manager
 # Description: automatically creates and renews TLS certificates using Let's Encrypt
 # Docs: https://onepanelio.github.io/core-docs/docs/deployment/configuration/tls
+# CLI flag: --enable-cert-manager
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 certManager:
   # Enter a wildcard domain name

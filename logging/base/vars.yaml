@@ -1,6 +1,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: Application and system logging
 # Description: ElasticSearch, Fluentd and Kibana (EFK) logging
+# CLI flag: --enable-efk-logging
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 logging:
   # ElasticSearch container image

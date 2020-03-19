@@ -1,6 +1,7 @@
 certManager:
   # DNS Provider: AzureDNS
   # Docs: https://onepanelio.github.io/core-docs/docs/deployment/configuration/tls#azuredns
+  # CLI flag: --dns-provider=azuredns
   azuredns:
     clientId:
       required: true
