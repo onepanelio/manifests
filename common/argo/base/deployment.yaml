@@ -18,9 +18,9 @@ spec:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - argoproj/argoexec:v2.6.1
+        - argoproj/argoexec:v2.6.3
         command:
         - workflow-controller
-        image: argoproj/workflow-controller:v2.6.1
+        image: argoproj/workflow-controller:v2.6.3
         name: workflow-controller
       serviceAccountName: argo

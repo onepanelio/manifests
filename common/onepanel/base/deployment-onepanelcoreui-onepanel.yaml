@@ -16,7 +16,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: onepanel-core-ui
-          image: onepanel/core-ui:1.0.0-beta.1
+          image: onepanel/core-ui:latest
           command:
             - "/bin/sh"
             - "-c"
