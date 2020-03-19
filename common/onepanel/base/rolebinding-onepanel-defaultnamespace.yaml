@@ -5,7 +5,7 @@ metadata:
   labels:
     app: onepanel
   name: onepanel
-  namespace: $(defaultNamespace)
+  namespace: $(applicationDefaultNamespace)
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -13,4 +13,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: $(defaultNamespace) # replace with relevant namespace
+  namespace: $(applicationDefaultNamespace) # replace with relevant namespace

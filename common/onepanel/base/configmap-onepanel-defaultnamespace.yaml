@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: onepanel
-  namespace: $(defaultNamespace)
+  namespace: $(applicationDefaultNamespace)
 data:
   artifactRepositoryAccessKeySecretKey: $(artifactRepositoryAccessKeySecretKey)
   artifactRepositoryAccessKeySecretName: $(artifactRepositoryAccessKeySecretName)
