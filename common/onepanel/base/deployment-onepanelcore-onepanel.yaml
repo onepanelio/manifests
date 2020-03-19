@@ -16,7 +16,7 @@ spec:
       serviceAccountName: onepanel
       containers:
         - name: onepanel-core
-          image: onepanel/core:1.0.0-beta.1
+          image: onepanel/core:latest
           command: ["/bin/sh", "-c"]
           args: ["./core"]
           ports:
