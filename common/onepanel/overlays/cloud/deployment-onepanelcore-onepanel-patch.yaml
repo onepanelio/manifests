@@ -17,4 +17,4 @@ spec:
       containers:
         - name: onepanel-core
           command: ["/bin/sh", "-c"]
-          args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; /go/bin/core"]
+          args: ["until curl --head localhost:15000 ; do echo Waiting for Sidecar; sleep 3 ; done ; echo Sidecar available; ./core"]
