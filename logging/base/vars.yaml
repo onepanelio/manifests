@@ -1,7 +1,14 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Application and system logging
+# Description: ElasticSearch, Fluentd and Kibana (EFK) logging
+# CLI flag: --enable-efk-logging
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 logging:
+  # ElasticSearch container image
   image:
     required: false
     default: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
+  # Volume size for EFK logging
   volumeStorage:
     required: false
     default: 100Gi

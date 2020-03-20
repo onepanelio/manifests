@@ -1,4 +1,7 @@
 certManager:
+  # DNS Provider: Amazon Route53
+  # Docs: https://onepanelio.github.io/core-docs/docs/deployment/configuration/tls#route53
+  # CLI flag: --dns-provider=route53
   route53:
     region:
       required: true

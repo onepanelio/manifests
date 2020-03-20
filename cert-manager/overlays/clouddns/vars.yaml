@@ -1,4 +1,7 @@
 certManager:
+  # DNS Provider: Google CloudDNS
+  # Docs: https://onepanelio.github.io/core-docs/docs/deployment/configuration/tls#google-clouddns
+  # CLI flag: --dns-provider=clouddns
   clouddns:
     projectId:
       required: true
