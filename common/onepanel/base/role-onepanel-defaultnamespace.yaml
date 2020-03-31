@@ -14,10 +14,10 @@ rules:
     verbs: ["get", "watch", "patch"]
   - apiGroups: [""]
     resources: ["persistentvolumeclaims", "services", "secrets"]
-    verbs: ["get", "list", "create", "update", "delete"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
   - apiGroups: ["apps"]
     resources: ["statefulsets", "deployments"]
-    verbs: ["get", "list", "create", "update", "delete"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
   - apiGroups:
       - "networking.istio.io"
     resources:
