@@ -40,7 +40,9 @@ rules:
   - workflows
   - workflows/finalizers
   - cronworkflows
+  - cronworkflows/finalizers
   verbs:
+  - create
   - get
   - list
   - watch
