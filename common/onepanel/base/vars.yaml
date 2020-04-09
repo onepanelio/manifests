@@ -79,3 +79,12 @@ application:
     insecure:
       required: true
       default: false
+  # Impact the Onepanel Core and Core-UI image settings
+  # For valid values of imagePullPolicy see
+  # https://kubernetes.io/docs/concepts/configuration/overview/#container-images
+  core:
+    imageTag: latest
+    imagePullPolicy: IfNotPresent
+  coreui:
+    imageTag: latest
+    imagePullPolicy: IfNotPresent

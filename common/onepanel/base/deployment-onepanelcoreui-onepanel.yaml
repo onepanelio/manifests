@@ -16,7 +16,8 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: onepanel-core-ui
-          image: onepanel/core-ui:latest
+          image: onepanel/core-ui:$(applicationCoreuiImageTag)
+          imagePullPolicy: $(applicationCoreuiImagePullPolicy)
           command:
             - "/bin/sh"
             - "-c"
