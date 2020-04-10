@@ -16,7 +16,8 @@ spec:
       serviceAccountName: onepanel
       containers:
         - name: onepanel-core
-          image: onepanel/core:latest
+          image: onepanel/core:$(applicationCoreImageTag)
+          imagePullPolicy: $(applicationCoreImagePullPolicy)
           command: ["/bin/sh", "-c"]
           args: ["./core"]
           ports:
