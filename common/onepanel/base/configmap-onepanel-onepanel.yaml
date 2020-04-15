@@ -4,6 +4,7 @@ metadata:
   name: onepanel
   namespace: onepanel
 data:
+  ONEPANEL_HOST: $(applicationHost)
   ONEPANEL_API_URL: $(onepanelApiUrl)
   PROVIDER_TYPE: $(providerType)
   databaseHost: $(databaseHost)
