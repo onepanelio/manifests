@@ -79,3 +79,12 @@ application:
     insecure:
       required: true
       default: false
+  # Node pool key/values are used for nodeSelector and autoscaling.
+  nodePool:
+    label: <node-pool-label>
+    options:
+      - name: <name-1>
+        value: <value-1>
+      - name: <name-2>
+        value: <value-2>
+        default: true
