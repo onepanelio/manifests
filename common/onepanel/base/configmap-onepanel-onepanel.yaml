@@ -11,3 +11,5 @@ data:
   databasePort: $(databasePort)
   databaseName: $(databaseDatabaseName)
   databaseDriverName: $(databaseDriverName)
+  applicationNodePoolLabel: $(applicationNodePoolLabel)
+  applicationNodePoolOptions: $(applicationNodePoolOptions)
