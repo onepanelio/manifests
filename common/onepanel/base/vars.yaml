@@ -45,13 +45,13 @@ application:
   # The application URL where Onepanel is hosted.
   # If you have a domain like demo.onepanel.ai, then application URL is
   # app.demo.onepanel.ai
-  url:
+  fqdn:
     required: true
     default: <app.ip-or-app.fqdn>
   # Domain name or IP where Onepanel is hosted
   # Use an IP address if running local, use `minikube ip` or `multipass list` to get this IP
   # In the cloud, use a first-level or multi-level subdomain like app.example.com or app.sub.example.com
-  host:
+  domain:
     required: true
     default: <ip-or-fqdn>
   local:

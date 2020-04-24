@@ -20,7 +20,7 @@ metadata:
   namespace: onepanel
 spec:
   hosts:
-    - $(applicationUrl)
+    - $(applicationFqdn)
   gateways:
     - istio-system/ingressgateway
   http:
