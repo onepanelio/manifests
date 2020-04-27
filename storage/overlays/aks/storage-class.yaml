@@ -7,3 +7,4 @@ parameters:
   kind: Managed
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
+allowVolumeExpansion: true
