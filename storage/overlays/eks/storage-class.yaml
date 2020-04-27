@@ -8,3 +8,4 @@ parameters:
   fsType: ext4
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
+allowVolumeExpansion: true

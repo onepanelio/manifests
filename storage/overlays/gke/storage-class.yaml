@@ -8,3 +8,4 @@ parameters:
 provisioner: kubernetes.io/gce-pd
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
+allowVolumeExpansion: true
