@@ -49,10 +49,11 @@ application:
     required: true
     default: <ip-or-domain>
   # The Fully Qualified Domain (FQDN) where Onepanel will be hosted.
-  # If you have a domain like example.com or sub.example.com, then your FQDN could be: app.example.com or app.sub.example.com
+  # Use the same IP address as `domain` above if running local, use `minikube ip` or `multipass list` to get this IP
+  # In the cloud, if `domain` above is set to example.com or sub.example.com, then your FQDN could be: app.example.com or app.sub.example.com respectively
   fqdn:
     required: true
-    default: <fqdn>
+    default: <ip-or-fqdn>
   local:
     # HTTP port for API
     apiHTTPPort:
