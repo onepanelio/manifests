@@ -22,12 +22,8 @@ spec:
 
           -- Called on the request path.
           function envoy_on_request(request_handle)
-            print("Start call to auth 10:06PM - Change this for sanity.")
-
             local id_token = nil
             local cookies = request_handle:headers():get("cookie")
-            print("Local cookies.\n")
-            print(cookies)
             if cookies ~= nil then
               id_token = get_value(cookies, "auth%-token")
             end
@@ -42,18 +38,9 @@ spec:
               ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
             }
 
-            print("headers")
-            print(table.concat(headers,", "))
-            print(headers)
-
-            print("id_token.\n")
-            print(id_token)
-
             if id_token ~= nil then
               headers["authorization"] = "Bearer " .. id_token
             end
-
-
 
             local response_headers, response_body = request_handle:httpCall(
                 "outbound_.80_._.onepanel-core.onepanel.svc.cluster.local",
@@ -62,10 +49,6 @@ spec:
                 5000
             )
 
-            print("Status header.\n")
-            print(table.concat(response_headers,", "))
-            print(response_headers[":status"])
-            print("\n")
             if tonumber(response_headers[":status"]) ~= 200 then
               print("Not authorized.")
               request_handle:respond(
