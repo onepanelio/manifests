@@ -36,7 +36,7 @@ spec:
               [":method"] = "HEAD",
               [":path"] = "/apis/v1beta1/auth/token",
               [":authority"] = "onepanel-core.onepanel.svc.local",
-              ["grpc-metadata-fqdn"] = "app.alexcluster.onepanel.io",
+              ["grpc-metadata-fqdn"] = "$(applicationFqdn)",
               ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
               ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
               ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
