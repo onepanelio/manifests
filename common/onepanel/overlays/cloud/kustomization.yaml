@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../base
   - service-onepanelcore-onepanel.yaml
-  - service-onepanelcoreui-onepanel.yaml
+  - service-onepanelcoreui-sonepanel.yaml
+  - istio-envoyfilter-istioingressgatewayauth-istio-system.yaml
 patchesStrategicMerge:
   - deployment-onepanelcore-onepanel-patch.yaml

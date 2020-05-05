@@ -8,7 +8,6 @@ resources:
  - configmap-onepanel-onepanel.yaml
  - deployment-onepanelcore-onepanel.yaml
  - deployment-onepanelcoreui-onepanel.yaml
- - istio-envoyfilter-istioingressgatewayauth-istio-system.yaml
  - namespace-defaultnamespace.yaml
  - namespace-onepanel.yaml
  - networkpolicy-default-onepanel.yaml
