@@ -4,5 +4,6 @@ resources:
   - ../../base
   - service-onepanelcore-onepanel.yaml
   - service-onepanelcoreui-onepanel.yaml
+  - istio-envoyfilter-istioingressgatewayauth-istio-system.yaml
 patchesStrategicMerge:
   - deployment-onepanelcore-onepanel-patch.yaml
