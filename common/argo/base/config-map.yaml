@@ -5,14 +5,14 @@ metadata:
   namespace: onepanel
 data:
   config: |
-    executorImage: $(artifactRepositoryExecutorImage)
-    containerRuntimeExecutor: $(artifactRepositoryContainerRuntimeExecutor)
+    executorImage: $(argoExecutorImage)
+    containerRuntimeExecutor: $(argoContainerRuntimeExecutor)
     artifactRepository:
       archiveLogs: true
       s3:
         region: $(artifactRepositoryS3Region)
         bucket: $(artifactRepositoryS3Bucket)
-        keyFormat: $(artifactRepositoryKeyFormat)
+        keyFormat: $(artifactRepositoryS3KeyFormat)
         endpoint: $(artifactRepositoryS3Endpoint)
         insecure: $(artifactRepositoryS3Insecure)
         accessKeySecret:
