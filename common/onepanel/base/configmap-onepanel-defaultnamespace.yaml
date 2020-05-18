@@ -4,19 +4,18 @@ metadata:
   name: onepanel
   namespace: $(applicationDefaultNamespace)
 data:
-  artifactRepository: |
-    s3:
-      bucket: $(artifactRepositoryS3Bucket)
-      endpoint: $(artifactRepositoryS3Endpoint)
-      insecure: $(artifactRepositoryS3Insecure)
-      region: $(artifactRepositoryS3Region)
-      accessKeySecret:
-        name: $(artifactRepositoryS3AccessKeySecretName)
-        key: $(artifactRepositoryS3AccessKeySecretKey)
-      secretKeySecret:
-        name: $(artifactRepositoryS3SecretKeySecretName)
-        key: $(artifactRepositoryS3SecretKeySecretKey)
-  artifactRepositoryContainerRuntimeExecutor: $(artifactRepositoryContainerRuntimeExecutor)
-  artifactRepositoryExecutorImage: $(artifactRepositoryExecutorImage)
-  artifactRepositoryKeyFormat: $(artifactRepositoryKeyFormat)
-  artifactRepositoryKeyPrefix: $(artifactRepositoryKeyPrefix)
+  config: |
+    artifactRepository:
+      keyFormat: $(artifactRepositoryKeyFormat)
+      keyPrefix: $(artifactRepositoryKeyPrefix)
+      s3:
+        bucket: $(artifactRepositoryS3Bucket)
+        endpoint: $(artifactRepositoryS3Endpoint)
+        insecure: $(artifactRepositoryS3Insecure)
+        region: $(artifactRepositoryS3Region)
+        accessKeySecret:
+          name: $(artifactRepositoryS3AccessKeySecretName)
+          key: $(artifactRepositoryS3AccessKeySecretKey)
+        secretKeySecret:
+          name: $(artifactRepositoryS3SecretKeySecretName)
+          key: $(artifactRepositoryS3SecretKeySecretKey)
