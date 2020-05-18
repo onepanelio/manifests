@@ -6,9 +6,8 @@ metadata:
 data:
   config: |
     artifactRepository:
-      keyFormat: $(artifactRepositoryKeyFormat)
-      keyPrefix: $(artifactRepositoryKeyPrefix)
       s3:
+        keyFormat: $(artifactRepositoryS3KeyFormat)
         bucket: $(artifactRepositoryS3Bucket)
         endpoint: $(artifactRepositoryS3Endpoint)
         insecure: $(artifactRepositoryS3Insecure)

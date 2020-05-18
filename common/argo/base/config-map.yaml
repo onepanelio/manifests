@@ -12,7 +12,7 @@ data:
       s3:
         region: $(artifactRepositoryS3Region)
         bucket: $(artifactRepositoryS3Bucket)
-        keyFormat: $(artifactRepositoryKeyFormat)
+        keyFormat: $(artifactRepositoryS3KeyFormat)
         endpoint: $(artifactRepositoryS3Endpoint)
         insecure: $(artifactRepositoryS3Insecure)
         accessKeySecret:
