@@ -5,6 +5,7 @@ metadata:
   namespace: $(applicationDefaultNamespace)
 data:
   artifactRepository: |
+    archiveLogs: true
     s3:
       keyFormat: $(artifactRepositoryS3KeyFormat)
       bucket: $(artifactRepositoryS3Bucket)
