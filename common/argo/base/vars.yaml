@@ -32,3 +32,6 @@ artifactRepository:
     region:
       required: true
       default: us-west-2
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
