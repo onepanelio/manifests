@@ -52,6 +52,11 @@ application:
   fqdn:
     required: true
     default: <fully-qualified-domain-name>
+  # HTTP or HTTPS - Do not change, determined by `opctl init --enable-https`
+  # CLI flag: --enable-https
+  insecure:
+    required: true
+    default: false
   local:
     # HTTP port for API
     apiHTTPPort:
@@ -65,24 +70,6 @@ application:
     uiHTTPPort:
       required: true
       default: 32002
-  cloud:
-    # Path of UI relative to host
-    uiPath:
-      required: true
-      default: /
-    # Path of API relative to host
-    apiPath:
-      required: true
-      default: /api
-    # GRPC port for API
-    apiGRPCPort:
-      required: true
-      default: 8887
-    # HTTP or HTTPS - Do not change, determined by `opctl init --enable-https`
-    # CLI flag: --enable-https
-    insecure:
-      required: true
-      default: false
   # Node pool or group label keys and values used for AutoScaling and for NodeSelectors
   # The provider will set these label key and values on your nodes automatically
   # These can also be customized depending on your provider
