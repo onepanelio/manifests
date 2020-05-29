@@ -32,6 +32,7 @@ artifactRepository:
     region:
       required: true
       default: us-west-2
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
       required: true
       default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
