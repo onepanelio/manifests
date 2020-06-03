@@ -19,5 +19,5 @@ rules:
     resources: ["virtualservices"]
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
   - apiGroups: ["argoproj.io"]
-    resources: ["workflows","workflowtemplates"]
+    resources: ["workflows"]
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
