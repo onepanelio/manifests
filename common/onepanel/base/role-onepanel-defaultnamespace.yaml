@@ -21,3 +21,6 @@ rules:
   - apiGroups: ["argoproj.io"]
     resources: ["workflows"]
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+  - apiGroups: ["argoproj.io"]
+    resources: ["workflowtemplates"]
+    verbs: ["create", "delete"]
