@@ -14,3 +14,6 @@ subjects:
 - kind: ServiceAccount
   name: default
   namespace: $(applicationDefaultNamespace) # replace with relevant namespace
+- kind: ServiceAccount
+  name: onepanel
+  namespace: onepanel
