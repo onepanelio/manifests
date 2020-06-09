@@ -57,19 +57,6 @@ application:
   insecure:
     required: true
     default: false
-  local:
-    # HTTP port for API
-    apiHTTPPort:
-      required: true
-      default: 32000
-    # GRPC port for API
-    apiGRPCPort:
-      required: true
-      default: 32001
-    # HTTP port for UI
-    uiHTTPPort:
-      required: true
-      default: 32002
   # Node pool or group label keys and values used for AutoScaling and for NodeSelectors
   # The provider will set these label key and values on your nodes automatically
   # These can also be customized depending on your provider
