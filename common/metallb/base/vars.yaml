@@ -1,0 +1,9 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Application and kubernetes load balancing on non-cloud deployments.
+# Description: MetalLB, LoadBalancer
+# CLI flag: --enable-metallb
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+metallb:
+  addresses:
+    - <ip-address-range-1>
+    - <ip-address-range-2>
