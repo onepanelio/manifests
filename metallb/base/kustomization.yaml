@@ -4,5 +4,5 @@ resources:
   - main-metallb-system.yaml
   - namespace-metallb-system.yaml
   - secret-memberlist-metallb-system.yaml
-patchesStrategicMerge:
   - configmap-kube-proxy-kube-system-patch.yaml
+  - configmap-config-metallb-system.yaml
