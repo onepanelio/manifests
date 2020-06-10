@@ -1,2 +1,4 @@
 Version 0.9.3
-https://github.com/metallb/metallb/releases
+
+MetalLb
+- <https://github.com/metallb/metallb/releases>
