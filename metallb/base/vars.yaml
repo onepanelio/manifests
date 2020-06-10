@@ -3,7 +3,7 @@
 # Description: MetalLB, LoadBalancer
 # CLI flag: --enable-metallb
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-metallb:
+metalLb:
   # If provider is minikube, run `minikube ip`
   # If minikube ip is 192.168.99.109, you can use:
   # addresses:
