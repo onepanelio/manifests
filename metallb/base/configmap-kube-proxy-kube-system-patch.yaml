@@ -3,3 +3,6 @@ kind: KubeProxyConfiguration
 mode: "ipvs"
 ipvs:
   strictARP: true
+metadata:
+  name: kube-proxy
+  namespace: kube-system
