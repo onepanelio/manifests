@@ -4,6 +4,13 @@
 # CLI flag: --enable-metallb
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 metallb:
+  # If provider is minikube, run `minikube ip`
+  # If minikube ip is 192.168.99.109, you can use:
+  # addresses:
+  #   - 192.168.99.0-192.168.99.108
+  # OR
+  # addresses:
+  #   - 192.168.99.0/32
   addresses:
     - <ip-address-range-1>
     - <ip-address-range-2>
