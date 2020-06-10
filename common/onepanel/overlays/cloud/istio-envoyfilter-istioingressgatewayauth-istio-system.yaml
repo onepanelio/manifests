@@ -29,14 +29,17 @@ spec:
             end
 
             local headers =  {
-              [":method"] = "HEAD",
-              [":path"] = "/apis/v1beta1/auth/token",
+              [":method"] = "POST",
+              [":path"] = "/apis/v1beta1/auth",
               [":authority"] = "onepanel-core.onepanel.svc.local",
-              ["grpc-metadata-fqdn"] = "$(applicationFqdn)",
               ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
               ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
               ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
             }
+
+            if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] then
+              return
+            end
 
             if id_token ~= nil then
               headers["authorization"] = "Bearer " .. id_token
