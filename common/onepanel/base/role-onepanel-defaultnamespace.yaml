@@ -24,3 +24,6 @@ rules:
   - apiGroups: ["argoproj.io"]
     resources: ["workflowtemplates"]
     verbs: ["create", "delete"]
+  - apiGroups: ["onepanel.io"]
+    resources: ["workspaces"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
