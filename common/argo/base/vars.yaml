@@ -36,3 +36,14 @@ artifactRepository:
     keyFormat:
       required: true
       default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Argo configuration
+# Description: Various options to adjust Argo behavior
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+argo:
+  # Specifies the container runtime interface to use (default: docker)
+  # must be one of: docker, kubelet, k8sapi, pns
+  # Ref: https://github.com/argoproj/argo/blob/master/docs/workflow-controller-configmap.yaml
+  containerRuntimeExecutor:
+    required: true
+    default: docker
