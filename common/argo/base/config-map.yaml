@@ -6,7 +6,7 @@ metadata:
 data:
   config: |
     executorImage: $(argoExecutorImage)
-    containerRuntimeExecutor: $(argoContainerRuntimeExecutor)
+    containerRuntimeExecutor: $(workflowEngineContainerRuntimeExecutor)
     artifactRepository:
       archiveLogs: true
       s3:
