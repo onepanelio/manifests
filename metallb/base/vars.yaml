@@ -7,7 +7,7 @@ metalLb:
   # If provider is minikube, run `minikube ip`
   # If minikube ip is 192.168.99.109, you can use:
   # addresses:
-  #   - 192.168.99.0-192.168.99.108
+  #   - 192.168.99.110-192.168.99.254
   # OR
   # addresses:
   #   - 192.168.99.0/32
