@@ -52,24 +52,16 @@ application:
   fqdn:
     required: true
     default: <fully-qualified-domain-name>
+  # The kubernetes cluster where Onepanel will be deployed.
+  # Valid values: minikube, microk8s, aks, eks, gke
+  provider:
+    required: true
+    default: <provider>
   # HTTP or HTTPS - Do not change, determined by `opctl init --enable-https`
   # CLI flag: --enable-https
   insecure:
     required: true
     default: false
-  local:
-    # HTTP port for API
-    apiHTTPPort:
-      required: true
-      default: 32000
-    # GRPC port for API
-    apiGRPCPort:
-      required: true
-      default: 32001
-    # HTTP port for UI
-    uiHTTPPort:
-      required: true
-      default: 32002
   # Node pool or group label keys and values used for AutoScaling and for NodeSelectors
   # The provider will set these label key and values on your nodes automatically
   # These can also be customized depending on your provider
