@@ -7,14 +7,14 @@ data:
   artifactRepository: |
     archiveLogs: true
     s3:
-      region: $(artifactRepositoryProviderRegion)
-      bucket: $(artifactRepositoryProviderBucket)
-      keyFormat: $(artifactRepositoryProviderKeyFormat)
-      endpoint: $(artifactRepositoryProviderEndpoint)
-      insecure: $(artifactRepositoryProviderInsecure)
+      keyFormat: $(artifactRepositoryS3KeyFormat)
+      bucket: $(artifactRepositoryS3Bucket)
+      endpoint: $(artifactRepositoryS3Endpoint)
+      insecure: $(artifactRepositoryS3Insecure)
+      region: $(artifactRepositoryS3Region)
       accessKeySecret:
-        name: $(artifactRepositoryProviderKeysAccessKeySecretName)
-        key: $(artifactRepositoryProviderKeysAccessKeySecretKey)
+        name: $(artifactRepositoryS3AccessKeySecretName)
+        key: $(artifactRepositoryS3AccessKeySecretKey)
       secretKeySecret:
-        name: $(artifactRepositoryProviderKeysSecretKeySecretName)
-        key: $(artifactRepositoryProviderKeysSecretKeySecretKey)
+        name: $(artifactRepositoryS3SecretKeySecretName)
+        key: $(artifactRepositoryS3SecretKeySecretKey)
