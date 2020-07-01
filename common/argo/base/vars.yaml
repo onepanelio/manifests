@@ -59,7 +59,7 @@ artifactRepository:
         default: secret-that-has-gcs-creds
       key:
         required: true
-        key: serviceAccountKey
+        default: serviceAccountKey
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
       required: true
