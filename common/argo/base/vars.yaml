@@ -53,13 +53,9 @@ artifactRepository:
     insecure:
       required: true
       default: false
-    serviceAccountKeySecret:
-      name:
-        required: true
-        default: secret-that-has-gcs-creds
-      key:
-        required: true
-        default: serviceAccountKey
+    serviceAccountKey:
+      required: true
+      default: '| <key.json-file-data>'
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
       required: true
