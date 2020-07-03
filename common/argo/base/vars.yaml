@@ -55,7 +55,8 @@ artifactRepository:
       default: false
     serviceAccountKey:
       required: true
-      default: '| <key.json-file-data>'
+      default: |
+        <key.json-file-data>
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
       required: true
