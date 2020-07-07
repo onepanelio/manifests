@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: modeldb
+  namespace: onepanel
+spec:
+  ports:
+    - name: modeldb
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+    - name: modeldb-proxy
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: modeldb
+  type: ClusterIP
+  sessionAffinity: None

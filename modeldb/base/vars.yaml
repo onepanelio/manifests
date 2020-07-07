@@ -1,0 +1,5 @@
+components:
+  modeldb:
+    test:
+      required: true
+      default: <default value>
