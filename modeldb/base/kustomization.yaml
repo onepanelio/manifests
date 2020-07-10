@@ -1,7 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - deployment-graphql.yaml
+  - deployment-webapp.yaml
+  - statefulset-backend.yaml
+  - statefulset-database.yaml
+  - secret-database.yaml
   - secret-modeldb-backend.yaml
-  - service.yaml
-  - statefulset.yaml
+  - service-backend.yaml
+  - service-graphql.yaml
+  - service-webapp.yaml
+  - service-database-headless.yaml
+  - service-database.yaml
   - virtual-service.yaml

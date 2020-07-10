@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modeldb-webapp
+  namespace: $(applicationDefaultNamespace)
+  labels:
+    app: modeldb
+    component: webapp
+spec:
+  selector:
+    matchLabels:
+      app: modeldb
+      component: webapp
+  template:
+    metadata:
+      labels:
+        app: modeldb
+        component: webapp
+      annotations:
+        verta.ai/disable_anti_affinity: "true"
+    spec:
+      containers:
+        - image: vertaaiofficial/modeldb-frontend:latest
+          imagePullPolicy: Always
+          name: modeldb
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: DEPLOYED
+              value: "yes"
+            - name: BACKEND_API_PROTOCOL
+              value: "http"
+            - name: BACKEND_API_DOMAIN
+              value: "modeldb-webapp:3000"
+            - name: MDB_ADDRESS
+              value: http://modeldb-backend:3000
+            - name: ARTIFACTORY_ADDRESS
+              value: http://modeldb-backend:8086
+            - name: GQL_ADDRESS
+              value: http://modeldb-graphql:3000
+          livenessProbe:
+            httpGet:
+              path: "/"
+              port: 3000
+            initialDelaySeconds: 1
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: "/"
+              port: 3000
+            initialDelaySeconds: 1
+            periodSeconds: 5
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  "/bin/sh", "-c",
+                  "sleep 10",
+                ]
