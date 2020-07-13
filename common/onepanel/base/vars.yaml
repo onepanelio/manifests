@@ -62,17 +62,25 @@ application:
   insecure:
     required: true
     default: false
-  # Node pool or group label keys and values used for AutoScaling and for NodeSelectors
-  # The provider will set these label key and values on your nodes automatically
-  # These can also be customized depending on your provider
+  # Node pool keys and values used for AutoScaling and for NodeSelectors
+  # The cluster provider will set these label key and values on your nodes automatically
+  # resources.limits is optional but is highly recommended, especially for GPU nodes
   nodePool:
     label: <node-pool-label>
     # Add more by following the format:
     # - name: <name>
     #   value: <value>
+    #   resources:
+    #     limits:
+    #       nvidia.com/gpu: 1
     # The first option will be used as default.
     options:
       - name: 'Use friendly name 1'
         value: <value-1>
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            cpu: 5000m
+            memory: 50000Mi
       - name: 'Use friendly name 2'
         value: <value-2>
