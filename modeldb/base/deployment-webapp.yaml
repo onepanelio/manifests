@@ -20,7 +20,7 @@ spec:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: 'onepanel/modeldb:0.0.1'
+        - image: 'onepanel/modeldb:0.0.2'
           imagePullPolicy: Always
           name: modeldb
           ports:
@@ -40,7 +40,7 @@ spec:
             - name: BACKEND_API_PROTOCOL
               value: "http"
             - name: BACKEND_API_DOMAIN
-              value: "modeldb-webapp:3005"
+              value: "modeldb-webapp:3000"
             - name: MDB_ADDRESS
               value: http://modeldb-backend:3005
             - name: ARTIFACTORY_ADDRESS
