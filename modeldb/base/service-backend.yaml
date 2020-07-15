@@ -12,8 +12,9 @@ spec:
       port: 8085
     - name: artifactstore
       port: 8086
-    - port: 3000
-      name: http
+    - name: http
+      port: 3005
+      targetPort: 3000
   selector:
     app: modeldb
     component: backend
