@@ -1,5 +1,8 @@
 components:
   modeldb:
-    test:
-      required: true
-      default: <default value>
+    artifactRepository:
+      s3:
+        # An s3 bucket to store your modeldb artifacts
+        bucketName:
+          required: true
+          default: <bucket_name>
