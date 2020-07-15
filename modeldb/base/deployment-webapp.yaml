@@ -20,7 +20,7 @@ spec:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: vertaaiofficial/modeldb-frontend:latest
+        - image: 'onepanel/modeldb:0.0.1'
           imagePullPolicy: Always
           name: modeldb
           ports:
@@ -40,13 +40,15 @@ spec:
             - name: BACKEND_API_PROTOCOL
               value: "http"
             - name: BACKEND_API_DOMAIN
-              value: "modeldb-webapp:3000"
+              value: "modeldb-webapp:3005"
             - name: MDB_ADDRESS
-              value: http://modeldb-backend:3000
+              value: http://modeldb-backend:3005
             - name: ARTIFACTORY_ADDRESS
               value: http://modeldb-backend:8086
             - name: GQL_ADDRESS
               value: http://modeldb-graphql:3000
+            - name: GRAPHQL_CHANGE_ORIGIN
+              value: 'true'
           livenessProbe:
             httpGet:
               path: "/"
