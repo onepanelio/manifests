@@ -32,6 +32,7 @@ spec:
               [":method"] = "POST",
               [":path"] = "/apis/v1beta1/auth",
               [":authority"] = "onepanel-core.onepanel.svc.local",
+              ["authorization"] = request_handle:headers():get("authorization"),
               ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
               ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
               ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
@@ -41,7 +42,7 @@ spec:
               return
             end
 
-            if id_token ~= nil then
+            if headers["authorization"] == nil and id_token ~= nil then
               headers["authorization"] = "Bearer " .. id_token
             end
 
