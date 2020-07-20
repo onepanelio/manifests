@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: modeldb-webapp
-  namespace: onepanel
+  namespace: $(applicationDefaultNamespace)
   labels:
     app: modeldb
     component: webapp
