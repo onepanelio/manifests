@@ -1,8 +1,37 @@
 components:
-  modeldb:
+  modelDb:
     artifactRepository:
       s3:
+        # S3 access key
+        accessKey:
+          required: false
+          hide: true
+        secretKey:
+          required: false
+          hide: true
         # An s3 bucket to store your modeldb artifacts
-        bucketName:
+        bucket:
           required: true
           default: <bucket_name>
+        region:
+          required: true
+          default: us-west-2
+    database:
+      # The name of the database where modeldb records will be stored.
+      # This needs to exist already, the software will not automatically create it for you.
+      databaseName:
+        required: true
+        default: modeldb
+      host:
+        required: false
+        hide: true
+      password:
+        required: false
+        hide: true
+      port:
+        required: false
+        hide: true
+      username:
+        required: false
+        hide: true
+

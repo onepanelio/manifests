@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: modeldb-graphql
-  namespace: $(applicationDefaultNamespace)
+  namespace: onepanel
   labels:
     app: modeldb
     component: graphql

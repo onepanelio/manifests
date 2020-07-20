@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: modeldb-backend
-  namespace: $(applicationDefaultNamespace)
+  namespace: onepanel
   labels:
     app: modeldb
     component: backend
