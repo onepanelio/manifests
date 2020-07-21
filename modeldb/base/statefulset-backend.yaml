@@ -22,10 +22,10 @@ spec:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: vertaaiofficial/modeldb-backend:latest
+        - image: onepanel/modeldb-backend:0.0.2
           env:
             - name: VERTA_MODELDB_CONFIG
-              value: /config-backend/config.yaml
+              value: /config/config.yaml
           imagePullPolicy: Always
           name: backend
           ports:
@@ -49,7 +49,7 @@ spec:
               memory: 1Gi
 
           volumeMounts:
-            - mountPath: /config-backend
+            - mountPath: /config
               name: modeldb-secret-volume
               readOnly: true
             - mountPath: "/artifact-store/"
