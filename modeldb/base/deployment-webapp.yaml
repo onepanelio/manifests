@@ -20,7 +20,7 @@ spec:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: 'onepanel/modeldb:0.0.2'
+        - image: 'onepanel/modeldb_web:0.0.1'
           imagePullPolicy: Always
           name: modeldb
           ports:
