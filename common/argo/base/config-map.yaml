@@ -7,17 +7,3 @@ data:
   config: |
     executorImage: $(argoExecutorImage)
     containerRuntimeExecutor: $(workflowEngineContainerRuntimeExecutor)
-    artifactRepository:
-      archiveLogs: true
-      s3:
-        region: $(artifactRepositoryS3Region)
-        bucket: $(artifactRepositoryS3Bucket)
-        keyFormat: $(artifactRepositoryS3KeyFormat)
-        endpoint: $(artifactRepositoryS3Endpoint)
-        insecure: $(artifactRepositoryS3Insecure)
-        accessKeySecret:
-          name: $(artifactRepositoryS3AccessKeySecretName)
-          key: $(artifactRepositoryS3AccessKeySecretKey)
-        secretKeySecret: 
-          name: $(artifactRepositoryS3SecretKeySecretName)
-          key: $(artifactRepositoryS3SecretKeySecretKey)
