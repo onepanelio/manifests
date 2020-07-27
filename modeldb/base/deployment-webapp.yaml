@@ -16,19 +16,18 @@ spec:
       labels:
         app: modeldb
         component: webapp
+        component.onepanel.io/name: modeldb
+        component.onepanel.io/part-of: onepanel
       annotations:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: 'onepanel/modeldb_web:0.0.1'
+        - image: 'onepanel/modeldb_web:0.0.2'
           imagePullPolicy: Always
           name: modeldb
           ports:
             - containerPort: 3000
           resources:
-            limits:
-              cpu: 250m
-              memory: 256Mi
             requests:
               cpu: 250m
               memory: 256Mi

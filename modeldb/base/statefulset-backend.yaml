@@ -6,6 +6,8 @@ metadata:
   labels:
     app: modeldb
     component: backend
+    component.onepanel.io/name: modeldb
+    component.onepanel.io/part-of: onepanel
 spec:
   selector:
     matchLabels:
@@ -22,7 +24,7 @@ spec:
         verta.ai/disable_anti_affinity: "true"
     spec:
       containers:
-        - image: onepanel/modeldb-backend:0.0.2
+        - image: vertaaiofficial/modeldb-backend:2.0.8
           env:
             - name: VERTA_MODELDB_CONFIG
               value: /config/config.yaml
@@ -41,20 +43,16 @@ spec:
                   "sleep 10",
                 ]
           resources:
-            limits:
-              cpu: 750m
-              memory: 1Gi
             requests:
               cpu: 750m
               memory: 1Gi
-
           volumeMounts:
             - mountPath: /config
               name: modeldb-secret-volume
               readOnly: true
             - mountPath: "/artifact-store/"
               name: modeldb
-        - image: vertaaiofficial/modeldb-proxy:latest
+        - image: vertaaiofficial/modeldb-proxy:2.0.8
           imagePullPolicy: Always
           name: proxy
           env:
@@ -66,9 +64,6 @@ spec:
             - containerPort: 3000
               name: http
           resources:
-            limits:
-              cpu: 500m
-              memory: 256Mi
             requests:
               cpu: 500m
               memory: 256Mi

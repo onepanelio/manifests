@@ -6,6 +6,8 @@ metadata:
   labels:
     app: modeldb
     component: webapp
+    component.onepanel.io/name: modeldb
+    component.onepanel.io/part-of: onepanel
 spec:
   ports:
     - port: 80
