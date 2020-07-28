@@ -23,6 +23,39 @@ spec:
         checksum/config: 74ff65e869dc95685033affe042f25ebfb5a81fe20c0f57f65312ef943823e45
         verta.ai/disable_anti_affinity: "true"
     spec:
+      initContainers:
+        - image: onepanel/tasks-database:0.0.1
+          name: create-database
+          env:
+            - name: DRIVER_NAME
+              value: postgres
+            - name: DEFAULT_DATABASE_NAME
+              value: $(componentsModelDbDatabaseDefaultDatabaseName)
+            - name: HOST
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseHost
+            - name: NEW_DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseName
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databasePort
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseUsername
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databasePassword
       containers:
         - image: vertaaiofficial/modeldb-backend:2.0.8
           env:

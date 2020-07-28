@@ -18,10 +18,15 @@ components:
           default: us-west-2
     database:
       # The name of the database where modeldb records will be stored.
-      # This needs to exist already, the software will not automatically create it for you.
+      # This will be automatically created if it does not exist
       databaseName:
         required: true
         default: modeldb
+      # This must be a database that already exists. It is used to establish a connection
+      # so the system can create the databaseName.
+      defaultDatabaseName:
+        required: true
+        default: postgres
       host:
         required: false
         hide: true
