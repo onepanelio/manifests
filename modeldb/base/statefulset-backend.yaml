@@ -6,8 +6,8 @@ metadata:
   labels:
     app: modeldb
     component: backend
-    component.onepanel.io/name: modeldb
-    component.onepanel.io/part-of: onepanel
+    service.onepanel.io/name: modeldb
+    service.onepanel.io/part-of: onepanel
 spec:
   selector:
     matchLabels:
@@ -30,7 +30,7 @@ spec:
             - name: DRIVER_NAME
               value: postgres
             - name: DEFAULT_DATABASE_NAME
-              value: $(componentsModelDbDatabaseDefaultDatabaseName)
+              value: $(servicesModelDbDatabaseDefaultDatabaseName)
             - name: HOST
               valueFrom:
                 secretKeyRef:

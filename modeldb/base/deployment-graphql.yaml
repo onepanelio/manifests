@@ -6,8 +6,8 @@ metadata:
   labels:
     app: modeldb
     component: graphql
-    component.onepanel.io/name: modeldb
-    component.onepanel.io/part-of: onepanel
+    service.onepanel.io/name: modeldb
+    service.onepanel.io/part-of: onepanel
 spec:
   selector:
     matchLabels:

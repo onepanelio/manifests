@@ -16,8 +16,8 @@ spec:
       labels:
         app: modeldb
         component: webapp
-        component.onepanel.io/name: modeldb
-        component.onepanel.io/part-of: onepanel
+        service.onepanel.io/name: modeldb
+        service.onepanel.io/part-of: onepanel
       annotations:
         verta.ai/disable_anti_affinity: "true"
     spec:

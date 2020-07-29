@@ -1,4 +1,4 @@
-components:
+services:
   modelDb:
     artifactRepository:
       s3:
