@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: modeldb-backend
+  namespace: $(applicationDefaultNamespace)
+  labels:
+    app: modeldb
+    component: backend
+    service.onepanel.io/name: modeldb
+    service.onepanel.io/part-of: onepanel
+spec:
+  selector:
+    matchLabels:
+      app: modeldb
+      component: backend
+  serviceName: modeldb-headless
+  template:
+    metadata:
+      labels:
+        app: modeldb
+        component: backend
+      annotations:
+        checksum/config: 74ff65e869dc95685033affe042f25ebfb5a81fe20c0f57f65312ef943823e45
+        verta.ai/disable_anti_affinity: "true"
+    spec:
+      initContainers:
+        - image: onepanel/tasks-database:0.0.1
+          name: create-database
+          env:
+            - name: DRIVER_NAME
+              value: postgres
+            - name: DEFAULT_DATABASE_NAME
+              value: $(servicesModelDbDatabaseDefaultDatabaseName)
+            - name: HOST
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseHost
+            - name: NEW_DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseName
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databasePort
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databaseUsername
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: modeldb-secret
+                  key: databasePassword
+      containers:
+        - image: vertaaiofficial/modeldb-backend:2.0.8
+          env:
+            - name: VERTA_MODELDB_CONFIG
+              value: /config/config.yaml
+          imagePullPolicy: Always
+          name: backend
+          ports:
+            - containerPort: 8085
+              name: backend
+            - containerPort:  8086
+              name: artifactstore
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  "/bin/sh", "-c",
+                  "sleep 10",
+                ]
+          resources:
+            requests:
+              cpu: 750m
+              memory: 1Gi
+          volumeMounts:
+            - mountPath: /config
+              name: modeldb-secret-volume
+              readOnly: true
+            - mountPath: "/artifact-store/"
+              name: modeldb
+        - image: vertaaiofficial/modeldb-proxy:2.0.8
+          imagePullPolicy: Always
+          name: proxy
+          env:
+            - name: MDB_ADDRESS
+              value: localhost:8085
+            - name: SERVER_HTTP_PORT
+              value: "3000"
+          ports:
+            - containerPort: 3000
+              name: http
+          resources:
+            requests:
+              cpu: 500m
+              memory: 256Mi
+      volumes:
+        - name: modeldb-secret-volume
+          secret:
+            secretName: modeldb-backend-config-secret
+  volumeClaimTemplates:
+    - metadata:
+        labels:
+          app: modeldb
+          component: backend
+        name: modeldb
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: "100Gi"

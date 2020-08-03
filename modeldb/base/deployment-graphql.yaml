@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modeldb-graphql
+  namespace: $(applicationDefaultNamespace)
+  labels:
+    app: modeldb
+    component: graphql
+    service.onepanel.io/name: modeldb
+    service.onepanel.io/part-of: onepanel
+spec:
+  selector:
+    matchLabels:
+      app: modeldb
+      component: graphql
+  template:
+    metadata:
+      labels:
+        app: modeldb
+        component: graphql
+      annotations:
+        verta.ai/disable_anti_affinity: "true"
+    spec:
+      containers:
+        - image: vertaaiofficial/modeldb-graphql:latest
+          imagePullPolicy: "Always"
+          name: modeldb
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+
+          env:
+            - name: MDB_ADDRESS
+              value: "modeldb-backend:8085"
+            - name: QUERY_PATH
+              value: "/api/v1/graphql/query"
+            - name: SERVER_HTTP_PORT
+              value: "3000"

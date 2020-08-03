@@ -1,0 +1,42 @@
+services:
+  modelDb:
+    artifactRepository:
+      s3:
+        # S3 access key
+        accessKey:
+          required: false
+          hide: true
+        secretKey:
+          required: false
+          hide: true
+        # An s3 bucket to store your modeldb artifacts
+        bucket:
+          required: true
+          default: <bucket_name>
+        region:
+          required: true
+          default: us-west-2
+    database:
+      # The name of the database where modeldb records will be stored.
+      # This will be automatically created if it does not exist
+      databaseName:
+        required: true
+        default: modeldb
+      # This must be a database that already exists. It is used to establish a connection
+      # so the system can create the databaseName.
+      defaultDatabaseName:
+        required: true
+        default: postgres
+      host:
+        required: false
+        hide: true
+      password:
+        required: false
+        hide: true
+      port:
+        required: false
+        hide: true
+      username:
+        required: false
+        hide: true
+

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: modeldb-webapp
+  namespace: $(applicationDefaultNamespace)
+  labels:
+    app: modeldb
+    component: webapp
+    service.onepanel.io/name: modeldb
+    service.onepanel.io/part-of: onepanel
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector:
+    app: modeldb
+    component: webapp
+  type: ClusterIP
