@@ -5,6 +5,8 @@ resources:
  - crd.yaml
  - clusterrole-onepanel.yaml
  - clusterrolebinding-onepanel.yaml
+ - clustetrrole-onepanel-namespaces.yaml
+ - clusterrolebinding-onepanel-namespaces-defaultnamespace.yaml
  - configmap-onepanel-defaultnamespace.yaml
  - configmap-onepanel-onepanel.yaml
  - deployment-onepanelcore-onepanel.yaml
