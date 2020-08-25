@@ -7,7 +7,7 @@ data:
   ONEPANEL_FQDN: $(applicationFqdn)
   ONEPANEL_DOMAIN: $(applicationDomain)
   ONEPANEL_API_URL: $(onepanelApiUrl)
-  PROVIDER_TYPE: $(providerType)
+  ONEPANEL_PROVIDER: $(applicationProvider)
   databaseHost: $(databaseHost)
   databasePort: $(databasePort)
   databaseName: $(databaseDatabaseName)

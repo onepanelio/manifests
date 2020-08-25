@@ -7,6 +7,9 @@ metadata:
   namespace: $(applicationDefaultNamespace) # replace with relevant namespace
 rules:
   - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get"]
+  - apiGroups: [""]
     resources: ["pods", "pods/log"]
     verbs: ["get", "watch", "patch"]
   - apiGroups: [""]
@@ -23,4 +26,7 @@ rules:
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
   - apiGroups: ["onepanel.io"]
     resources: ["workspaces"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+  - apiGroups: ["onepanel.io"]
+    resources: ["services"]
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]

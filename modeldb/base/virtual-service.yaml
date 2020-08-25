@@ -1,0 +1,19 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: modeldb
+  namespace: $(applicationDefaultNamespace)
+spec:
+  gateways:
+    - istio-system/ingressgateway
+  hosts:
+    - modeldb--$(applicationDefaultNamespace).$(applicationDomain)
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: modeldb-webapp
+            port:
+              number: 80
