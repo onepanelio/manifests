@@ -4,11 +4,11 @@ metadata:
   name: metadataLabelTransformer
 labels:
   app.kubernetes.io/name: istio
-  app.kubernetes.io/instance: istio-v1.4.6
+  app.kubernetes.io/instance: istio-v1.7.1
   app.kubernetes.io/managed-by: onepanel-cli
   app.kubernetes.io/component: istio
   app.kubernetes.io/part-of: onepanel
-  app.kubernetes.io/version: v1.4.6
+  app.kubernetes.io/version: v1.7.1
 fieldSpecs:
 - path: metadata/labels
   create: true

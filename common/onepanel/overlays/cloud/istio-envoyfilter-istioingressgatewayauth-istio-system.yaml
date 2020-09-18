@@ -4,60 +4,67 @@ metadata:
   name: istio-ingress-gateway-auth
   namespace: istio-system
 spec:
-  filters:
-    - listenerMatch:
-        portNumber: 443
-        listenerType: GATEWAY
-      filterName: envoy.lua
-      filterType: HTTP
-      insertPosition:
-        index: FIRST
-      filterConfig:
-        inlineCode: |
-          function get_value(keyvaluepairs, key)
-            for value in string.gmatch(keyvaluepairs, key .. "=([^;]*)") do
-              return value
-            end
-          end
+  configPatches:
+      - applyTo: HTTP_FILTER
+        match:
+          context: ANY
+          listener:
+            filterChain:
+              filter:
+                name: envoy.http_connection_manager
+          proxy:
+            proxyVersion: ^1\.7.*
+        patch:
+          operation: INSERT_BEFORE
+          value:
+            name: envoy.filters.http.lua
+            typed_config:
+              '@type': type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+              inlineCode:  |
+                function get_value(keyvaluepairs, key)
+                  for value in string.gmatch(keyvaluepairs, key .. "=([^;]*)") do
+                    return value
+                  end
+                end
 
-          -- Called on the request path.
-          function envoy_on_request(request_handle)
-            local id_token = nil
-            local cookies = request_handle:headers():get("cookie")
-            if cookies ~= nil then
-              id_token = get_value(cookies, "auth%-token")
-            end
+                -- Called on the request path.
+                function envoy_on_request(request_handle)
+                  local id_token = nil
+                  local cookies = request_handle:headers():get("cookie")
+                  if cookies ~= nil then
+                    id_token = get_value(cookies, "auth%-token")
+                  end
 
-            local headers =  {
-              [":method"] = "POST",
-              [":path"] = "/apis/v1beta1/auth",
-              [":authority"] = "onepanel-core.onepanel.svc.local",
-              ["onepanel-auth-token"] = request_handle:headers():get("onepanel-auth-token"),
-              ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
-              ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
-              ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
-            }
+                  local headers =  {
+                    [":method"] = "POST",
+                    [":path"] = "/apis/v1beta1/auth",
+                    [":authority"] = "onepanel-core.onepanel.svc.local",
+                    ["onepanel-auth-token"] = request_handle:headers():get("onepanel-auth-token"),
+                    ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
+                    ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
+                    ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
+                  }
 
-            if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] then
-              return
-            end
+                  if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] then
+                    return
+                  end
 
-            if id_token ~= nil then
-              headers["authorization"] = "Bearer " .. id_token
-            end
+                  if id_token ~= nil then
+                    headers["authorization"] = "Bearer " .. id_token
+                  end
 
-            local response_headers, response_body = request_handle:httpCall(
-                "outbound_.80_._.onepanel-core.onepanel.svc.cluster.local",
-                headers,
-                "",
-                5000
-            )
+                  local response_headers, response_body = request_handle:httpCall(
+                      "outbound_.80_._.onepanel-core.onepanel.svc.cluster.local",
+                      headers,
+                      "",
+                      5000
+                  )
 
-            if tonumber(response_headers[":status"]) ~= 200 then
-              print("Not authorized.")
-              request_handle:respond(
-                {[":status"] = response_headers[":status"]},
-                response_body
-              )
-            end
-          end
+                  if tonumber(response_headers[":status"]) ~= 200 then
+                    print("Not authorized.")
+                    request_handle:respond(
+                      {[":status"] = response_headers[":status"]},
+                      response_body
+                    )
+                  end
+                end
