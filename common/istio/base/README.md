@@ -6,5 +6,6 @@ istioctl manifest generate --set profile=default \
     --set values.prometheus.enabled=false \
     --set values.mixer.adapters.prometheus.enabled=false \
     --set values.gateways.istio-ingressgateway.sds.enabled=true \
+    --set values.global.proxy.holdApplicationUntilProxyStarts=true \
     > common/istio/base/istio.yaml
 ```
