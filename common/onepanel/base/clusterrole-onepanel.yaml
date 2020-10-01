@@ -11,6 +11,7 @@ rules:
   - pods
   - pods/exec
   - namespaces
+  - nodes
   verbs:
   - create
   - get
