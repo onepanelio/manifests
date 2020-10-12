@@ -6,7 +6,7 @@ metadata:
   name: onepanel-cluster-admin
 rules:
 - apiGroups: [""]
-  resources: ["services", "configmaps"]
+  resources: ["services", "configmaps", "pods", "pods/log"]
   verbs: ["get", "watch", "list"]
 - apiGroups: [""]
   resources: ["namespaces", "secrets"]
