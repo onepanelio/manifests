@@ -25,6 +25,7 @@ rules:
   resources:
   - configmaps
   - secrets
+  - serviceaccounts
   verbs:
   - get
   - watch
