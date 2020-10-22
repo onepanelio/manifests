@@ -1,5 +1,0 @@
-clusterAutoscaler:
-  eks:
-    clusterName:
-      required: true
-      default: <clusterName>
