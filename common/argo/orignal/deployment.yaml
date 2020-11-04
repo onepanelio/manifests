@@ -1,4 +1,4 @@
-# common/argo/base/workflow-controller/workflow-controller-deployment.yaml
+# common/argo/source/base/workflow-controller/workflow-controller-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
