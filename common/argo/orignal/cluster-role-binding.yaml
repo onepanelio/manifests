@@ -1,4 +1,4 @@
----
+# common/argo/cluster-install/workflow-controller-rbac/workflow-controller-clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:

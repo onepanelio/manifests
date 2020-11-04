@@ -1,0 +1,61 @@
+# common/argo/cluster-install/workflow-controller-rbac/workflow-controller-clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  labels:
+    app: argo
+  name: argo
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/exec
+  verbs:
+  - create
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - create
+  - delete
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflows
+  - workflows/finalizers
+  - cronworkflows
+  - cronworkflows/finalizers
+  verbs:
+  - create
+  - get
+  - list
+  - watch
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflowtemplates
+  - workflowtemplates/finalizers
+  verbs:
+  - get
+  - list
+  - watch
+
