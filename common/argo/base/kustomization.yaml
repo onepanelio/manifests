@@ -1,7 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../source/cluster-install
+  - ../source/base/crds
+  - ../source/base/workflow-controller
+  - ../source/cluster-install/workflow-controller-rbac
 patchesJson6902:
   - target:
       version: v1
@@ -21,3 +23,8 @@ patchesJson6902:
       kind: Deployment
       name: workflow-controller
     path: workflow-controller-deployment-patch.yaml
+  - target:
+      version: v1
+      kind: ServiceAccount
+      name: argo
+    path: workflow-controller-sa-patch.yaml

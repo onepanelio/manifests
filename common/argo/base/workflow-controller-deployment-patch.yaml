@@ -1,4 +1,3 @@
 - op: add
-  path: /metadata/labels
-  value:
-    namespace: onepanel
+  path: /metadata/namespace
+  value: onepanel
