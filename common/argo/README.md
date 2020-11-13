@@ -1,6 +1,5 @@
 This section represents the manifests from [argo](https://github.com/argoproj/argo) along with our modifications.
 
-
 ## Structure
 
 The source manifests are in `argo/source`. This is a direct copy from the github repository.
