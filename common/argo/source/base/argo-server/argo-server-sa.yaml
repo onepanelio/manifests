@@ -1,7 +1,4 @@
----
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: argo
-  namespace: onepanel
-
+  name: argo-server

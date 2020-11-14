@@ -1,9 +1,7 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: workflow-controller
-  namespace: onepanel
 spec:
   selector:
     matchLabels:
@@ -13,14 +11,16 @@ spec:
       labels:
         app: workflow-controller
     spec:
+      serviceAccountName: argo
       containers:
-      - args:
+      - name: workflow-controller
+        image: argoproj/workflow-controller:v2.11.6
+        command:
+        - workflow-controller
+        args:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - argoproj/argoexec:v2.9.4
-        command:
-        - workflow-controller
-        image: argoproj/workflow-controller:v2.9.4
-        name: workflow-controller
-      serviceAccountName: argo
+        - argoproj/argoexec:v2.11.6
+      nodeSelector:
+        kubernetes.io/os: linux
