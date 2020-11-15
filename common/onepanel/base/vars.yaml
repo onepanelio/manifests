@@ -3,10 +3,12 @@
 # Description: Database connection information
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 database:
-  # Database host - use `postgres` for in-cluster test database
+  # Database host - 
+  # Leave as `postgres` for in-cluster database
+  # For managed databases, use the database host name
   host:
     required: true
-    default: <database-ip-or-hostname>
+    default: postgres
   # Database username
   # If using an external production database, use the username for that database.
   # For in-cluster test database, use any username you like.
