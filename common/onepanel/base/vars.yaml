@@ -65,7 +65,6 @@ application:
     required: true
     default: false
   # Node pool key and values used for AutoScaling
-  # The cluster provider will automatically set these label key and values on your nodes
   nodePool:
     # Cloud providers will automatically set label key as "node.kubernetes.io/instance-type" on all nodes
     # Kubernetes 1.16.x: use "beta.kubernetes.io/instance-type"
