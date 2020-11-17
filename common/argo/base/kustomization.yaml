@@ -4,6 +4,8 @@ resources:
   - ../source/base/crds
   - ../source/base/workflow-controller
   - ../source/cluster-install/workflow-controller-rbac
+patchesStrategicMerge:
+  - workflow-controller-configmap-patch.yaml
 patchesJson6902:
   - target:
       version: v1
