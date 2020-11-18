@@ -1,21 +1,86 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Artifact repository
+# Description: S3 compatible object storage for storing files across Onepanel
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+artifactRepository:
+  s3:
+    # S3 access key
+    accessKey:
+      required: true
+      default: <access-key>
+    # S3 secret key
+    secretKey:
+      required: true
+      default: <secret-key>
+    # Name of bucket, example: my-bucket
+    bucket:
+      required: true
+      default: <bucket-name>
+    # Endpoint for S3 compatible storage
+    # Supported provider endpoints:
+    #   AWS: s3.amazonaws.com
+    #   GCS: storage.googleapis.com
+    #   Minio: my-minio-endpoint.default:9000
+    endpoint:
+      required: true
+      default: s3.amazonaws.com
+    # Change to true if endpoint does NOT support HTTPS
+    insecure:
+      required: true
+      default: false
+    # Bucket region
+    region:
+      required: true
+      default: us-west-2
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+  gcs:
+    # Name of bucket, example: my-bucket
+    bucket:
+      required: true
+      default: <bucket-name>
+    # Endpoint for S3 compatible storage
+    # Supported provider endpoints:
+    #   AWS: s3.amazonaws.com
+    #   GCS: storage.googleapis.com
+    #   Minio: my-minio-endpoint.default:9000
+    endpoint:
+      required: true
+      default: storage.googleapis.com
+    # Change to true if endpoint does NOT support HTTPS
+    insecure:
+      required: true
+      default: false
+    serviceAccountKey:
+      required: true
+      default: |
+        <key.json-file-data>
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Component: Database
 # Description: Database connection information
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 database:
-  # Database host - use `postgres` for in-cluster test database
+  # Database host
+  # If using a managed databases, use the database host name.
+  # Leave as `postgres` for in-cluster database.
   host:
     required: true
-    default: <database-ip-or-hostname>
+    default: postgres
   # Database username
-  # If using an external production database, use the username for that database.
-  # For in-cluster test database, use any username you like.
+  # If using a managed database, use the username for that database.
+  # For in-cluster database, pick any username.
   username:
     required: true
     default: <username>
   # Database password
-  # If using an external production database, use the password for that database.
-  # For in-cluster test database, use any password you like.
+  # If using a managed database, use the password for that database.
+  # For in-cluster database, pick any password.
   password:
     required: true
     default: <password>
@@ -24,8 +89,8 @@ database:
     required: true
     default: 5432
   # Name of database
-  # If using an external production database, use the name of that database.
-  # For in-cluster test database, use any name you like.
+  # If using a managed database, use the name of that database.
+  # For in-cluster database, leave as "onepanel".
   databaseName:
     required: true
     default: onepanel
@@ -62,16 +127,16 @@ application:
   insecure:
     required: true
     default: false
-  # Node pool keys and values used for AutoScaling and for NodeSelectors
-  # The cluster provider will set these label key and values on your nodes automatically
+  # Node pool key and values used for AutoScaling
   nodePool:
-    label: <node-pool-label>
-    # Add more by following the format:
-    # - name: <name>
-    #   value: <value>
+    # Cloud providers will automatically set label key as "node.kubernetes.io/instance-type" on all nodes
+    # For Kubernetes 1.16.x, use "beta.kubernetes.io/instance-type"
+    label: node.kubernetes.io/instance-type
+    # These are the machine type options that will be available in Onepanel
+    # `name` can be any user friendly name, `value` should be the instance type in your cloud provider
     # The first option will be used as default.
     options:
-      - name: 'Use friendly name 1'
-        value: <value-1>
-      - name: 'Use friendly name 2'
-        value: <value-2>
+      - name: 'CPU: X, RAM: Z GB'
+        value: <instance-type-name-1>
+      - name: 'CPU: X, GPU: Y, RAM: Z GB'
+        value: <instance-type-name-2>
