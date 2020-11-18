@@ -6,3 +6,12 @@ resources:
 - gateway.yaml
 transformers:
 - metadataLabelTransformer.yaml
+patches:
+  - path: deployment-ingressgateway-patch.yaml
+    target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: istio-ingressgateway
+      namespace: istio-system
+
