@@ -8370,6 +8370,8 @@ spec:
         - istio-ingressgateway
         - --trust-domain=cluster.local
         env:
+        - name: PILOT_DISABLE_XDS_MARSHALING_TO_ANY
+          value: 'true'
         - name: JWT_POLICY
           value: third-party-jwt
         - name: PILOT_CERT_PROVIDER
