@@ -14,7 +14,7 @@ spec:
       serviceAccountName: argo-server
       containers:
         - name: argo-server
-          image: argoproj/argocli:v2.11.6
+          image: argoproj/argocli:v2.11.8
           args: [server]
           ports:
             - name: web
@@ -26,5 +26,11 @@ spec:
               path: /
             initialDelaySeconds: 10
             periodSeconds: 20
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp
+      volumes:
+        - name: tmp
+          emptyDir: { }
       nodeSelector:
         kubernetes.io/os: linux
