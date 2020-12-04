@@ -108,7 +108,7 @@ application:
   #   onepanel, application-system, cert-manager, istio-system, knative-serving, kube-public, kube-system
   defaultNamespace:
     required: true
-    default: default
+    default: <namespace>
   # Domain where Onepanel is hosted
   # Use a first-level or multi-level subdomain like example.com or sub.example.com
   domain:
