@@ -105,7 +105,7 @@ database:
 application:
   # First namespace that will be created in Onepanel, more can be added later
   # Note that you cannot use any of the following reserved namespaces:
-  #   onepanel, application-system, cert-manager, istio-system, knative-serving, kube-public, kube-system
+  #   onepanel, default, application-system, cert-manager, istio-system, knative-serving, kube-public, kube-system
   defaultNamespace:
     required: true
     default: <namespace>
