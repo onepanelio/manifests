@@ -137,7 +137,7 @@ application:
     # These are the machine type options that will be available in Onepanel
     #   `name` can be any user friendly name
     #   `value` should be the instance type in your cloud provider
-    #   `resources.limits` should be set only if the nodepool has GPUs
+    #   `resources.limits` should only be set if the node pool has GPUs
     # The first option will be used as default.
     options:
       - name: 'CPU: X, RAM: Z GB'
