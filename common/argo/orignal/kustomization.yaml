@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cluster-role-binding.yaml
+- cluster-role.yaml
+- config-map.yaml
+- crd.yaml
+- deployment.yaml
+- service-account.yaml
+transformers:
+- metadataLabelTransformer.yaml
+images:
+- name: argoproj/workflow-controller
+  newName: argoproj/workflow-controller
+  newTag: v2.9.4
+configurations:
+- params.yaml

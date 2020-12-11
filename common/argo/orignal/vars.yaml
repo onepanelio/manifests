@@ -1,0 +1,75 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Artifact repository
+# Description: S3 compatible object storage for storing files across Onepanel
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+artifactRepository:
+  s3:
+    # S3 access key
+    accessKey:
+      required: true
+      default: <access-key>
+    # S3 secret key
+    secretKey:
+      required: true
+      default: <secret-key>
+    # Name of bucket, example: my-bucket
+    bucket:
+      required: true
+      default: <bucket-name>
+    # Endpoint for S3 compatible storage
+    # Supported provider endpoints:
+    #   AWS: s3.amazonaws.com
+    #   GCS: storage.googleapis.com
+    #   Minio: my-minio-endpoint.default:9000
+    endpoint:
+      required: true
+      default: s3.amazonaws.com
+    # Change to true if endpoint does NOT support HTTPS
+    insecure:
+      required: true
+      default: false
+    # Bucket region
+    region:
+      required: true
+      default: us-west-2
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+  gcs:
+    # Name of bucket, example: my-bucket
+    bucket:
+      required: true
+      default: <bucket-name>
+    # Endpoint for S3 compatible storage
+    # Supported provider endpoints:
+    #   AWS: s3.amazonaws.com
+    #   GCS: storage.googleapis.com
+    #   Minio: my-minio-endpoint.default:9000
+    endpoint:
+      required: true
+      default: storage.googleapis.com
+    # Change to true if endpoint does NOT support HTTPS
+    insecure:
+      required: true
+      default: false
+    serviceAccountKey:
+      required: true
+      default: |
+        <key.json-file-data>
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Workflow engine configuration
+# Description: Configuration options for the Workflow engine
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+workflowEngine:
+  # The executor workflow engine uses to perform certain actions like monitoring pod logs, collecting artifacts, managing container lifecycles, etc.
+  # The possible values are `docker` and `pns`:
+  # - `docker` is more reliable, however it mounts the `docker.sock` of the host makes it less secure.
+  # - `pns` is more secure, however in some versions of Kubernetes, it tends to fail on tasks that take less than 15 seconds.
+  containerRuntimeExecutor:
+    required: true
+    default: docker

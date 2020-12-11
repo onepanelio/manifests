@@ -1,0 +1,10 @@
+# common/argo/base/workflow-controller/workflow-controller-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workflow-controller-configmap
+  namespace: onepanel
+data:
+  config: |
+    executorImage: $(argoExecutorImage)
+    containerRuntimeExecutor: $(workflowEngineContainerRuntimeExecutor)
