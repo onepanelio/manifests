@@ -1,7 +1,0 @@
-- op: add
-  path: /metadata/labels
-  value:
-    app: argo
-- op: replace
-  path: /metadata/name
-  value: argo
