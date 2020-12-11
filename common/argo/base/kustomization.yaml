@@ -1,38 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../source/base/crds
-  - ../source/base/workflow-controller
-  - ../source/cluster-install/workflow-controller-rbac
-patchesStrategicMerge:
-  - workflow-controller-configmap-patch.yaml
-patches:
-  - target:
-      version: v1
-      name: workflow-controller-configmap
-      kind: ConfigMap
-    path: workflow-controller-configmap-patch-add-namespace.yaml
-patchesJson6902:
-  - target:
-      version: v1
-      group: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: argo-cluster-role
-    path: workflow-controller-clusterrole-patch.yaml
-  - target:
-      version: v1
-      group: rbac.authorization.k8s.io
-      kind: ClusterRoleBinding
-      name: argo-binding
-    path: workflow-controller-clusterrolebinding-patch.yaml
-  - target:
-      version: v1
-      group: apps
-      kind: Deployment
-      name: workflow-controller
-    path: workflow-controller-deployment-patch.yaml
-  - target:
-      version: v1
-      kind: ServiceAccount
-      name: argo
-    path: workflow-controller-sa-patch.yaml
+- cluster-role-binding.yaml
+- cluster-role.yaml
+- config-map.yaml
+- crd.yaml
+- deployment.yaml
+- service-account.yaml
+transformers:
+- metadataLabelTransformer.yaml
+images:
+- name: argoproj/workflow-controller
+  newName: argoproj/workflow-controller
+  newTag: v2.9.4
+configurations:
+- params.yaml
