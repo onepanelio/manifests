@@ -12,6 +12,8 @@ spec:
       name: onepanel-core
       labels:
         app: onepanel-core
+      annotations:
+        traffic.sidecar.istio.io/includeOutboundIPRanges: ''
     spec:
       serviceAccountName: onepanel
       containers:
