@@ -1,0 +1,30 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Artifact repository
+# Description: S3 compatible object storage for storing files across Onepanel
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+artifactRepository:
+  gcs:
+    # Name of bucket, example: my-bucket
+    bucket:
+      required: true
+      default: <bucket-name>
+    # Endpoint for S3 compatible storage
+    # Supported provider endpoints:
+    #   AWS: s3.amazonaws.com
+    #   GCS: storage.googleapis.com
+    #   Minio: my-minio-endpoint.default:9000
+    endpoint:
+      required: true
+      default: storage.googleapis.com
+    # Change to true if endpoint does NOT support HTTPS
+    insecure:
+      required: true
+      default: false
+    serviceAccountKey:
+      required: true
+      default: |
+        <key.json-file-data>
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}

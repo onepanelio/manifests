@@ -1,0 +1,3 @@
+artifactRepository.s3.bucket: "artifactRepository.abs.container"
+artifactRepository.s3.accessKey: "artifactRepository.abs.storageAccountName"
+artifactRepository.s3.secretKey: "artifactRepository.abs.storageAccountKey"
