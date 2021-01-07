@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: minio-gateway
-  namespace: onepanel
+  namespace: $(applicationDefaultNamespace)
 spec:
   replicas: 1
   selector:
@@ -21,6 +21,6 @@ spec:
             - azure
           envFrom:
             - secretRef:
-                name: onepanel-abs
+                name: onepanel
           ports:
             - containerPort: 9000
