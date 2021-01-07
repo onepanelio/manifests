@@ -4,8 +4,11 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 artifactRepository:
   abs:
+    # Name of Azure block storage container, example: my-container
     container: <container-name>
+    # Azure storage account name
     storageAccountName: <storage-account-name>
+    # Azure storagee account key
     storageAccountKey: <storage-account-key>
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
