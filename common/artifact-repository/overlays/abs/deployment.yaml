@@ -19,8 +19,16 @@ spec:
           args:
             - gateway
             - azure
-          envFrom:
-            - secretRef:
-                name: onepanel
+          env:
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: onepanel
+                  key: artifactRepositoryS3AccessKey
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: onepanel
+                  key: artifactRepositoryS3SecretKey
           ports:
             - containerPort: 9000
