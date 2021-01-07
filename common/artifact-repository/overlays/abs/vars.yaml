@@ -1,0 +1,16 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: Artifact repository
+# Description: Azure Blob Storage compatible object storage for storing files across Onepanel
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+artifactRepository:
+  abs:
+    # Name of Azure block storage container, example: my-container
+    container: <container-name>
+    # Azure storage account name
+    storageAccountName: <storage-account-name>
+    # Azure storagee account key
+    storageAccountKey: <storage-account-key>
+    # Key Format for objects stored by Workflows. This can reference Workflow variables
+    keyFormat:
+      required: true
+      default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
