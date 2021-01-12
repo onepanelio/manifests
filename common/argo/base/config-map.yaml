@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: workflow-controller-configmap
-  namespace: onepanel
-data:
-  config: |
-    executorImage: $(argoExecutorImage)
-    containerRuntimeExecutor: $(workflowEngineContainerRuntimeExecutor)
