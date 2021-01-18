@@ -4,4 +4,4 @@ metadata:
   name: workflow-controller-configmap
 data:
   config: |
-    containerRuntimeExecutor: pns
+    containerRuntimeExecutor: $(workflowEngineContainerRuntimeExecutor)
