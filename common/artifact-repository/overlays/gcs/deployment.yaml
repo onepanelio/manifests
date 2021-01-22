@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio-gateway
+  namespace: $(applicationDefaultNamespace)
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio-gateway
+  template:
+    metadata:
+      labels:
+        app: minio-gateway
+    spec:
+      containers:
+        - name: minio-gateway
+          image: minio/minio
+          volumeMounts:
+            - name: gcs-credentials
+              mountPath: /etc/gcs
+              readOnly: true
+          args:
+            - gateway
+            - gcs
+          env:
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: onepanel
+                  key: artifactRepositoryS3AccessKey
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: onepanel
+                  key: artifactRepositoryS3SecretKey
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/gcs/credentials.json
+      volumes:
+        - name: gcs-credentials
+          projected:
+            sources:
+              - secret:
+                  # This secret should have a key `credentials.json`
+                  name: artifact-repository-gcs-credentials

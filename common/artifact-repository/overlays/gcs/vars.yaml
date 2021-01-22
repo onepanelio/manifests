@@ -8,23 +8,17 @@ artifactRepository:
     bucket:
       required: true
       default: <bucket-name>
-    # Endpoint for S3 compatible storage
-    # Supported provider endpoints:
-    #   AWS: s3.amazonaws.com
-    #   GCS: storage.googleapis.com
-    #   Minio: my-minio-endpoint.default:9000
-    endpoint:
+    projectId:
       required: true
-      default: storage.googleapis.com
-    # Change to true if endpoint does NOT support HTTPS
-    insecure:
+      default: <project-id>
+    region:
       required: true
-      default: false
-    serviceAccountKey:
-      required: true
-      default: |
-        <key.json-file-data>
+      default: us-west1
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:
       required: true
       default: artifacts/{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}
+    serviceAccountKey:
+      required: true
+      default: |
+        <key.json-file-data>
