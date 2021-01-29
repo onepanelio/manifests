@@ -45,6 +45,10 @@ spec:
                     ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
                   }
 
+                  if request_handle:headers():get(":method") == "OPTIONS" then
+                    return
+                  end
+
                   if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.local" or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.cluster.local" then
                     return
                   end
