@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-gateway
+  namespace: $(applicationDefaultNamespace)
+spec:
+  selector:
+    app: minio-gateway
+  ports:
+    - port: 9000
+      targetPort: 9000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: minio-gateway
+  namespace: $(applicationDefaultNamespace)
+spec:
+  hosts:
+    - artifacts-repository--$(applicationDefaultNamespace).$(applicationDomain)
+  gateways:
+    - istio-system/ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 9000
+            host: minio-gateway
