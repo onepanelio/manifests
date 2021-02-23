@@ -1,0 +1,14 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Component: VSphere configurations
+# Description: Configuration options for the VSphere Datastore
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+storage:
+  # Cloud Provider: VSphere
+
+  vsphere:
+    diskFormat:
+      required: true
+      default: thin
+    datastore:
+      require: true
+      default: <datastore>

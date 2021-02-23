@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: onepanel
+provisioner: kubernetes.io/vsphere-volume
+parameters:
+  datastore: $(storageVsphereDatastore)
+  diskformat: $(storageVsphereDiskFormat)
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
