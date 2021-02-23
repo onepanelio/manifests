@@ -8,7 +8,7 @@ artifactRepository:
     container: <container-name>
     # Azure storage account name
     storageAccountName: <storage-account-name>
-    # Azure storagee account key
+    # Azure storage account key
     storageAccountKey: <storage-account-key>
     # Key Format for objects stored by Workflows. This can reference Workflow variables
     keyFormat:

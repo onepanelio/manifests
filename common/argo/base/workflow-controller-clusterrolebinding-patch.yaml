@@ -1,0 +1,13 @@
+- op: add
+  path: /metadata/labels
+  value:
+    app: argo
+- op: replace
+  path: /metadata/name
+  value: argo
+- op: replace
+  path: /roleRef/name
+  value: argo
+- op: replace
+  path: /subjects/0/namespace
+  value: onepanel
