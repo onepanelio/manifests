@@ -7,11 +7,13 @@ spec:
   configPatches:
       - applyTo: HTTP_FILTER
         match:
-          context: ANY
+          context: GATEWAY
+          routeConfigurationMatch:
+            gateway: istio-system/ingressgateway
           listener:
             filterChain:
               filter:
-                name: envoy.http_connection_manager
+                name: envoy.filters.network.http_connection_manager
           proxy:
             proxyVersion: ^1\.9.*
         patch:
@@ -58,7 +60,7 @@ spec:
                   end
 
                   local response_headers, response_body = request_handle:httpCall(
-                      "outbound_.80_._.onepanel-core.onepanel.svc.cluster.local",
+                      "outbound|80||onepanel-core.onepanel.svc.cluster.local",
                       headers,
                       "",
                       5000

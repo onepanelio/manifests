@@ -30,3 +30,6 @@ rules:
   - apiGroups: ["onepanel.io"]
     resources: ["services"]
     verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+  - apiGroups: ["serving.kubeflow.org"]
+    resources: ["inferenceservices"]
+    verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
