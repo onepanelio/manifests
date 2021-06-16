@@ -14,7 +14,7 @@ database:
   # If using an external managed database, use the username for that database.
   username:
     required: true
-    default: <username>
+    default: onepanel
   # Database password
   # For in-cluster database, leave as is.
   # If using an external database, use the password for that database.
