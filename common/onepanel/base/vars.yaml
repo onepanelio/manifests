@@ -4,7 +4,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 database:
   # Database host
-	# For in-cluster database, leave as `postgres`.
+  # For in-cluster database, leave as `postgres`.
   # If using an external managed databases, use the host for that database.
   host:
     required: true
@@ -16,7 +16,7 @@ database:
     required: true
     default: <username>
   # Database password
-	# For in-cluster database, leave as is.
+  # For in-cluster database, leave as is.
   # If using an external database, use the password for that database.
   password:
     required: true
