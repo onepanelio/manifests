@@ -4,20 +4,20 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 database:
   # Database host
-  # If using a managed databases, use the database host name.
-  # Leave as `postgres` for in-cluster database.
+  # For in-cluster database, leave as `postgres`.
+  # If using an external managed databases, use the host for that database.
   host:
     required: true
     default: postgres
   # Database username
-  # If using a managed database, use the username for that database.
-  # For in-cluster database, pick any username.
+  # For in-cluster database, leave as `onepanel`.
+  # If using an external managed database, use the username for that database.
   username:
     required: true
-    default: <username>
+    default: onepanel
   # Database password
-  # If using a managed database, use the password for that database.
-  # For in-cluster database, pick any password.
+  # For in-cluster database, leave as is.
+  # If using an external database, use the password for that database.
   password:
     required: true
     default: <password>
@@ -26,8 +26,8 @@ database:
     required: true
     default: 5432
   # Name of database
-  # If using a managed database, use the name of that database.
-  # For in-cluster database, leave as "onepanel".
+  # For in-cluster database, leave as `onepanel`.
+  # If using an external managed database, use the name of that database.
   databaseName:
     required: true
     default: onepanel
