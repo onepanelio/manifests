@@ -6,3 +6,9 @@ resources:
   - net-istio.yaml
   - kfserving.yaml
   - secret.yaml
+patches:
+  - path: config-features-patch.yaml
+    target:
+      kind: ConfigMap
+      namespace: knative-serving
+      name: config-features
