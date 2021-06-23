@@ -3,7 +3,6 @@
 # Description: Configuration options for the Workflow engine
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 workflowEngine:
-  hide: true
   # The executor workflow engine uses to perform certain actions like monitoring pod logs, collecting artifacts, managing container lifecycles, etc.
   # The possible values are `docker` and `pns`:
   # - `docker` is more reliable, however it mounts the `docker.sock` of the host makes it less secure.
