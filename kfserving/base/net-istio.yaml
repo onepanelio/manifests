@@ -43,27 +43,6 @@ rules:
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This is the shared Gateway for all Knative routes to use.
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: knative-ingress-gateway
-  namespace: knative-serving
-  labels:
-    serving.knative.dev/release: "v0.23.0"
-    networking.knative.dev/ingress-provider: istio
-spec:
-  selector:
-    istio: ingressgateway
-  servers:
-    - port:
-        number: 80
-        name: http
-        protocol: HTTP
-      hosts:
-        - "*"
-
----
 # Copyright 2019 The Knative Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
