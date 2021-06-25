@@ -23,4 +23,18 @@ patches:
       version: v1
       kind: Namespace
       name: knative-serving
-
+  - path: virtual-service-kfserving-webapp.yaml
+    target:
+      kind: VirtualService
+      namespace: kfserving-system
+      name: kfserving-models-web-app
+  - path: config-networking-patch.yaml
+    target:
+      kind: ConfigMap
+      namespace: knative-serving
+      name: config-network
+  - path: config-istio-patch.yaml
+    target:
+      kind: ConfigMap
+      namespace: knative-serving
+      name: config-istio
