@@ -15998,7 +15998,7 @@ data:
     }
   ingress: |-
     {
-        "ingressGateway" : "knative-ingress-gateway.knative-serving",
+        "ingressGateway" : "istio-system.ingressgateway",
         "ingressService" : "istio-ingressgateway.istio-system.svc.cluster.local",
         "localGateway" : "knative-local-gateway.knative-serving",
         "localGatewayService" : "knative-local-gateway.istio-system.svc.cluster.local"
@@ -16135,7 +16135,7 @@ metadata:
 ---
 apiVersion: v1
 data:
-  ingressGateway: knative-ingress-gateway.knative-serving
+  ingressGateway: istio-system/ingressgateway
 kind: ConfigMap
 metadata:
   name: kfserving-config
@@ -16355,7 +16355,7 @@ metadata:
   namespace: kfserving-system
 spec:
   gateways:
-    - knative-ingress-gateway.knative-serving
+    - istio-system/ingressgateway
   hosts:
     - '*'
   http:

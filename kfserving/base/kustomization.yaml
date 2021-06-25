@@ -4,6 +4,7 @@ resources:
   - serving-crds.yaml
   - serving-core.yaml
   - net-istio.yaml
+  - net-certmanager.yaml
   - kfserving.yaml
   - secret.yaml
 patches:
@@ -12,3 +13,14 @@ patches:
       kind: ConfigMap
       namespace: knative-serving
       name: config-features
+  - path: config-domain-patch.yaml
+    target:
+      kind: ConfigMap
+      namespace: knative-serving
+      name: config-domain
+  - path: namespace-onepanel-config.yaml
+    target:
+      version: v1
+      kind: Namespace
+      name: knative-serving
+
