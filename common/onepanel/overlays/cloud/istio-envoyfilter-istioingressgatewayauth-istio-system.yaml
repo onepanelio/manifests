@@ -51,7 +51,7 @@ spec:
                     return
                   end
 
-                  if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.local" or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.cluster.local" then
+                  if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.local" or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.cluster.local" or "serving.$(applicationDomain)" == headers["grpc-metadata-x-original-authority"] then
                     return
                   end
 

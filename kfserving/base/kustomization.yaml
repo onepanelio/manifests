@@ -38,3 +38,8 @@ patches:
       kind: ConfigMap
       namespace: knative-serving
       name: config-istio
+  - path: config-kfserving-webapp.yaml
+    target:
+      kind: ConfigMap
+      namespace: kfserving-system
+      name: kfserving-models-web-app-config-9kkt28dhgb
