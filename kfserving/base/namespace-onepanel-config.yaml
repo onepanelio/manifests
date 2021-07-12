@@ -1,0 +1,5 @@
+- op: add
+  path: /metadata/labels
+  value:
+    app.kubernetes.io/part-of: "onepanel"
+    serving.knative.dev/release: "v0.23.0"
