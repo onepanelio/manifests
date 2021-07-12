@@ -51,7 +51,17 @@ spec:
                     return
                   end
 
-                  if "$(applicationFqdn)" == headers["grpc-metadata-x-original-authority"] or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.local" or headers["grpc-metadata-x-original-authority"] == "onepanel-core.onepanel.svc.cluster.local" or "serving.$(applicationDomain)" == headers["grpc-metadata-x-original-authority"] then
+                  local authority = headers["grpc-metadata-x-original-authority"]
+
+                  if authority == "$(applicationFqdn)" or
+                     authority == "onepanel-core.onepanel.svc.local" or
+                     authority == "serving.$(applicationDomain)" then
+                    return
+                  end
+
+                  -- 17 is the length of "svc.cluster.local"
+                  local i = string.find(authority, "svc.cluster.local", string.len(authority) - 17)
+                  if i ~= nil then
                     return
                   end
 
