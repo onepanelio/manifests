@@ -5,7 +5,7 @@ metadata:
   namespace: $(applicationDefaultNamespace)
 spec:
   hosts:
-    - "minio.$(applicationDomain)"
+    - "sys-storage-$(applicationDefaultNamespace).$(applicationDomain)"
   gateways:
     - istio-system/ingressgateway
   http:
