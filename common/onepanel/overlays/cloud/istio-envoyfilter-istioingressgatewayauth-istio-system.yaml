@@ -55,7 +55,8 @@ spec:
 
                   if authority == "$(applicationFqdn)" or
                      authority == "onepanel-core.onepanel.svc.local" or
-                     authority == "serving.$(applicationDomain)" then
+                     authority == "serving.$(applicationDomain)" or
+                     authority == "minio.$(applicationDomain)" then
                     return
                   end
 
