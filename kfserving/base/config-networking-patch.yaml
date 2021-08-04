@@ -3,4 +3,4 @@
   value: "{{.Name}}--{{.Namespace}}.{{.Domain}}"
 - op: add
   path: /data/defaultExternalScheme
-  value: $(kfservingDefaultExternalScheme)
+  value: "$(kfservingDefaultExternalScheme)"
