@@ -16692,6 +16692,7 @@ metadata:
 apiVersion: v1
 data:
   APP_DISABLE_AUTH: "True"
+  APP_SECURE_COOKIES: "$(kfservingSecureCookies)"
 kind: ConfigMap
 metadata:
   labels:
