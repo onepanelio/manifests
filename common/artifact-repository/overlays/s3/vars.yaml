@@ -24,6 +24,10 @@ artifactRepository:
     endpoint:
       required: true
       default: s3.amazonaws.com
+    # Only used if using a local minio setup
+    publicEndpoint:
+      required: true
+      default: s3.amazonaws.com
     # Change to true if endpoint does NOT support HTTPS
     insecure:
       required: true
