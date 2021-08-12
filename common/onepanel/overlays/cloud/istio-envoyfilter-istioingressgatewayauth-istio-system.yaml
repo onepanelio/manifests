@@ -37,11 +37,16 @@ spec:
                     id_token = get_value(cookies, "auth%-token")
                   end
 
+                  local auth_token = request_handle:headers():get("onepanel-access-token")
+                  if auth_token == nil then
+                    auth_token = request_handle:headers():get("onepanel-auth-token")
+                  end
+
                   local headers =  {
                     [":method"] = "POST",
                     [":path"] = "/apis/v1beta1/auth",
                     [":authority"] = "onepanel-core.onepanel.svc.local",
-                    ["onepanel-auth-token"] = request_handle:headers():get("onepanel-auth-token"),
+                    ["onepanel-auth-token"] = auth_token,
                     ["grpc-metadata-x-original-method"] = request_handle:headers():get(":method"),
                     ["grpc-metadata-x-original-authority"] = request_handle:headers():get(":authority"),
                     ["grpc-metadata-x-original-uri"] = request_handle:headers():get(":path")
