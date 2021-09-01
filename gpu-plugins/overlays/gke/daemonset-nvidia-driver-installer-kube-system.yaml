@@ -59,7 +59,7 @@ spec:
         hostPath:
           path: /
       initContainers:
-      - image: gcr.io/cos-cloud/cos-gpu-installer@sha256:93f1abf0d6a27e14bebf43ffb00b8d819b20f6027012ad73306ba670bcac6c83
+      - image: cos-nvidia-installer:fixed
         name: nvidia-driver-installer
         resources:
           requests:
@@ -78,7 +78,7 @@ spec:
           - name: ROOT_MOUNT_DIR
             value: /root
           - name: NVIDIA_DRIVER_VERSION
-            value: "450.51.06"
+            value: "460.73.01"
         volumeMounts:
         - name: nvidia-install-dir-host
           mountPath: /usr/local/nvidia
