@@ -16798,7 +16798,7 @@ spec:
         - envFrom:
             - configMapRef:
                 name: kfserving-models-web-app-config-9kkt28dhgb
-          image: onepanel/kfserving-models-web-app:0.6.0
+          image: onepanel/kfserving-models-web-app:0.6.0.2
           imagePullPolicy: Always
           name: kfserving-models-web-app
           ports:
