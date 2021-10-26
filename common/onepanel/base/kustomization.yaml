@@ -26,5 +26,8 @@ resources:
  - serviceaccount-onepanel-onepanel.yaml
  - serviceaccount-onepanel-admin.yaml
  - statefulset-postgres-onepanel.yaml
+ - clusterrole-create-namespace.yaml
+ - clusterrolebinding-onepanel-create-namespace.yaml
+ - clusterrole-models.yaml
 transformers:
   - metadataLabelTransformer.yaml

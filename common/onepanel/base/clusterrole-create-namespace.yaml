@@ -1,0 +1,99 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: onepanel-create-namespace
+  labels:
+    app: onepanel
+    app.kubernetes.io/component: onepanel
+    app.kubernetes.io/instance: onepanel-v0.5.0
+    app.kubernetes.io/managed-by: onepanel-cli
+    app.kubernetes.io/name: onepanel
+    app.kubernetes.io/part-of: onepanel
+    app.kubernetes.io/version: v0.5.0
+rules:
+  - verbs:
+      - create
+    apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+  - verbs:
+      - create
+    apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - roles
+      - rolebindings
+      - clusterrolebindings
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - ""
+    resources:
+      - persistentvolumeclaims
+  - verbs:
+      - patch
+    apiGroups:
+      - ""
+    resources:
+      - pods
+      - pods/log
+  - verbs:
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - ""
+    resources:
+      - services
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - apps
+    resources:
+      - deployments
+      - statefulsets
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - networking.istio.io
+    resources:
+      - virtualservices
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - "onepanel.io"
+    resources:
+      - services
+  - verbs:
+      - create
+    apiGroups:
+      - ""
+    resources:
+      - configmaps
+      - serviceaccounts

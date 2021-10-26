@@ -5,3 +5,4 @@ metadata:
   labels:
     istio-injection: enabled
     onepanel.io/enabled: "true"
+    onepanel.io/defaultNamespace: "true"

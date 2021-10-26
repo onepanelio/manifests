@@ -1,0 +1,16 @@
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: ClusterRole
+metadata:
+  name: "onepanel-models"
+  labels:
+    app: "onepanel"
+rules:
+ - apiGroups:
+      - ""
+   resources:
+      - "onepanel-service"
+   verbs: ["get", "watch", "list"]
+ - apiGroups:
+    - ""
+   resources: ["pods"]
+   verbs: ["get", "list"]
