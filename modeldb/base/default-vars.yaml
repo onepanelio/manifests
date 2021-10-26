@@ -1,8 +1,0 @@
-services.modelDb.artifactRepository.s3.accessKey: "artifactRepository.s3.accessKey"
-services.modelDb.artifactRepository.s3.secretKey: "artifactRepository.s3.secretKey"
-services.modelDb.artifactRepository.s3.region: "artifactRepository.s3.region"
-services.modelDb.database.databaseName: "database.databaseName"
-services.modelDb.database.host: "database.host"
-services.modelDb.database.password: "database.password"
-services.modelDb.database.port: "database.port"
-services.modelDb.database.username: "database.username"
